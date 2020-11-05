@@ -1,9 +1,37 @@
-from distutils.core import setup
+# Always prefer setuptools over distutils
+from setuptools import setup, find_packages
+import pathlib
+
+here = pathlib.Path(__file__).parent.resolve()
+
+# Get the long description from the README file
+long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
-    name='doxyparser',
-    version='0.1dev',
-    packages=['doxyparser',],
-    license='MIT',
-    long_description=open('README.md').read(),
+  name='doxyparser',
+  description='Parse doxygen XML output',
+  url='https://github.com/cobhimself/doxyparser',
+  long_description=long_description,
+  author='Collin D. Brooks',
+  author_email='collin.brooks@gmail.com',
+  license='MIT',
+  keywords='sphinx, doxygen, xml, parser',
+  packages=find_packages(),
+  python_requires='>=3.5, <4',
+  install_requires=[],
+  classifiers = [
+    'Development Status :: 1 - Planning',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Natural Language :: English',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: Implementation :: Stackless',
+    'Topic :: Documentation',
+    'Topic :: Software Development :: Documentation',
+    'Topic :: Software Development :: Libraries',
+    'Topic :: Utilities'
+  ],
+  setup_requires=['setuptools_scm'],
+  use_scm_version=True
 )
