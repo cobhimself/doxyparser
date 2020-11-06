@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """
 Model representation of a reftext type Element from doxygen
