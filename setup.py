@@ -5,13 +5,14 @@ import pathlib
 here = pathlib.Path(__file__).parent.resolve()
 
 # Get the long description from the README file
-long_description = (here / 'README.md').read_text(encoding='utf-8')
+long_description = (here / 'README.rst').read_text(encoding='utf-8')
 
 setup(
   name='doxyparser',
   description='Parse doxygen XML output',
   url='https://github.com/cobhimself/doxyparser',
   long_description=long_description,
+  long_description_content_type='text/x-rst',
   author='Collin D. Brooks',
   author_email='collin.brooks@gmail.com',
   license='MIT',
