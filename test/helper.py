@@ -4,8 +4,8 @@ import yaml
 from doxyparser.parser import Parser
 
 _test_dir = str(pathlib.Path(__file__).parent.resolve()) + '/'
-_sample_data_dir = _test_dir + 'sample_data'
-_expectation_data_dir = _test_dir + 'expectation_data'
+_sample_data_dir = _test_dir + '_sample_data'
+_expectation_data_dir = _test_dir + '_expectation_data'
 _doxygen_build_dir = _sample_data_dir + '/_build/php/xml'
 _parser = None
 

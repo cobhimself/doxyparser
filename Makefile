@@ -1,5 +1,5 @@
 DOXYGEN ?= `which doxygen`
-SAMPLEDATA = test/sample_data
+SAMPLEDATA = test/_sample_data
 PHP = $(SAMPLEDATA)/php
 PHPBUILD = $(SAMPLEDATA)/_build/php
 PHPDOXYFILE = $(PHP)/Doxyfile
