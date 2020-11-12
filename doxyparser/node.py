@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import importlib
+import builtins
+import sys
 
 """
 Super class used to represent doxy xml Elements
@@ -65,31 +67,40 @@ class Node:
             return found.text
 
     def iter(self, key):
-        return self._node.iter(key)
+        return self._node.iterfind(key)
 
     def get_bool(self, attr):
         value = self.get(attr)
         return value == 'yes'
 
-    def get_children(self, key, node_type):
-
-        if self._child_cache[key] == None:
-
-            module = importlib.import_module('doxyphp2sphinx.doxy')
-            childClass = getattr(module, node_type)
+    def get_children(self, key, node_type, path = None):
+        compiledPath = key + ('' if path == None else path)
+        if compiledPath not in self._child_cache.keys():
+            childClass = self._get_class('doxyparser.' + node_type)
 
             children = []
-            for child in self.iter(key):
+            for child in self.iter(compiledPath):
                 children.append(childClass(child))
 
-            self._child_cache[key] = children
+            self._child_cache[compiledPath] = children
 
-        return self._child_cache[key]
+        return self._child_cache[compiledPath]
     
-    def get_child(self, key, node_type):
-        children = self.get_children(key, node_type)
+    def get_child(self, key, node_type, path = None):
+        children = self.get_children(key, node_type, path)
         if children != None:
             return children[0]
         
         return None
+    
+    def debug_dump(self):
+        self._node
+    
+    def _get_class(self, path):
+        parts = path.split('.')
+        final = parts.pop()
+        package = '.'.join(parts)
 
+        module = importlib.import_module(package)
+
+        return getattr(module, final)

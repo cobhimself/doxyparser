@@ -1,0 +1,79 @@
+compound:
+  # These keys are appended to `get_` and the combined method is called on the
+  # Doxygen class
+  classes:
+    # Inner lists contain keys which are appended to `get_` and called on
+    # individual Compound classes. Values are what should be returned when the
+    # method is called.
+    -
+      name: Src::More::DeepClass
+      refid: class_src_1_1_more_1_1_deep_class
+      kind: class
+    -
+      name: Src::ExtendingClass
+      refid: class_src_1_1_extending_class
+      kind: class
+    -
+      name: Src::SimpleClass
+      refid: class_src_1_1_simple_class
+      kind: class
+  interfaces:
+    -
+      name: Src::More::DeepInterface
+      refid: interface_src_1_1_more_1_1_deep_interface
+      kind: interface
+  namespaces:
+    -
+      refid: namespace_simple_class
+      name: SimpleClass
+      kind: namespace
+    -
+      refid: namespace_src
+      name: Src
+      kind: namespace
+    -
+      refid: namespace_src_1_1_extending_class
+      name: Src::ExtendingClass
+      kind: namespace
+    -
+      refid: namespace_src_1_1_more
+      name: Src::More
+      kind: namespace
+  files:
+    -
+      name: ExtendingClass.php
+      refid: _extending_class_8php
+      kind: file
+    -
+      name: DeepClass.php
+      refid: _deep_class_8php
+      kind: file
+    -
+      name: DeepInterface.php
+      refid: _deep_interface_8php
+      kind: file
+    -
+      name: DeepTrait.php
+      refid: _deep_trait_8php
+      kind: file
+    -
+      name: SimpleClass.php
+      refid: _simple_class_8php
+      kind: file
+  dirs:
+    -
+      name: sample_data/php/src/more
+      refid: dir_d0908566d6727d90db4f2ff2bef74b47
+      kind: dir
+    -
+      name: sample_data/php
+      refid: dir_4f30e484aae92b687d0eefceaab84d26
+      kind: dir
+    -
+      name: sample_data
+      refid: dir_467fbd3bfe45d1abd062c0ceec6665a7
+      kind: dir
+    -
+      name: sample_data/php/src
+      refid: dir_0ad68a8d15ff26a9f9dffe82fa9a1ddb
+      kind: dir
