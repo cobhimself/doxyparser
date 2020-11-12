@@ -22,7 +22,7 @@ class Compound(Node):
     return self.get_text('name')
   
   def get_members(self):
-    return self.get_children('member', 'Member')
+    return self.get_children('member', 'index.types.member.Member')
   
   def get_refid(self):
     return self.get('refid')

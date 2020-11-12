@@ -1,79 +1,130 @@
+# This is the name of the nodes this test data is associated with.
 compound:
-  # These keys are appended to `get_` and the combined method is called on the
-  # Doxygen class
+  # The keys at this level are "node getters". They are appended to `get_` and
+  # the combined method is called on the Doxygen class. Example: a key of
+  # 'classes' would have a "node getter" value of 'get_classes'.
   classes:
-    # Inner lists contain keys which are appended to `get_` and called on
-    # individual Compound classes. Values are what should be returned when the
-    # method is called.
+    #Each item in this list represents a single compound node retrieved
+    #through the above "node getter". Each item's top-level keys represent
+    #"value getters". The keys are appended to `get_` to form the final "value
+    #getter" method to be called on the node received from the parent "node
+    #getter". The value for the for the keys below can be one of two things:
+    #
+    #  1. The value to confirm the "value getter" returns.
+    #  2. An associative array of specific confirmations to be made.
+    #
+    # Specific confirmations are specified by a key and the value is what the
+    # expectation is. For example, the 'count' key would have a numeric value
+    # we expect a count of the items returned by the "value getter" to have.
     -
       name: Src::More::DeepClass
       refid: class_src_1_1_more_1_1_deep_class
       kind: class
+      members:
+        count: 3
     -
       name: Src::ExtendingClass
       refid: class_src_1_1_extending_class
       kind: class
+      members:
+        count: 1
     -
       name: Src::SimpleClass
       refid: class_src_1_1_simple_class
       kind: class
+      members:
+        count: 5
   interfaces:
     -
       name: Src::More::DeepInterface
       refid: interface_src_1_1_more_1_1_deep_interface
       kind: interface
+      members:
+        count: 3
   namespaces:
     -
       refid: namespace_simple_class
       name: SimpleClass
       kind: namespace
+      members:
+        count: 0
     -
       refid: namespace_src
       name: Src
       kind: namespace
+      members:
+        count: 0
     -
       refid: namespace_src_1_1_extending_class
       name: Src::ExtendingClass
       kind: namespace
+      members:
+        count: 0
     -
       refid: namespace_src_1_1_more
       name: Src::More
       kind: namespace
+      members:
+        count: 0
   files:
     -
       name: ExtendingClass.php
       refid: _extending_class_8php
       kind: file
+      members:
+        count: 0
     -
       name: DeepClass.php
       refid: _deep_class_8php
       kind: file
+      members:
+        count: 0
     -
       name: DeepInterface.php
       refid: _deep_interface_8php
       kind: file
+      members:
+        count: 0
     -
       name: DeepTrait.php
       refid: _deep_trait_8php
       kind: file
+      members:
+        count: 0
     -
       name: SimpleClass.php
       refid: _simple_class_8php
       kind: file
+      members:
+        count: 0
   dirs:
     -
-      name: sample_data/php/src/more
-      refid: dir_d0908566d6727d90db4f2ff2bef74b47
+      name: test/sample_data/php/src/more
+      refid: dir_9c2397d0bf3d8c3be346bfa96d8961e9
       kind: dir
+      members:
+        count: 0
     -
-      name: sample_data/php
-      refid: dir_4f30e484aae92b687d0eefceaab84d26
+      name: test/sample_data/php
+      refid: dir_c1394e3c1f56f65c51c53a4c07273c1a
       kind: dir
+      members:
+        count: 0
     -
-      name: sample_data
-      refid: dir_467fbd3bfe45d1abd062c0ceec6665a7
+      name: test/sample_data
+      refid: dir_9cce84ae55c65c7343152834f08c767a
       kind: dir
+      members:
+        count: 0
     -
-      name: sample_data/php/src
-      refid: dir_0ad68a8d15ff26a9f9dffe82fa9a1ddb
+      name: test/sample_data/php/src
+      refid: dir_4b07a56285d74749eeffb04d7e7bfcfd
       kind: dir
+      members:
+        count: 0
+    -
+      name: test
+      refid: dir_13e138d54eb8818da29c3992edef070a
+      kind: dir
+      members:
+        count: 0

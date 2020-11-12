@@ -132,4 +132,4 @@ dmypy.json
 .vscode/
 
 # Test doxygen data
-test/_build
+test/sample_data/_build
