@@ -47,6 +47,3 @@ class Doxygen(Node):
   
   def get_version(self):
     return self.get('version')
-  
-  def get_ref(self):
-    return self.get('ref')
