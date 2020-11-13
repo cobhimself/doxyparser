@@ -15,8 +15,6 @@ Model representation of a doxygen element from doxygen's compound.xsd
 from ...node import Node
 
 class Doxygen(Node):
-    def __init__(self, node):
-        super.__init__(node)
     
     def get_compounddefs(self):
       return self.get_children(

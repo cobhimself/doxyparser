@@ -9,17 +9,16 @@ class Parser:
 
     def parse_index(self):
         tree = self._loader.load_index()
-        root = tree.getroot()
         return self.get_node_from_tree(
             'index',
-            root
+            tree
         )
     
-    def parser_from_ref_id(self, refid, xsd='compound'):
-        root = self._loader.load_refid(refid)
+    def parser_ref_id(self, refid, xsd='compound'):
+        tree = self._loader.load_refid(refid)
         return self.get_node_from_tree(
             xsd,
-            root
+            tree
         )
 
     def get_tag_class(self, xsd, tag):
@@ -28,8 +27,9 @@ class Parser:
 
     def get_tag_class_instance(self, xsd, tag, tree):
         tag = self.get_tag_class(xsd, tag)
-        return tag(tree, parser = self)
+        return tag(tree, self)
 
 
     def get_node_from_tree(self, xsd, tree):
-        return self.get_tag_class_instance(xsd, tree.tag, tree)
+        root = tree.getroot()
+        return self.get_tag_class_instance(xsd, root.tag, root)
