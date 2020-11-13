@@ -20,3 +20,6 @@ def get_tag_class(xsd, tag):
 def get_tag_class_instance(xsd, tag, tree):
     tag = get_tag_class(xsd, tag)
     return tag(tree)
+
+def get_node_from_tree(xsd, tree):
+    return get_tag_class_instance(xsd, tree.tag, tree)
