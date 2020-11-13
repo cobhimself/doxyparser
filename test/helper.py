@@ -3,6 +3,7 @@ import pathlib
 import yaml
 from doxyparser.parser import Parser
 from clint.textui import puts, indent
+from doxyparser.loader import Loader
 
 _test_dir = str(pathlib.Path(__file__).parent.resolve()) + '/'
 _sample_data_dir = _test_dir + '_sample_data'
@@ -27,7 +28,7 @@ def get_parser():
     try:
         _parser
     except NameError:
-        _parser = Parser(get_doxygen_build_dir())
+        _parser = Parser(Loader(get_doxygen_build_dir()))
 
     return _parser
 

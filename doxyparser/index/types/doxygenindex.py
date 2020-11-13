@@ -17,8 +17,6 @@ from .compound import Compound
 
 
 class DoxygenIndex(Node):
-    def __init__(self, node):
-        super().__init__(node)
 
     def get_compounds(
         self,

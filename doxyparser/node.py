@@ -3,7 +3,6 @@
 import importlib
 import builtins
 import sys
-from .loader import get_tag_class
 
 """
 Super class used to represent doxy xml Elements
@@ -11,7 +10,7 @@ Super class used to represent doxy xml Elements
 
 
 class Node:
-    def __init__(self, node, tag=None):
+    def __init__(self, node, parser, tag=None):
         """Initialize a Node (object representation of an xml data tree)
 
         Args:
@@ -25,6 +24,11 @@ class Node:
             Exception: Raised if a tag name is provided and it doesn't
                 match with the Element's tag
         """
+        if (None == parser):
+            raise Exception(
+                'The node class cannot be instantiated without a parser!'
+            )
+
         if (tag != None and node.tag != tag):
             raise Exception(
                 'Invalid tag name ('
@@ -34,6 +38,7 @@ class Node:
             )
         self._node = node
         self._child_cache = {}
+        self._parser = parser
 
     def get(self, key, default=None):
         return self._node.get(key, default)
@@ -84,11 +89,11 @@ class Node:
     def get_children(self, xsd, tag, path=None):
         xpath = tag + ('' if path == None else path)
         if xpath not in self._child_cache.keys():
-            childClass = get_tag_class(xsd, tag)
+            childClass = self._parser.get_tag_class(xsd, tag)
 
             children = []
             for child in self.iter(xpath):
-                children.append(childClass(child))
+                children.append(childClass(child, self._parser))
 
             self._child_cache[xpath] = children
 
@@ -103,3 +108,6 @@ class Node:
 
     def debug_dump(self):
         self._node
+
+    def load_ref(self, xsd, refid):
+        return self._parser.parser_from_ref_id(xsd, refid)

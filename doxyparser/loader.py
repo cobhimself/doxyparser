@@ -1,25 +1,28 @@
+import xml.etree.ElementTree as ET
 from doxyparser import TAG_MAP
 from importlib import import_module
 
-_cache = {}
+class Loader():
+    def __init__(self, xml_dir):
+        self._xml_dir = xml_dir
+        self._cache = {}
 
+    def load_index(self):
+        return ET.parse(self._xml_dir + '/index.xml')
+    
+    def load_tag_class(self, xsd, tag):
+        if (xsd, tag) not in self._cache:
+            path = TAG_MAP[xsd][tag]
+            parts = path.split('.')
+            final = parts.pop()
+            package = '.'.join(parts)
 
-def get_tag_class(xsd, tag):
-    if (xsd, tag) not in _cache:
-        path = TAG_MAP[xsd][tag]
-        parts = path.split('.')
-        final = parts.pop()
-        package = '.'.join(parts)
+            module = import_module(package)
 
-        module = import_module(package)
-        _cache[(xsd, tag)] = getattr(module, final)
+            self._cache[(xsd, tag)] = getattr(module, final)
 
-    return _cache[(xsd, tag)]
+        return self._cache[(xsd, tag)]
 
-
-def get_tag_class_instance(xsd, tag, tree):
-    tag = get_tag_class(xsd, tag)
-    return tag(tree)
-
-def get_node_from_tree(xsd, tree):
-    return get_tag_class_instance(xsd, tree.tag, tree)
+    def load_refid(self, refid):
+        tree = ET.parse(self._xml_dir + '/' + refid + '.xml')
+        return tree.getroot()

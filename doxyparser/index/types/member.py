@@ -13,8 +13,6 @@ Model representation of a MemberType Element from doxygen
 from ...node import Node
 
 class Member(Node):
-  def __init__(self, node):
-    super().__init__(node)
   
   def get_name(self):
     return self.get_text('name')
