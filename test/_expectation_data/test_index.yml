@@ -16,114 +16,131 @@ compound:
     # Specific confirmations are specified by a key and the value is what the
     # expectation is. For example, the 'count' key would have a numeric value
     # we expect a count of the items returned by the "value getter" to have.
-    -
-      name: Src::More::DeepClass
+    #
+    # A 'children' key would specify we want to make additional assertions
+    # about the node retrieved through the "node getter". The 'children' key
+    # requires a 'getter' with the value to append to `get_` to obtain the
+    # child data. The 'expectations' key
+    - name: Src::More::DeepClass
       refid: class_src_1_1_more_1_1_deep_class
       kind: class
       members:
         count: 3
-    -
-      name: Src::ExtendingClass
+        children:
+          getter: members
+          expectations:
+            - refid: class_src_1_1_more_1_1_deep_class_1a5c6fc8c684b5406f85f65ae5e6a92bdb
+              kind: function
+              name: thisIsPrivate
+            - refid: class_src_1_1_more_1_1_deep_class_1a505a7c599c5c139d478ec1000fa6ae58
+              kind: function
+              name: thisIsPublic
+            - refid: class_src_1_1_more_1_1_deep_class_1a6c3a5cf3c55dab4b7dd109cfbda3ee72
+              kind: function
+              name: thisIsProtected
+    - name: Src::ExtendingClass
       refid: class_src_1_1_extending_class
       kind: class
       members:
         count: 1
-    -
-      name: Src::SimpleClass
+        children:
+          getter: member_functions
+          expectations:
+            - refid: class_src_1_1_extending_class_1aea1aecc414ac021af88923cf77a655f8
+              kind: function
+              name: additionalMethod
+    - name: Src::SimpleClass
       refid: class_src_1_1_simple_class
       kind: class
       members:
         count: 5
+        children:
+          getter: member_variables
+          expectations:
+            - refid: class_src_1_1_simple_class_1a8bacb57c1bf1d2c2c7ec81c69748f3db
+              kind: variable
+              name: $simplePrivateString
+            - refid: class_src_1_1_simple_class_1a5424cdfc78e3eede0fec9336bf69a5fb
+              kind: variable
+              name: $simpleProtectedString
+            - refid: class_src_1_1_simple_class_1a7e362a39f27152e4d5ef2729e870cd6e
+              kind: variable
+              name: $simplePublicString
   interfaces:
-    -
-      name: Src::More::DeepInterface
+    - name: Src::More::DeepInterface
       refid: interface_src_1_1_more_1_1_deep_interface
       kind: interface
       members:
         count: 3
   namespaces:
-    -
-      refid: namespace_simple_class
+    - refid: namespace_simple_class
       name: SimpleClass
       kind: namespace
       members:
         count: 0
-    -
-      refid: namespace_src
+    - refid: namespace_src
       name: Src
       kind: namespace
       members:
         count: 0
-    -
-      refid: namespace_src_1_1_extending_class
+    - refid: namespace_src_1_1_extending_class
       name: Src::ExtendingClass
       kind: namespace
       members:
         count: 0
-    -
-      refid: namespace_src_1_1_more
+    - refid: namespace_src_1_1_more
       name: Src::More
       kind: namespace
       members:
         count: 0
   files:
-    -
-      name: ExtendingClass.php
+    - name: ExtendingClass.php
       refid: _extending_class_8php
       kind: file
       members:
         count: 0
-    -
-      name: DeepClass.php
+    - name: DeepClass.php
       refid: _deep_class_8php
       kind: file
       members:
         count: 0
-    -
-      name: DeepInterface.php
+    - name: DeepInterface.php
       refid: _deep_interface_8php
       kind: file
       members:
         count: 0
-    -
-      name: DeepTrait.php
+    - name: DeepTrait.php
       refid: _deep_trait_8php
       kind: file
       members:
         count: 0
-    -
-      name: SimpleClass.php
+    - name: SimpleClass.php
       refid: _simple_class_8php
       kind: file
       members:
         count: 0
   dirs:
-    -
-      name: test/_sample_data
+    - name: test/_sample_data
       refid: dir_aff6df607ed6189b93aaafc2d0e42449
       kind: dir
       members:
         count: 0
-    -
-      name: test/_sample_data/php/src/more
+    - name: test/_sample_data/php/src/more
       refid: dir_04192932d1755613d2b2bc6452a59b35
       kind: dir
       members:
         count: 0
-    -
-      name: test/_sample_data/php
+    - name: test/_sample_data/php
       refid: dir_c961a6d6ff74ea8517bcd12fcd838577
       kind: dir
       members:
         count: 0
-    -
-      name: test/_sample_data/php/src
+    - name: test/_sample_data/php/src
       refid: dir_492ad140db23dd00fabd61e5862a21cb
       kind: dir
       members:
         count: 0
-    -
-      name: test
+    - name: test
       refid: dir_13e138d54eb8818da29c3992edef070a
       kind: dir
       members:

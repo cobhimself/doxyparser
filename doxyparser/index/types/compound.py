@@ -14,20 +14,30 @@ Model representation of a CompoundType Element from doxygen
 """
 from ...node import Node
 
-class Compound(Node):
-  def __init__(self, node):
-      super().__init__(node)
-  
-  def get_name(self):
-    return self.get_text('name')
-  
-  def get_members(self):
-    return self.get_children('member', 'index.types.member.Member')
-  
-  def get_refid(self):
-    return self.get('refid')
-  
-  def get_kind(self):
-    return self.get('kind')
 
-    
+class Compound(Node):
+    def __init__(self, node):
+        super().__init__(node)
+
+    def get_name(self):
+        return self.get_text('name')
+
+    def get_members(self, kind=None):
+        path = '' if kind == None else '/[@kind="' + kind + '"]'
+        return self.get_children(
+            xsd='index',
+            tag='member',
+            path=path
+        )
+
+    def get_refid(self):
+        return self.get('refid')
+
+    def get_kind(self):
+        return self.get('kind')
+
+    def get_member_functions(self):
+        return self.get_members('function')
+
+    def get_member_variables(self):
+        return self.get_members('variable')

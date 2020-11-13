@@ -3,12 +3,15 @@
 import importlib
 import builtins
 import sys
+from .loader import get_tag_class
 
 """
 Super class used to represent doxy xml Elements
 """
+
+
 class Node:
-    def __init__(self, node, tag = None):
+    def __init__(self, node, tag=None):
         """Initialize a Node (object representation of an xml data tree)
 
         Args:
@@ -21,16 +24,21 @@ class Node:
         Raises:
             Exception: Raised if a tag name is provided and it doesn't
                 match with the Element's tag
-        """        
+        """
         if (tag != None and node.tag != tag):
-            raise Exception('Invalid tag name (' + node.tag + '). Expected ' + tag)
+            raise Exception(
+                'Invalid tag name ('
+                + node.tag
+                + '). Expected '
+                + tag
+            )
         self._node = node
         self._child_cache = {}
-    
-    def get(self, key, default = None):
+
+    def get(self, key, default=None):
         return self._node.get(key, default)
-    
-    def find(self, key, default = None):
+
+    def find(self, key, default=None):
         """Finds the first subelement matching match.
 
         Args:
@@ -41,15 +49,15 @@ class Node:
         Returns:
             Element|None: Returns an Element instance or none if
                 not found
-        """        
+        """
         child = self._node.find(key)
 
         if child == None:
             return default
 
         return child
-    
-    def get_text(self, key, default = None):
+
+    def get_text(self, key, default=None):
         """Get the text from the first element matching key.
 
         Args:
@@ -59,7 +67,7 @@ class Node:
         Returns:
             string|mixed: If the Element with key is found, its text is
                 returned. Otherwise the default.
-        """        
+        """
         found = self.find(key)
         if found == None:
             return default
@@ -73,34 +81,25 @@ class Node:
         value = self.get(attr)
         return value == 'yes'
 
-    def get_children(self, key, node_type, path = None):
-        compiledPath = key + ('' if path == None else path)
-        if compiledPath not in self._child_cache.keys():
-            childClass = self._get_class('doxyparser.' + node_type)
+    def get_children(self, xsd, tag, path=None):
+        xpath = tag + ('' if path == None else path)
+        if xpath not in self._child_cache.keys():
+            childClass = get_tag_class(xsd, tag)
 
             children = []
-            for child in self.iter(compiledPath):
+            for child in self.iter(xpath):
                 children.append(childClass(child))
 
-            self._child_cache[compiledPath] = children
+            self._child_cache[xpath] = children
 
-        return self._child_cache[compiledPath]
-    
-    def get_child(self, key, node_type, path = None):
+        return self._child_cache[xpath]
+
+    def get_child(self, key, node_type, path=None):
         children = self.get_children(key, node_type, path)
         if children != None:
             return children[0]
-        
+
         return None
-    
+
     def debug_dump(self):
         self._node
-    
-    def _get_class(self, path):
-        parts = path.split('.')
-        final = parts.pop()
-        package = '.'.join(parts)
-
-        module = importlib.import_module(package)
-
-        return getattr(module, final)
