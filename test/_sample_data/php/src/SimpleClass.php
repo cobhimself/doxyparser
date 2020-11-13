@@ -51,12 +51,9 @@ class SimpleClass {
      * @param array  $param2 our second parameter.
      * @param bool   $param3 out third parameter that has a really long description
      *                       so it must wrap lines.
-     * 
-     * @return bool this return argument contains a description.
      */
-    public function __construct(string $param1, array $param2 = [], bool $param3 = []): bool
+    public function __construct(string $param1, array $param2 = [], bool $param3 = false)
     {
-        return false;
     }
 
     /**
