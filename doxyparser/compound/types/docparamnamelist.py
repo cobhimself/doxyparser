@@ -1,17 +1,28 @@
-"""
-Model representation of a docParamNameList from doxygen
-
-<xsd:complexType name="docParamNameList">
-  <xsd:sequence>
-    <xsd:element name="parametertype" type="docParamType" minOccurs="0" maxOccurs="unbounded" />
-    <xsd:element name="parametername" type="docParamName" minOccurs="0" maxOccurs="unbounded" />
-  </xsd:sequence>
-</xsd:complexType>
-"""
 from ...node import Node
 
 
 class DocParamNameList(Node):
+    """
+    Model representation of a docParamNameList from doxygen
+
+    <xsd:complexType name="docParamNameList">
+        <xsd:sequence>
+            <xsd:element
+                name="parametertype"
+                type="docParamType"
+                minOccurs="0"
+                maxOccurs="unbounded"
+            />
+            <xsd:element
+                name="parametername"
+                type="docParamName"
+                minOccurs="0"
+                maxOccurs="unbounded"
+            />
+        </xsd:sequence>
+    </xsd:complexType>
+    """
+
     def get_parametertypes(self):
         return self.get_children('parametertype', 'DocParam')
 

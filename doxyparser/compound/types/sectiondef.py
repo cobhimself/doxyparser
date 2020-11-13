@@ -1,19 +1,19 @@
-"""
-Model representation of a sectiondef Element from doxygen
-
-<xsd:complexType name="sectiondefType">
-<xsd:sequence>
-    <xsd:element name="header" type="xsd:string" minOccurs="0" />
-    <xsd:element name="description" type="descriptionType" minOccurs="0" />
-    <xsd:element name="memberdef" type="memberdefType" maxOccurs="unbounded" />
-</xsd:sequence>
-<xsd:attribute name="kind" type="DoxSectionKind" />
-</xsd:complexType>
-"""
 from ...node import Node
 
 
 class SectionDef(Node):
+    """
+    Model representation of a sectiondef Element from doxygen
+
+    <xsd:complexType name="sectiondefType">
+    <xsd:sequence>
+        <xsd:element name="header" type="xsd:string" minOccurs="0" />
+        <xsd:element name="description" type="descriptionType" minOccurs="0" />
+        <xsd:element name="memberdef" type="memberdefType" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:attribute name="kind" type="DoxSectionKind" />
+    </xsd:complexType>
+    """
     def __init__(self, node, parser):
         super().__init__(node, parser, 'sectiondef')
 

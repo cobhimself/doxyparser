@@ -1,17 +1,17 @@
-"""
-Model representation of a docRefTextType from doxygen
-
-<xsd:complexType name="docRefTextType" mixed="true">
-  <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
-  <xsd:attribute name="refid" type="xsd:string" />
-  <xsd:attribute name="kindref" type="DoxRefKind" />
-  <xsd:attribute name="external" type="xsd:string" />
-</xsd:complexType>
-"""
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
 
 class DocParBlock(DocTitleCmdGroup):
+    """
+    Model representation of a docRefTextType from doxygen
+
+    <xsd:complexType name="docRefTextType" mixed="true">
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:attribute name="refid" type="xsd:string" />
+    <xsd:attribute name="kindref" type="DoxRefKind" />
+    <xsd:attribute name="external" type="xsd:string" />
+    </xsd:complexType>
+    """
     def get_refid(self):
         return self.get('refid')
 

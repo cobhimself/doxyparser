@@ -4,6 +4,9 @@ from importlib import import_module
 
 
 class Loader():
+    """Class responsible for loading xml files and classes relating to nodes
+    """
+
     def __init__(self, xml_dir):
         self._xml_dir = xml_dir
         self._cache = {}

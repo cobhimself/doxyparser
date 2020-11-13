@@ -1,21 +1,21 @@
-"""
-Model representation of a compoundref Element from doxygen
-
-<xsd:complexType name="compoundRefType">
-  <xsd:simpleContent>
-    <xsd:extension base="xsd:string">
-      <xsd:attribute name="refid" type="xsd:string" use="optional" />
-      <xsd:attribute name="prot" type="DoxProtectionKind" />
-      <xsd:attribute name="virt" type="DoxVirtualKind" />
-    </xsd:extension>
-  </xsd:simpleContent>
-</xsd:complexType>
-
-"""
 from ...node import Node
 
 
 class CompoundRef(Node):
+    """
+    Model representation of a compoundref Element from doxygen
+
+    <xsd:complexType name="compoundRefType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="refid" type="xsd:string" use="optional" />
+                <xsd:attribute name="prot" type="DoxProtectionKind" />
+                <xsd:attribute name="virt" type="DoxVirtualKind" />
+          </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    """
     def __init__(self, node, parser):
         super().__init__(node, parser, 'compoundref')
 

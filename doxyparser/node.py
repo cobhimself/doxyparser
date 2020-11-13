@@ -1,9 +1,8 @@
-"""
-Super class used to represent doxy xml Elements
-"""
-
-
 class Node:
+    """
+    Super class used to represent doxy xml Elements
+    """
+
     def __init__(self, node, parser, tag=None):
         """Initialize a Node (object representation of an xml data tree)
 

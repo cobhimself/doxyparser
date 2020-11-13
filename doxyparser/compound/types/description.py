@@ -1,19 +1,24 @@
-"""
-Model representation of a description type from doxygen
-
-<xsd:complexType name="descriptionType" mixed="true">
-  <xsd:sequence>
-    <xsd:element name="title" type="xsd:string" minOccurs="0"/>	    
-    <xsd:element name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
-    <xsd:element name="internal" type="docInternalType" minOccurs="0" maxOccurs="unbounded"/>
-    <xsd:element name="sect1" type="docSect1Type" minOccurs="0" maxOccurs="unbounded" />
-  </xsd:sequence>
-</xsd:complexType>
-"""
 from ...node import Node
 
 
 class Description(Node):
+    """
+    Model representation of a description type from doxygen
+
+    <xsd:complexType name="descriptionType" mixed="true">
+        <xsd:sequence>
+            <xsd:element name="title" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
+            <xsd:element
+                name="internal"
+                type="docInternalType"
+                minOccurs="0"
+                maxOccurs="unbounded"
+            />
+            <xsd:element name="sect1" type="docSect1Type" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    """
 
     def get_title(self):
         return self.get_text('title', '')

@@ -1,10 +1,10 @@
-"""
-Base model for all DocSect# types
-"""
 from .node import Node
 
 
 class DocSect(Node):
+    """
+    Base model for all DocSect# types
+    """
     def __init__(self, node, parser, level):
         super().__init__(node, parser)
         self._level = level

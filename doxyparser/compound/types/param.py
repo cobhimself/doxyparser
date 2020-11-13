@@ -1,23 +1,23 @@
-"""
-Model representation of a param Element from doxygen
-
-<xsd:complexType name="paramType">
-  <xsd:sequence>
-    <xsd:element name="attributes" minOccurs="0" />
-    <xsd:element name="type" type="linkedTextType" minOccurs="0" />
-    <xsd:element name="declname" minOccurs="0" />
-    <xsd:element name="defname" minOccurs="0" />
-    <xsd:element name="array" minOccurs="0" />
-    <xsd:element name="defval" type="linkedTextType" minOccurs="0" />
-    <xsd:element name="typeconstraint" type="linkedTextType" minOccurs="0" />
-    <xsd:element name="briefdescription" type="descriptionType" minOccurs="0" />
-  </xsd:sequence>
-</xsd:complexType>
-"""
 from ...node import Node
 
 
 class Param(Node):
+    """
+    Model representation of a param Element from doxygen
+
+    <xsd:complexType name="paramType">
+    <xsd:sequence>
+        <xsd:element name="attributes" minOccurs="0" />
+        <xsd:element name="type" type="linkedTextType" minOccurs="0" />
+        <xsd:element name="declname" minOccurs="0" />
+        <xsd:element name="defname" minOccurs="0" />
+        <xsd:element name="array" minOccurs="0" />
+        <xsd:element name="defval" type="linkedTextType" minOccurs="0" />
+        <xsd:element name="typeconstraint" type="linkedTextType" minOccurs="0" />
+        <xsd:element name="briefdescription" type="descriptionType" minOccurs="0" />
+    </xsd:sequence>
+    </xsd:complexType>
+    """
     def __init__(self, node, parser):
         super().__init__(node, parser, 'param')
 

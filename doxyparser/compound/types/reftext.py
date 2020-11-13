@@ -1,20 +1,21 @@
-"""
-Model representation of a reftext type Element from doxygen
-<xsd:complexType name="refTextType">
-  <xsd:simpleContent>
-    <xsd:extension base="xsd:string">
-     <xsd:attribute name="refid" type="xsd:string" />
-     <xsd:attribute name="kindref" type="DoxRefKind" />
-     <xsd:attribute name="external" type="xsd:string" use="optional"/>
-     <xsd:attribute name="tooltip" type="xsd:string" use="optional"/>
-    </xsd:extension>
-  </xsd:simpleContent>
-</xsd:complexType>
-"""
 from ...node import Node
 
 
 class RefText(Node):
+    """
+    Model representation of a reftext type Element from doxygen
+    <xsd:complexType name="refTextType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+            <xsd:attribute name="refid" type="xsd:string" />
+            <xsd:attribute name="kindref" type="DoxRefKind" />
+            <xsd:attribute name="external" type="xsd:string" use="optional"/>
+            <xsd:attribute name="tooltip" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    """
+
     def get_ref_id(self):
         return self.get_text('refid')
 

@@ -1,21 +1,22 @@
-"""
-Model representation of a enumvalue type from doxygen
-
-<xsd:complexType name="enumvalueType" mixed="true">
-  <xsd:sequence>
-    <xsd:element name="name" />
-    <xsd:element name="initializer" type="linkedTextType" minOccurs="0" />
-    <xsd:element name="briefdescription" type="descriptionType" minOccurs="0" />
-    <xsd:element name="detaileddescription" type="descriptionType" minOccurs="0" />
-  </xsd:sequence>
-  <xsd:attribute name="id" type="xsd:string" />
-  <xsd:attribute name="prot" type="DoxProtectionKind" />
-</xsd:complexType>
-"""
 from ...node import Node
 
 
 class EnumValue(Node):
+    """
+    Model representation of a enumvalue type from doxygen
+
+    <xsd:complexType name="enumvalueType" mixed="true">
+    <xsd:sequence>
+        <xsd:element name="name" />
+        <xsd:element name="initializer" type="linkedTextType" minOccurs="0" />
+        <xsd:element name="briefdescription" type="descriptionType" minOccurs="0" />
+        <xsd:element name="detaileddescription" type="descriptionType" minOccurs="0" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string" />
+    <xsd:attribute name="prot" type="DoxProtectionKind" />
+    </xsd:complexType>
+    """
+
     def get_name(self):
         return self.get_text('name', '')
 

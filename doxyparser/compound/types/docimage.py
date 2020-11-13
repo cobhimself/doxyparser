@@ -1,20 +1,21 @@
-"""
-Model representation of a docimage type from doxygen
-
-<xsd:complexType name="docImageType" mixed="true">
-  <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
-  <xsd:attribute name="type" type="DoxImageKind" use="optional"/>
-  <xsd:attribute name="name" type="xsd:string" use="optional"/>
-  <xsd:attribute name="width" type="xsd:string" use="optional"/>
-  <xsd:attribute name="height" type="xsd:string" use="optional"/>
-  <xsd:attribute name="inline" type="DoxBool" use="optional"/>
-  <xsd:attribute name="caption" type="xsd:string" use="optional"/>
-</xsd:complexType>
-"""
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
 
 class DocImage(DocTitleCmdGroup):
+    """
+    Model representation of a docimage type from doxygen
+
+    <xsd:complexType name="docImageType" mixed="true">
+    <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />
+    <xsd:attribute name="type" type="DoxImageKind" use="optional"/>
+    <xsd:attribute name="name" type="xsd:string" use="optional"/>
+    <xsd:attribute name="width" type="xsd:string" use="optional"/>
+    <xsd:attribute name="height" type="xsd:string" use="optional"/>
+    <xsd:attribute name="inline" type="DoxBool" use="optional"/>
+    <xsd:attribute name="caption" type="xsd:string" use="optional"/>
+    </xsd:complexType>
+    """
+
     def get_type(self):
         return self.get('type')
 

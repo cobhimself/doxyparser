@@ -1,38 +1,38 @@
-"""
-Model representation of a docCmdGroup type from doxygen
-
-<xsd:group name="docCmdGroup">
-  <xsd:choice>
-    <xsd:group ref="docTitleCmdGroup"/>
-    <xsd:element name="hruler" type="docEmptyType" />
-    <xsd:element name="preformatted" type="docMarkupType" />
-    <xsd:element name="programlisting" type="listingType" />
-    <xsd:element name="verbatim" type="xsd:string" />
-    <xsd:element name="indexentry" type="docIndexEntryType" />
-    <xsd:element name="orderedlist" type="docListType" />
-    <xsd:element name="itemizedlist" type="docListType" />
-    <xsd:element name="simplesect" type="docSimpleSectType" />
-    <xsd:element name="title" type="docTitleType" />
-    <xsd:element name="variablelist" type="docVariableListType" />
-    <xsd:element name="table" type="docTableType" />
-    <xsd:element name="heading" type="docHeadingType" />
-    <xsd:element name="dotfile" type="docImageType" />
-    <xsd:element name="mscfile" type="docImageType" />
-    <xsd:element name="diafile" type="docImageType" />
-    <xsd:element name="toclist" type="docTocListType" />
-    <xsd:element name="language" type="docLanguageType" />
-    <xsd:element name="parameterlist" type="docParamListType" />
-    <xsd:element name="xrefsect" type="docXRefSectType" />
-    <xsd:element name="copydoc" type="docCopyType" />
-    <xsd:element name="blockquote" type="docBlockQuoteType" />
-    <xsd:element name="parblock" type="docParBlockType" />
-  </xsd:choice>
-</xsd:group>
-"""
 from ...nodegroup import NodeGroup
 
 
 class DocCmdGroup(NodeGroup):
+    """
+    Model representation of a docCmdGroup type from doxygen
+
+    <xsd:group name="docCmdGroup">
+    <xsd:choice>
+        <xsd:group ref="docTitleCmdGroup"/>
+        <xsd:element name="hruler" type="docEmptyType" />
+        <xsd:element name="preformatted" type="docMarkupType" />
+        <xsd:element name="programlisting" type="listingType" />
+        <xsd:element name="verbatim" type="xsd:string" />
+        <xsd:element name="indexentry" type="docIndexEntryType" />
+        <xsd:element name="orderedlist" type="docListType" />
+        <xsd:element name="itemizedlist" type="docListType" />
+        <xsd:element name="simplesect" type="docSimpleSectType" />
+        <xsd:element name="title" type="docTitleType" />
+        <xsd:element name="variablelist" type="docVariableListType" />
+        <xsd:element name="table" type="docTableType" />
+        <xsd:element name="heading" type="docHeadingType" />
+        <xsd:element name="dotfile" type="docImageType" />
+        <xsd:element name="mscfile" type="docImageType" />
+        <xsd:element name="diafile" type="docImageType" />
+        <xsd:element name="toclist" type="docTocListType" />
+        <xsd:element name="language" type="docLanguageType" />
+        <xsd:element name="parameterlist" type="docParamListType" />
+        <xsd:element name="xrefsect" type="docXRefSectType" />
+        <xsd:element name="copydoc" type="docCopyType" />
+        <xsd:element name="blockquote" type="docBlockQuoteType" />
+        <xsd:element name="parblock" type="docParBlockType" />
+    </xsd:choice>
+    </xsd:group>
+    """
 
     def get_hruler(self):
         return self.find('hruler') != None

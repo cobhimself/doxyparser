@@ -1,10 +1,10 @@
-"""
-Super class for all xsd:group types
-"""
 from .node import Node
 
 
 class NodeGroup(Node):
+    """
+    Super class for all xsd:group types
+    """
 
     def __init__(self, node, parser):
         super().__init__(node, parser)

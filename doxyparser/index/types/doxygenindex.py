@@ -1,15 +1,3 @@
-
-"""
-Model representation of a doxygenindex Element from doxygen
-
-<xsd:complexType name="DoxygenType">
-  <xsd:sequence>
-    <xsd:element name="compound" type="CompoundType" minOccurs="0" maxOccurs="unbounded"/>
-  </xsd:sequence>
-  <xsd:attribute name="version" type="xsd:string" use="required"/>
-  <xsd:attribute ref="xml:lang" use="required"/>
-</xsd:complexType>
-"""
 from xml.etree.ElementTree import Element
 from typing import Optional
 
@@ -18,6 +6,17 @@ from .compound import Compound
 
 
 class DoxygenIndex(Node):
+    """
+    Model representation of a doxygenindex Element from doxygen
+
+    <xsd:complexType name="DoxygenType">
+    <xsd:sequence>
+        <xsd:element name="compound" type="CompoundType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="version" type="xsd:string" use="required"/>
+    <xsd:attribute ref="xml:lang" use="required"/>
+    </xsd:complexType>
+    """
 
     def get_compounds(
         self,

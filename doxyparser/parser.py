@@ -1,6 +1,6 @@
-"""Main doxyparser Parser class.
-"""
 class Parser:
+    """Main doxyparser Parser class.
+    """
     def __init__(self, loader):
         self._loader = loader
 
