@@ -99,26 +99,26 @@ compound:
         count: 0
   dirs:
     -
-      name: test/sample_data/php/src/more
-      refid: dir_9c2397d0bf3d8c3be346bfa96d8961e9
+      name: test/_sample_data
+      refid: dir_aff6df607ed6189b93aaafc2d0e42449
       kind: dir
       members:
         count: 0
     -
-      name: test/sample_data/php
-      refid: dir_c1394e3c1f56f65c51c53a4c07273c1a
+      name: test/_sample_data/php/src/more
+      refid: dir_04192932d1755613d2b2bc6452a59b35
       kind: dir
       members:
         count: 0
     -
-      name: test/sample_data
-      refid: dir_9cce84ae55c65c7343152834f08c767a
+      name: test/_sample_data/php
+      refid: dir_c961a6d6ff74ea8517bcd12fcd838577
       kind: dir
       members:
         count: 0
     -
-      name: test/sample_data/php/src
-      refid: dir_4b07a56285d74749eeffb04d7e7bfcfd
+      name: test/_sample_data/php/src
+      refid: dir_492ad140db23dd00fabd61e5862a21cb
       kind: dir
       members:
         count: 0
