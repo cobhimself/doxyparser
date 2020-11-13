@@ -1,0 +1,12 @@
+[run]
+branch = True
+include = test
+omit =
+    test/_expectation_data
+    test/_sample_data
+
+[report]
+ignore_errors = True
+skip_empty = True
+skip_covered = True
+sort = Cover

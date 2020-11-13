@@ -10,6 +10,7 @@ pytest = "*"
 autopep8 = "*"
 pyyaml = "*"
 toml = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.9"
