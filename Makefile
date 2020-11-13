@@ -23,3 +23,7 @@ test_data: init php
 .PHONY: test
 test:
 	pytest test
+
+.PHONY: cov
+cov:
+	pytest --cov=doxyparser
