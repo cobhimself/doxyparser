@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a compound def Element from doxygen
 
@@ -41,43 +40,44 @@ Model representation of a compound def Element from doxygen
 """
 from ...node import Node
 
+
 class CompoundDef(Node):
     def __init__(self, node, parser):
         super.__init__(node, parser, 'compounddef')
         self._elements = {
-            
+
         }
-    
+
     def get_id(self):
         return self.get('id')
-    
+
     def get_kind(self):
         return self.get('kind')
-    
+
     def get_language(self):
         return self.get('language')
-    
+
     def get_prot(self):
         return self.get('prot')
 
     def is_final(self):
         return self.get_bool('final')
-    
+
     def is_inline(self):
         return self.get_bool('inline')
-    
+
     def is_sealed(self):
         return self.get_bool('sealed')
-    
+
     def is_abstract(self):
         return self.get_bool('abstract')
-    
+
     def get_compound_name(self):
         return self.find('compoundname', '')
 
     def get_title(self):
         return self.find('compoundname', '')
-    
+
     def get_base_compound_refs(self):
         return self.get_children('basecompoundref', 'CompoundRef')
 
@@ -89,10 +89,10 @@ class CompoundDef(Node):
 
     def get_included_by(self):
         return self.get_children('includedby', 'Inc')
-    
+
     def get_inner_dirs(self):
         return self.get_children('innerdir', 'Ref')
-    
+
     def get_inner_files(self):
         return self.get_children('innerfile', 'Ref')
 

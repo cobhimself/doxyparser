@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docCmdGroup type from doxygen
 
@@ -285,6 +284,7 @@ Model representation of a docCmdGroup type from doxygen
 </xsd:group>
 """
 from ...nodegroup import NodeGroup
+
 
 class DocTitleCmdGroup(NodeGroup):
 

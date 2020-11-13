@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docindexentry type from doxygen
 
@@ -11,10 +10,11 @@ Model representation of a docindexentry type from doxygen
 """
 from ...node import Node
 
+
 class DocIndexEntry(Node):
-  
-  def get_primaryie(self):
-    return self.get_text('primaryie')
-  
-  def get_secondaryie(self):
-    return self.get_text('secondaryie')
+
+    def get_primaryie(self):
+        return self.get_text('primaryie')
+
+    def get_secondaryie(self):
+        return self.get_text('secondaryie')

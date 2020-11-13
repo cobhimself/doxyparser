@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docEntryType from doxygen
 
@@ -16,21 +15,22 @@ Model representation of a docEntryType from doxygen
 """
 from ...node import Node
 
+
 class DocEntry(Node):
-  def get_paras(self):
-    return self.get_children('para', 'DocPara')  
-  
-  def has_thead(self):
-    return self.get_bool('thead')
-  
-  def get_colspan(self):
-    return self.get('colspan')
-  
-  def get_rowspan(self):
-    return self.get('rowspan')
-  
-  def get_align(self):
-    return self.get('align')
-  
-  def get_class(self):
-    return self.get('class')
+    def get_paras(self):
+        return self.get_children('para', 'DocPara')
+
+    def has_thead(self):
+        return self.get_bool('thead')
+
+    def get_colspan(self):
+        return self.get('colspan')
+
+    def get_rowspan(self):
+        return self.get('rowspan')
+
+    def get_align(self):
+        return self.get('align')
+
+    def get_class(self):
+        return self.get('class')

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docpara type from doxygen
 
@@ -8,5 +7,6 @@ Model representation of a docpara type from doxygen
 """
 from ..groups.doccmdgroup import DocCmdGroup
 
+
 class DocPara(DocCmdGroup):
-  pass
+    pass

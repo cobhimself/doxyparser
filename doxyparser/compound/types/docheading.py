@@ -1,5 +1,3 @@
-
-#!/usr/bin/env python3
 """
 Model representation of a docheading type Element from doxygen
 
@@ -10,7 +8,8 @@ Model representation of a docheading type Element from doxygen
 """
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
+
 class DocCopy(DocTitleCmdGroup):
 
-  def get_level(self):
-    return self.get('level')
+    def get_level(self):
+        return self.get('level')

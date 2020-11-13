@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docblockquote type Element from doxygen
 
@@ -10,7 +9,8 @@ Model representation of a docblockquote type Element from doxygen
 """
 from ...node import Node
 
+
 class DocBlockQuote(Node):
 
-  def get_paras(self):
-      return self.get_children('para', 'DocPara')
+    def get_paras(self):
+        return self.get_children('para', 'DocPara')

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docanchor type from doxygen
 
@@ -8,7 +7,8 @@ Model representation of a docanchor type from doxygen
 """
 from ...node import Node
 
+
 class DocAnchor(Node):
-    
-  def get_id(self):
-    return self.get('id')
+
+    def get_id(self):
+        return self.get('id')

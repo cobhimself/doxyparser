@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docRefTextType from doxygen
 
@@ -11,12 +10,13 @@ Model representation of a docRefTextType from doxygen
 """
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
+
 class DocParBlock(DocTitleCmdGroup):
-  def get_refid(self):
-    return self.get('refid')
-  
-  def get_kindref(self):
-    return self.get('kindref')
-  
-  def get_external(self):
-    return self.get('external')
+    def get_refid(self):
+        return self.get('refid')
+
+    def get_kindref(self):
+        return self.get('kindref')
+
+    def get_external(self):
+        return self.get('external')

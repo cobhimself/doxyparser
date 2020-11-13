@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a compoundref Element from doxygen
 
@@ -15,18 +14,19 @@ Model representation of a compoundref Element from doxygen
 """
 from ...node import Node
 
+
 class CompoundRef(Node):
     def __init__(self, node, parser):
         super.__init__(node, parser, 'compoundref')
-    
+
     def get_refid(self):
         return self.get('refid', '')
 
     def get_prot(self):
         return self.get('prot')
-    
+
     def get_virt(self):
         return self.get('virt')
-    
+
     def get_fqcn(self):
         return self._node.text

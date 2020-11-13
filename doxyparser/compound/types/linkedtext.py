@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a refType Element from doxygen
 
@@ -10,7 +9,8 @@ Model representation of a refType Element from doxygen
 """
 from ...node import Node
 
+
 class LinkedText(Node):
-    
+
     def get_refs(self):
         return self.get_children('ref', 'reftext')

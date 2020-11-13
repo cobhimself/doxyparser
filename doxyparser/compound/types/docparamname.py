@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docParamName from doxygen
 
@@ -11,9 +10,10 @@ Model representation of a docParamName from doxygen
 """
 from ...node import Node
 
+
 class DocParamName(Node):
-  def get_ref(self):
-    return self.get_child('ref', 'RefText')
-  
-  def get_direction(self):
-    return self.get('direction')
+    def get_ref(self):
+        return self.get_child('ref', 'RefText')
+
+    def get_direction(self):
+        return self.get('direction')

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a incType Element from doxygen
 
@@ -12,6 +11,7 @@ Model representation of a incType Element from doxygen
 </xsd:complexType>
 """
 from ...node import Node
+
 
 class Inc(Node):
     def get_ref_id(self):

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a doxygen element from doxygen's compound.xsd
 
@@ -14,13 +13,14 @@ Model representation of a doxygen element from doxygen's compound.xsd
 """
 from ...node import Node
 
+
 class Doxygen(Node):
-    
+
     def get_compounddefs(self):
-      return self.get_children(
-        xsd = 'compound',
-        tag = 'compounddef'
-      )
-    
+        return self.get_children(
+            xsd='compound',
+            tag='compounddef'
+        )
+
     def get_version(self):
-      return self.get('version')
+        return self.get('version')

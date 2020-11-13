@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Model representation of a MemberType Element from doxygen
 
@@ -12,13 +12,14 @@ Model representation of a MemberType Element from doxygen
 """
 from ...node import Node
 
+
 class Member(Node):
-  
-  def get_name(self):
-    return self.get_text('name')
-  
-  def get_refid(self):
-    return self.get('refid')
-  
-  def get_kind(self):
-    return self.get('kind')
+
+    def get_name(self):
+        return self.get_text('name')
+
+    def get_refid(self):
+        return self.get('refid')
+
+    def get_kind(self):
+        return self.get('kind')

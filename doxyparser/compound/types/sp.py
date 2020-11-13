@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a spType Element from doxygen
 
@@ -8,6 +7,7 @@ Model representation of a spType Element from doxygen
 """
 from ...node import Node
 
+
 class Sp(Node):
-  def get_value(self):
-      return self.get('value')
+    def get_value(self):
+        return self.get('value')

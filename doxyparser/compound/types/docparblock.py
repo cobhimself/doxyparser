@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docParBlockType from doxygen
 
@@ -10,6 +9,7 @@ Model representation of a docParBlockType from doxygen
 """
 from ...node import Node
 
+
 class DocParBlock(Node):
-  def get_paras(self):
-    return self.get_children('para', 'docParaType')
+    def get_paras(self):
+        return self.get_children('para', 'docParaType')

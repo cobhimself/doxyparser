@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a highlightType from doxygen
 
@@ -12,13 +11,13 @@ Model representation of a highlightType from doxygen
 """
 from ...node import Node
 
+
 class Highlight(Node):
-  def get_sp(self):
-    return self.get_child('sp', 'Sp')
-  
-  def get_ref(self):
-    return self.get_child('ref', 'RefText')
-  
-  def get_class(self):
-    return self.get('class')
-  
+    def get_sp(self):
+        return self.get_child('sp', 'Sp')
+
+    def get_ref(self):
+        return self.get_child('ref', 'RefText')
+
+    def get_class(self):
+        return self.get('class')

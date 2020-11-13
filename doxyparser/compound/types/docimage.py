@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docimage type from doxygen
 
@@ -14,21 +13,22 @@ Model representation of a docimage type from doxygen
 """
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
+
 class DocImage(DocTitleCmdGroup):
-  def get_type(self):
-    return self.get('type')
-  
-  def get_name(self):
-    return self.get('name')
-  
-  def get_width(self):
-    return self.get('width')
-  
-  def get_height(self):
-    return self.get('height')
-  
-  def is_inline(self):
-    return self.get_bool('inline')
-  
-  def get_caption(self):
-    return self.get('caption')
+    def get_type(self):
+        return self.get('type')
+
+    def get_name(self):
+        return self.get('name')
+
+    def get_width(self):
+        return self.get('width')
+
+    def get_height(self):
+        return self.get('height')
+
+    def is_inline(self):
+        return self.get_bool('inline')
+
+    def get_caption(self):
+        return self.get('caption')

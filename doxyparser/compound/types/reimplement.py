@@ -1,5 +1,3 @@
-
-#!/usr/bin/env python3
 """
 Model representation of a reimplement type from doxygen
 
@@ -12,6 +10,7 @@ Model representation of a reimplement type from doxygen
 </xsd:complexType>
 """
 from ...node import Node
+
 
 class Reimplement(Node):
     def get_ref_id(self):

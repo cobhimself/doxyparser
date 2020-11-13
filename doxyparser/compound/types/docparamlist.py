@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docParamListType from doxygen
 
@@ -11,7 +10,7 @@ Model representation of a docParamListType from doxygen
 """
 from ...node import Node
 
+
 class DocParam(Node):
-  def get_parameteritems(self):
-    return self.get_children('parameteritem', 'DocParamItem')
-  
+    def get_parameteritems(self):
+        return self.get_children('parameteritem', 'DocParamItem')

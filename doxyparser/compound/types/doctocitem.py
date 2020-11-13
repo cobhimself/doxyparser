@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docTocItemType from doxygen
 
@@ -9,6 +8,7 @@ Model representation of a docTocItemType from doxygen
 """
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
+
 class DocTocItem(DocTitleCmdGroup):
-  def get_id(self):
-    return self.get('id')
+    def get_id(self):
+        return self.get('id')

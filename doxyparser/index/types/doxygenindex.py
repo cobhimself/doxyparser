@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Model representation of a doxygenindex Element from doxygen
 

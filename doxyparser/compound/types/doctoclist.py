@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docTocListType from doxygen
 
@@ -10,6 +9,7 @@ Model representation of a docTocListType from doxygen
 """
 from ...node import Node
 
+
 class DocTocList(Node):
-  def get_tocitems(self):
-    return self.get_children('tocitem', 'DocTocItem')
+    def get_tocitems(self):
+        return self.get_children('tocitem', 'DocTocItem')

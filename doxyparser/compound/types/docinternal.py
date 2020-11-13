@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docInternalType type from doxygen
 
@@ -11,9 +10,10 @@ Model representation of a docInternalType type from doxygen
 """
 from ...node import Node
 
+
 class DocInternal(Node):
-  def get_paras(self):
-    return self.get_children('para', 'DocPara')
-  
-  def get_sect1s(self):
-    return self.get_children('sect1', 'DocSect1')
+    def get_paras(self):
+        return self.get_children('para', 'DocPara')
+
+    def get_sect1s(self):
+        return self.get_children('sect1', 'DocSect1')

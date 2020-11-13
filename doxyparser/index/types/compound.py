@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Model representation of a CompoundType Element from doxygen
 

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docSect4Type from doxygen
 
@@ -15,6 +14,7 @@ Model representation of a docSect4Type from doxygen
 """
 from ...docsect import DocSect
 
+
 class DocSect4(DocSect):
-  def __init__(self, node, parser):
-      super.__init__(node, parser, '4')
+    def __init__(self, node, parser):
+        super.__init__(node, parser, '4')

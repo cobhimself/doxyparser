@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docVarListEntryType from doxygen
 
@@ -10,6 +9,7 @@ Model representation of a docVarListEntryType from doxygen
 """
 from ...node import Node
 
+
 class DocVarListEntry(Node):
-  def get_term(self):
-    return self.get_child('term', 'DocTitle')
+    def get_term(self):
+        return self.get_child('term', 'DocTitle')

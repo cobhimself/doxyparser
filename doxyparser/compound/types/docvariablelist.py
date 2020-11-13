@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docVariableListType from doxygen
 
@@ -10,6 +9,6 @@ Model representation of a docVariableListType from doxygen
 """
 from ..groups.docvariablelistgroup import DocVariableListGroup
 
+
 class DocVariableList(DocVariableListGroup):
-  pass
-  
+    pass

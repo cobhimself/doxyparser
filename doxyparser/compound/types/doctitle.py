@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docTitleType from doxygen
 
@@ -8,5 +7,6 @@ Model representation of a docTitleType from doxygen
 """
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
+
 class DocTitle(DocTitleCmdGroup):
-  pass
+    pass

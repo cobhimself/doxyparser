@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a dochtmlonly type from doxygen
 
@@ -12,6 +11,7 @@ Model representation of a dochtmlonly type from doxygen
 """
 from ...node import Node
 
+
 class DocHtmlOnly(Node):
-  def get_block(self):
-    return self.get('block')
+    def get_block(self):
+        return self.get('block')

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a description type from doxygen
 
@@ -13,16 +12,17 @@ Model representation of a description type from doxygen
 """
 from ...node import Node
 
+
 class Description(Node):
-    
+
     def get_title(self):
         return self.get_text('title', '')
-    
+
     def get_paras(self):
         return self.get_children('para', 'DocPara')
-    
+
     def get_internal(self):
         return self.get_children('internal', 'DocInternal')
-    
+
     def get_sect1(self):
         return self.get_children('sect1', 'DocSect1')

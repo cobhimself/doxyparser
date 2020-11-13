@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a templateparamlist Element from doxygen
 
@@ -9,6 +8,7 @@ Model representation of a templateparamlist Element from doxygen
 </xsd:complexType>
 """
 from ...node import Node
+
 
 class TemplateParamList(Node):
     def get_params(self):

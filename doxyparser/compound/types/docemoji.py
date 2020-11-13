@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docemoji type from doxygen
 
@@ -9,9 +8,10 @@ Model representation of a docemoji type from doxygen
 """
 from ...node import Node
 
+
 class DocEmoji(Node):
-  def get_name(self):
-    return self.get('name')
-  
-  def get_unicode(self):
-    return self.get('unicode')
+    def get_name(self):
+        return self.get('name')
+
+    def get_unicode(self):
+        return self.get('unicode')

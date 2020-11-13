@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docXRefSectType from doxygen
 
@@ -12,12 +11,13 @@ Model representation of a docXRefSectType from doxygen
 """
 from ...node import Node
 
+
 class DocXRefSect(Node):
-  def get_xreftitle(self):
-    return self.get_text('xreftitle')
-  
-  def get_xrefdescription(self):
-    return self.get_child('xrefdescription', 'Description')
-  
-  def get_id(self):
-    return self.get('id')
+    def get_xreftitle(self):
+        return self.get_text('xreftitle')
+
+    def get_xrefdescription(self):
+        return self.get_child('xrefdescription', 'Description')
+
+    def get_id(self):
+        return self.get('id')

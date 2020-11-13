@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a reftext type Element from doxygen
 <xsd:complexType name="refTextType">
@@ -14,15 +13,16 @@ Model representation of a reftext type Element from doxygen
 """
 from ...node import Node
 
+
 class RefText(Node):
     def get_ref_id(self):
         return self.get_text('refid')
 
     def get_kind_ref(self):
         return self.get('kindref')
-    
+
     def get_external(self):
         return self.get('external')
-    
+
     def get_tooltip(self):
         return self.get('tooltip')

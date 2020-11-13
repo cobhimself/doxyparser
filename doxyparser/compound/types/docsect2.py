@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docSect2Type from doxygen
 
@@ -16,10 +15,10 @@ Model representation of a docSect2Type from doxygen
 """
 from ...docsect import DocSect
 
+
 class DocSect2(DocSect):
-  def __init__(self, node, parser):
-      super.__init__(node, parser, '2')
-  
-  def get_sect3s(self):
-    return self.get_children('sect3', 'DocSect3')
-  
+    def __init__(self, node, parser):
+        super.__init__(node, parser, '2')
+
+    def get_sect3s(self):
+        return self.get_children('sect3', 'DocSect3')

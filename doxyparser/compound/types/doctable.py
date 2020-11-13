@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docTable from doxygen
 
@@ -13,15 +12,16 @@ Model representation of a docTable from doxygen
 """
 from ...node import Node
 
+
 class DocTable(Node):
-  def get_caption(self):
-    return self.get_child('caption', 'DocCaption')
-  
-  def get_rows(self):
-    return self.get_children('row', 'DocRow')
-  
-  def get_num_rows(self):
-    return self.get('rows')
-  
-  def get_num_cols(self):
-    return self.get('cols')
+    def get_caption(self):
+        return self.get_child('caption', 'DocCaption')
+
+    def get_rows(self):
+        return self.get_children('row', 'DocRow')
+
+    def get_num_rows(self):
+        return self.get('rows')
+
+    def get_num_cols(self):
+        return self.get('cols')

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a param Element from doxygen
 
@@ -17,30 +16,31 @@ Model representation of a param Element from doxygen
 """
 from ...node import Node
 
-class Param(Node):
-  def __init__(self, node, parser):
-    super.__init__(node, parser, 'param')
-  
-  def get_attributes(self):
-    return self.get_text('attributes', '')
-    
-  def get_type(self):
-    return self.get_child('type', 'LinkedText')
-  
-  def get_decl_name(self):
-    return self.get_text('declname', '')
-  
-  def get_def_name(self):
-    return self.get_text('defname', '')
-  
-  def get_array(self):
-    return self.get_text('array', '')
-  
-  def get_def_val(self):
-    return self.get_child('defval', 'LinkedText')
 
-  def get_type_constraint(self):
-    return self.get_child('typeconstraint', 'LinkedText')
-  
-  def get_brief_description(self):
-    return self.get_child('briefdescription', 'Description')
+class Param(Node):
+    def __init__(self, node, parser):
+        super.__init__(node, parser, 'param')
+
+    def get_attributes(self):
+        return self.get_text('attributes', '')
+
+    def get_type(self):
+        return self.get_child('type', 'LinkedText')
+
+    def get_decl_name(self):
+        return self.get_text('declname', '')
+
+    def get_def_name(self):
+        return self.get_text('defname', '')
+
+    def get_array(self):
+        return self.get_text('array', '')
+
+    def get_def_val(self):
+        return self.get_child('defval', 'LinkedText')
+
+    def get_type_constraint(self):
+        return self.get_child('typeconstraint', 'LinkedText')
+
+    def get_brief_description(self):
+        return self.get_child('briefdescription', 'Description')

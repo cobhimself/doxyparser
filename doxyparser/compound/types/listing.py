@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a listingType Element from doxygen
 
@@ -11,9 +10,10 @@ Model representation of a listingType Element from doxygen
 """
 from ...node import Node
 
+
 class Param(Node):
     def get_file_name(self):
         return self.get('filename', '')
-    
+
     def get_code_lines(self):
         return self.get_children('codeline', 'CodeLine')

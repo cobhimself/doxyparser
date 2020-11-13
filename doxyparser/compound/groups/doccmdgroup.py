@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docCmdGroup type from doxygen
 
@@ -32,70 +31,71 @@ Model representation of a docCmdGroup type from doxygen
 """
 from ...nodegroup import NodeGroup
 
+
 class DocCmdGroup(NodeGroup):
 
-  def get_hruler(self):
-    return self.find('hruler') != None
-  
-  def get_preformatted(self):
-    return self.get_child('preformatted', 'DocMarkup')
-  
-  def get_programlisting(self):
-    return self.get_child('programlisting', 'Listing')
+    def get_hruler(self):
+        return self.find('hruler') != None
 
-  def get_verbatim(self):
-    return self.get_text('verbatim', '')
+    def get_preformatted(self):
+        return self.get_child('preformatted', 'DocMarkup')
 
-  def get_indexentry(self):
-    return self.get_child('indexentry', 'DocIndexEntry')
-  
-  def get_orderedlist(self):
-    return self.get_child('orderedlist', 'DocList')
+    def get_programlisting(self):
+        return self.get_child('programlisting', 'Listing')
 
-  def get_itemizedlist(self):
-    return self.get_child('itemizedlist', 'DocList')
+    def get_verbatim(self):
+        return self.get_text('verbatim', '')
 
-  def get_simplesect(self):
-    return self.get_child('simplesect', 'DocSimpleSect')
+    def get_indexentry(self):
+        return self.get_child('indexentry', 'DocIndexEntry')
 
-  def get_title(self):
-    return self.get_child('title', 'DocTitle')
+    def get_orderedlist(self):
+        return self.get_child('orderedlist', 'DocList')
 
-  def get_variablelist(self):
-    return self.get_child('variablelist', 'DocVariableList')
+    def get_itemizedlist(self):
+        return self.get_child('itemizedlist', 'DocList')
 
-  def get_table(self):
-    return self.get_child('table', 'DocTable')
+    def get_simplesect(self):
+        return self.get_child('simplesect', 'DocSimpleSect')
 
-  def get_heading(self):
-    return self.get_child('heading', 'DocHeading')
+    def get_title(self):
+        return self.get_child('title', 'DocTitle')
 
-  def get_dotfile(self):
-    return self.get_child('dotfile', 'DocImage')
+    def get_variablelist(self):
+        return self.get_child('variablelist', 'DocVariableList')
 
-  def get_mscfile(self):
-    return self.get_child('mscfile', 'DocImage')
+    def get_table(self):
+        return self.get_child('table', 'DocTable')
 
-  def get_diafile(self):
-    return self.get_child('diafile', 'DocImage')
+    def get_heading(self):
+        return self.get_child('heading', 'DocHeading')
 
-  def get_toclist(self):
-    return self.get_child('toc', 'DocTocList')
+    def get_dotfile(self):
+        return self.get_child('dotfile', 'DocImage')
 
-  def get_language(self):
-    return self.get_child('language', 'DocLanguage')
+    def get_mscfile(self):
+        return self.get_child('mscfile', 'DocImage')
 
-  def get_parameterlist(self):
-    return self.get_child('parameterlist', 'DocParamList')
+    def get_diafile(self):
+        return self.get_child('diafile', 'DocImage')
 
-  def get_xrefsect(self):
-    return self.get_child('xrefsect', 'DocXRefSect')
+    def get_toclist(self):
+        return self.get_child('toc', 'DocTocList')
 
-  def get_copydoc(self):
-    return self.get_child('copydoc', 'DocCopy')
+    def get_language(self):
+        return self.get_child('language', 'DocLanguage')
 
-  def get_blockquote(self):
-    return self.get_child('blockquote', 'DocBlockQuote')
+    def get_parameterlist(self):
+        return self.get_child('parameterlist', 'DocParamList')
 
-  def get_parblock(self):
-    return self.get_child('parblock', 'DocParBlock')
+    def get_xrefsect(self):
+        return self.get_child('xrefsect', 'DocXRefSect')
+
+    def get_copydoc(self):
+        return self.get_child('copydoc', 'DocCopy')
+
+    def get_blockquote(self):
+        return self.get_child('blockquote', 'DocBlockQuote')
+
+    def get_parblock(self):
+        return self.get_child('parblock', 'DocParBlock')

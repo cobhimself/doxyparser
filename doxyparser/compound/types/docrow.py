@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docRowType from doxygen
 
@@ -10,6 +9,7 @@ Model representation of a docRowType from doxygen
 """
 from ...node import Node
 
+
 class DocRow(Node):
-  def get_entries(self):
-    return self.get_children('entry', 'DocEntry')
+    def get_entries(self):
+        return self.get_children('entry', 'DocEntry')

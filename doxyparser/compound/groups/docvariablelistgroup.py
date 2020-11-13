@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docVariableListGroup type from doxygen
 
@@ -11,10 +10,11 @@ Model representation of a docVariableListGroup type from doxygen
 """
 from ...nodegroup import NodeGroup
 
+
 class DocVariableListGroup(NodeGroup):
 
-  def get_varlistentry(self):
-    return self.get_child('varlistentry', 'DocVarListEntry')
-  
-  def get_listitem(self):
-    return self.get_child('listitem', 'DocListItem')
+    def get_varlistentry(self):
+        return self.get_child('varlistentry', 'DocVarListEntry')
+
+    def get_listitem(self):
+        return self.get_child('listitem', 'DocListItem')

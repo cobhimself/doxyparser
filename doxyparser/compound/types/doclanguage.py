@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docLanguageType from doxygen
 
@@ -11,9 +10,10 @@ Model representation of a docLanguageType from doxygen
 """
 from ...node import Node
 
+
 class DocLanguage(Node):
-  def get_paras(self):
-    return self.get_children('para', 'DocPara')
-  
-  def get_langid(self):
-    return self.get('langid')
+    def get_paras(self):
+        return self.get_children('para', 'DocPara')
+
+    def get_langid(self):
+        return self.get('langid')

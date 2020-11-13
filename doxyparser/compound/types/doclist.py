@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docListType from doxygen
 
@@ -10,6 +9,7 @@ Model representation of a docListType from doxygen
 """
 from ...node import Node
 
+
 class DocList(Node):
-  def get_listitems(self):
-    return self.get_children('listitems', 'DocListItem')
+    def get_listitems(self):
+        return self.get_children('listitems', 'DocListItem')

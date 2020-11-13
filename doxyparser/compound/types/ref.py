@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a refType Element from doxygen
 
@@ -14,12 +13,13 @@ Model representation of a refType Element from doxygen
 """
 from ...node import Node
 
+
 class Ref(Node):
     def get_ref_id(self):
         return self.get_text('refid')
-    
+
     def get_prot(self):
         return self.get_text('prot', '')
-    
+
     def is_inline(self):
         return self.get_bool('inline')

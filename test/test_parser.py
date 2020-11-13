@@ -11,10 +11,12 @@ import pytest
 loader = Loader(helper.get_doxygen_build_dir())
 parser = Parser(loader)
 
+
 def test_parse_index():
-  index = parser.parse_index()
-  assert type(index) == DoxygenIndex
+    index = parser.parse_index()
+    assert type(index) == DoxygenIndex
+
 
 def test_parser_refid():
-  node = parser.parser_ref_id('namespace_src')
-  assert type(node) == Doxygen
+    node = parser.parser_ref_id('namespace_src')
+    assert type(node) == Doxygen

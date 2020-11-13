@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docURLLink from doxygen
 
@@ -9,7 +8,7 @@ Model representation of a docURLLink from doxygen
 """
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
+
 class DocURLLink(DocTitleCmdGroup):
-  def get_url(self):
-    return self.get('url')
-  
+    def get_url(self):
+        return self.get('url')

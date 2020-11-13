@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a memberdef Element from doxygen
 
@@ -80,67 +79,68 @@ Model representation of a memberdef Element from doxygen
 """
 from ...node import Node
 
+
 class MemberDef(Node):
     def __init__(self, node, parser):
         super.__init__(node, parser, 'memberdef')
-    
+
     def get_kind(self):
         return self.get('kind')
-    
+
     def get_id(self):
         return self.get('id')
-    
+
     def get_prot(self):
         return self.get('prot')
-    
+
     def is_static(self):
         return self.get_bool(self.get('static'))
-    
+
     def is_strong(self):
         return self.get_bool('strong')
-    
+
     def is_const(self):
         return self.get_bool('const')
 
     def is_explicit(self):
         return self.get_bool('explicit')
-    
+
     def is_inline(self):
         return self.get_bool('inline')
-    
+
     def get_refqual(self):
         return self.get('refqual')
-    
+
     def get_virt(self):
         return self.get('virt')
-    
+
     def get_template_param_list(self):
         return self.get_child('templateparamlist', 'templateparamlist')
-    
+
     def get_type(self):
         return self.get_child('type', 'linkedtext')
-    
+
     def get_definition(self):
         return self.get_text('definition', '')
-    
+
     def get_args_string(self):
         return self.get_text('argsstring', '')
-    
+
     def get_name(self):
         return self.get_text('name')
-    
+
     def get_read(self):
         return self.get_text('read')
-    
+
     def get_write(self):
         return self.get_text('write')
-    
+
     def get_reimplements(self):
         return self.get_children('reimplements', 'Reimplement')
-    
+
     def get_reimplemented_by(self):
         return self.get_children('reimplementedby', 'Reimplement')
-    
+
     def get_params(self):
         return self.get_children('param', 'Param')
 
@@ -149,7 +149,7 @@ class MemberDef(Node):
 
     def get_initializer(self):
         return self.get_child('initializer', 'LinkedText')
-    
+
     def get_exceptions(self):
         return self.get_child('exceptions', 'LinkedText')
 

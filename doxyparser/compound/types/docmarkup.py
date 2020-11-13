@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Model representation of a docMarkupType from doxygen
 
@@ -7,6 +6,7 @@ Model representation of a docMarkupType from doxygen
 </xsd:complexType>
 """
 from ..groups.doccmdgroup import DocCmdGroup
+
 
 class DocMarkup(DocCmdGroup):
     pass
