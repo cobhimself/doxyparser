@@ -18,8 +18,8 @@ Model representation of a param Element from doxygen
 from ...node import Node
 
 class Param(Node):
-  def __init__(self, node):
-    super.__init__(node, 'param')
+  def __init__(self, node, parser):
+    super.__init__(node, parser, 'param')
   
   def get_attributes(self):
     return self.get_text('attributes', '')

@@ -17,8 +17,8 @@ Model representation of a docSect3Type from doxygen
 from ...docsect import DocSect
 
 class DocSect3(DocSect):
-  def __init__(self, node):
-      super.__init__(node, '3')
+  def __init__(self, node, parser):
+      super.__init__(node, parser, '3')
   
   def get_sect4s(self):
     return self.get_children('sect4', 'DocSect4')

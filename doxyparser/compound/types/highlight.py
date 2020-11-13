@@ -13,9 +13,6 @@ Model representation of a highlightType from doxygen
 from ...node import Node
 
 class Highlight(Node):
-  def __init__(self, node):
-      super.__init__(node)
-  
   def get_sp(self):
     return self.get_child('sp', 'Sp')
   

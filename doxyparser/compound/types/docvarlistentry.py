@@ -11,8 +11,5 @@ Model representation of a docVarListEntryType from doxygen
 from ...node import Node
 
 class DocVarListEntry(Node):
-  def __init__(self, node):
-      super.__init__(node)
-  
   def get_term(self):
     return self.get_child('term', 'DocTitle')

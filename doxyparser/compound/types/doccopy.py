@@ -15,9 +15,6 @@ from ...node import Node
 
 class DocCopy(Node):
 
-  def __init__(self, node):
-    super.__init__(node)
-
   def get_paras(self):
     return self.get_children('para', 'DocPara')
 

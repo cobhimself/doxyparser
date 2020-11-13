@@ -12,9 +12,6 @@ Model representation of a docParamName from doxygen
 from ...node import Node
 
 class DocParamName(Node):
-  def __init__(self, node):
-    super.__init__(node)
-  
   def get_ref(self):
     return self.get_child('ref', 'RefText')
   

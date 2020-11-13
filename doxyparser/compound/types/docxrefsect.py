@@ -13,9 +13,6 @@ Model representation of a docXRefSectType from doxygen
 from ...node import Node
 
 class DocXRefSect(Node):
-  def __init__(self, node):
-      super.__init__(node)
-  
   def get_xreftitle(self):
     return self.get_text('xreftitle')
   

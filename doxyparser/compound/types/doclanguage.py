@@ -12,9 +12,6 @@ Model representation of a docLanguageType from doxygen
 from ...node import Node
 
 class DocLanguage(Node):
-  def __init__(self, node):
-      super.__init__(node)
-  
   def get_paras(self):
     return self.get_children('para', 'DocPara')
   

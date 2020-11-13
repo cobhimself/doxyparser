@@ -12,8 +12,5 @@ from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
 class DocCopy(DocTitleCmdGroup):
 
-  def __init__(self, node):
-    super.__init__(node)
-
   def get_level(self):
     return self.get('level')

@@ -34,9 +34,6 @@ from ...nodegroup import NodeGroup
 
 class DocCmdGroup(NodeGroup):
 
-  def __init__(self, node):
-    super.__init__(node)
-
   def get_hruler(self):
     return self.find('hruler') != None
   

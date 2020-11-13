@@ -12,8 +12,6 @@ Model representation of a docindexentry type from doxygen
 from ...node import Node
 
 class DocIndexEntry(Node):
-  def __init__(self, node):
-      super.__init__(node)
   
   def get_primaryie(self):
     return self.get_text('primaryie')

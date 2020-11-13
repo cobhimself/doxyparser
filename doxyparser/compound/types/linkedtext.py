@@ -11,8 +11,6 @@ Model representation of a refType Element from doxygen
 from ...node import Node
 
 class LinkedText(Node):
-    def __init__(self, node):
-        super.__init__(node)
     
     def get_refs(self):
         return self.get_children('ref', 'reftext')

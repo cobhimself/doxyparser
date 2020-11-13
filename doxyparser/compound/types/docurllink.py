@@ -10,9 +10,6 @@ Model representation of a docURLLink from doxygen
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
 class DocURLLink(DocTitleCmdGroup):
-  def __init__(self, node):
-    super.__init__(node)
-  
   def get_url(self):
     return self.get('url')
   

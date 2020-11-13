@@ -288,9 +288,6 @@ from ...nodegroup import NodeGroup
 
 class DocTitleCmdGroup(NodeGroup):
 
-  def __init__(self, node):
-    super.__init__(node)
-
     # Keys represent the tag, values represent the html entity without
     # the & and ;. If the value is '', the key can be used as the
     # entity value.

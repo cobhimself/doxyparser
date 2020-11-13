@@ -12,9 +12,6 @@ Model representation of a docParamListItem from doxygen
 from ...node import Node
 
 class DocParamListItem(Node):
-  def __init__(self, node):
-    super.__init__(node)
-  
   def get_parameternamelists(self):
     return self.get_children('parameternamelist', 'DocParamNameList')
 

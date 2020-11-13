@@ -14,8 +14,8 @@ Model representation of a sectiondef Element from doxygen
 from ...node import Node
 
 class SectionDef(Node):
-    def __init__(self, node):
-        super.__init__(node, 'sectiondef')
+    def __init__(self, node, parser):
+        super.__init__(node, parser, 'sectiondef')
     
     def get_member_defs(self):
         return self.get_children('memberdef', 'MemberDef')

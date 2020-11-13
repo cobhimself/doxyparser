@@ -9,8 +9,6 @@ Model representation of a docformula type from doxygen
 from ...node import Node
 
 class DocFormula(Node):
-  def __init__(self, node):
-      super.__init__(node)
   
   def get_id(self):
     return self.get('id')

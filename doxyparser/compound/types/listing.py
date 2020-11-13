@@ -12,9 +12,6 @@ Model representation of a listingType Element from doxygen
 from ...node import Node
 
 class Param(Node):
-    def __init__(self, node):
-        super.__init__(node, 'param')
-    
     def get_file_name(self):
         return self.get('filename', '')
     

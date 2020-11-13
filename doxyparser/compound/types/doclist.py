@@ -11,8 +11,5 @@ Model representation of a docListType from doxygen
 from ...node import Node
 
 class DocList(Node):
-  def __init__(self, node):
-      super.__init__(node)
-
   def get_listitems(self):
     return self.get_children('listitems', 'DocListItem')

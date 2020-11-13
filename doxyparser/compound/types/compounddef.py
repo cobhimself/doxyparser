@@ -42,8 +42,8 @@ Model representation of a compound def Element from doxygen
 from ...node import Node
 
 class CompoundDef(Node):
-    def __init__(self, node):
-        super.__init__(node, 'compounddef')
+    def __init__(self, node, parser):
+        super.__init__(node, parser, 'compounddef')
         self._elements = {
             
         }

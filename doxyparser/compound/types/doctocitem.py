@@ -10,8 +10,5 @@ Model representation of a docTocItemType from doxygen
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
 class DocTocItem(DocTitleCmdGroup):
-  def __init__(self, node):
-    super.__init__(node)
-  
   def get_id(self):
     return self.get('id')

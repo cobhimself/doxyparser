@@ -15,9 +15,6 @@ Model representation of a docSimpleSect from doxygen
 from ...node import Node
 
 class DocSimpleSect(Node):
-  def __init__(self, node):
-    super.__init__(node)
-  
   def get_title(self):
     return self.get_text('title')
   

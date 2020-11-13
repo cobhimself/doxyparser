@@ -15,8 +15,6 @@ Model representation of a reftext type Element from doxygen
 from ...node import Node
 
 class CodeLine(Node):
-    def __init__(self, node):
-        super.__init__(node)
     
     def get_highlight(self):
         return self.get_children('highlight', 'Highlight')

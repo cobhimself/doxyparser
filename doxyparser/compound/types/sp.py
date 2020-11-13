@@ -9,8 +9,5 @@ Model representation of a spType Element from doxygen
 from ...node import Node
 
 class Sp(Node):
-  def __init__(self, node):
-    super.__init__(node, 'sectiondef')
-
   def get_value(self):
       return self.get('value')

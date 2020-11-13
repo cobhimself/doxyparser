@@ -14,9 +14,6 @@ Model representation of a docTable from doxygen
 from ...node import Node
 
 class DocTable(Node):
-  def __init__(self, node):
-    super.__init__(node)
-  
   def get_caption(self):
     return self.get_child('caption', 'DocCaption')
   

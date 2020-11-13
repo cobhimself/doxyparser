@@ -11,8 +11,5 @@ Model representation of a docRowType from doxygen
 from ...node import Node
 
 class DocRow(Node):
-  def __init__(self, node):
-    super.__init__(node)
-  
   def get_entries(self):
     return self.get_children('entry', 'DocEntry')

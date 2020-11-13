@@ -14,9 +14,6 @@ Model representation of a incType Element from doxygen
 from ...node import Node
 
 class Inc(Node):
-    def __init__(self, node):
-        super.__init__(node)
-    
     def get_ref_id(self):
         return self.get('refid')
 

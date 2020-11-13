@@ -12,9 +12,6 @@ Model representation of a docRefTextType from doxygen
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
 class DocParBlock(DocTitleCmdGroup):
-  def __init__(self, node):
-      super.__init__(node)
-  
   def get_refid(self):
     return self.get('refid')
   

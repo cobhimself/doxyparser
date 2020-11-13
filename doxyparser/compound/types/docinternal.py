@@ -12,9 +12,6 @@ Model representation of a docInternalType type from doxygen
 from ...node import Node
 
 class DocInternal(Node):
-  def __init__(self, node):
-      super.__init__(node)
-  
   def get_paras(self):
     return self.get_children('para', 'DocPara')
   

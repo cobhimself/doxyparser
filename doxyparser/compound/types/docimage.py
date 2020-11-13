@@ -15,9 +15,6 @@ Model representation of a docimage type from doxygen
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
 class DocImage(DocTitleCmdGroup):
-  def __init__(self, node):
-      super.__init__(node)
-  
   def get_type(self):
     return self.get('type')
   
