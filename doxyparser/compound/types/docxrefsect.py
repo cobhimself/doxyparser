@@ -6,7 +6,7 @@ Model representation of a docXRefSectType from doxygen
     <xsd:element name="xreftitle" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
     <xsd:element name="xrefdescription" type="descriptionType" />
   </xsd:sequence>
-  <xsd:attribute name="id" type="xsd:string" /> 
+  <xsd:attribute name="id" type="xsd:string" />
 </xsd:complexType>
 """
 from ...node import Node

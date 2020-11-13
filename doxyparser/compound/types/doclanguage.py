@@ -5,7 +5,7 @@ Model representation of a docLanguageType from doxygen
   <xsd:sequence>
     <xsd:element name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
   </xsd:sequence>
-  <xsd:attribute name="langid" type="xsd:string" /> 
+  <xsd:attribute name="langid" type="xsd:string" />
 </xsd:complexType>
 """
 from ...node import Node

@@ -15,7 +15,7 @@ from ...node import Node
 
 class SectionDef(Node):
     def __init__(self, node, parser):
-        super.__init__(node, parser, 'sectiondef')
+        super().__init__(node, parser, 'sectiondef')
 
     def get_member_defs(self):
         return self.get_children('memberdef', 'MemberDef')

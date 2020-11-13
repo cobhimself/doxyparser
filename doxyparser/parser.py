@@ -1,8 +1,5 @@
-from doxyparser.index.types.doxygenindex import DoxygenIndex
-from .loader import Loader
-from doxyparser import TAG_MAP
-
-
+"""Main doxyparser Parser class.
+"""
 class Parser:
     def __init__(self, loader):
         self._loader = loader

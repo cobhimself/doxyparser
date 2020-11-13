@@ -82,7 +82,7 @@ from ...node import Node
 
 class MemberDef(Node):
     def __init__(self, node, parser):
-        super.__init__(node, parser, 'memberdef')
+        super().__init__(node, parser, 'memberdef')
 
     def get_kind(self):
         return self.get('kind')

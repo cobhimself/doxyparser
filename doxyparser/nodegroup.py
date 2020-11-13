@@ -6,8 +6,8 @@ from .node import Node
 
 class NodeGroup(Node):
 
-    def __init__(self, node):
-        super.__init__(node)
+    def __init__(self, node, parser):
+        super().__init__(node, parser)
         self._inner = None
 
     def get_inner(self):

@@ -1,7 +1,3 @@
-import importlib
-import builtins
-import sys
-
 """
 Super class used to represent doxy xml Elements
 """
@@ -22,12 +18,12 @@ class Node:
             Exception: Raised if a tag name is provided and it doesn't
                 match with the Element's tag
         """
-        if (None == parser):
+        if parser is None:
             raise Exception(
                 'The node class cannot be instantiated without a parser!'
             )
 
-        if (tag != None and node.tag != tag):
+        if tag not in (None, node.tag):
             raise Exception(
                 'Invalid tag name ('
                 + node.tag
@@ -55,7 +51,7 @@ class Node:
         """
         child = self._node.find(key)
 
-        if child == None:
+        if child is None:
             return default
 
         return child
@@ -72,7 +68,7 @@ class Node:
                 returned. Otherwise the default.
         """
         found = self.find(key)
-        if found == None:
+        if found is None:
             return default
         else:
             return found.text
@@ -85,13 +81,13 @@ class Node:
         return value == 'yes'
 
     def get_children(self, xsd, tag, path=None):
-        xpath = tag + ('' if path == None else path)
+        xpath = tag + ('' if path is None else path)
         if xpath not in self._child_cache.keys():
-            childClass = self._parser.get_tag_class(xsd, tag)
+            child_class = self._parser.get_tag_class(xsd, tag)
 
             children = []
             for child in self.iter(xpath):
-                children.append(childClass(child, self._parser))
+                children.append(child_class(child, self._parser))
 
             self._child_cache[xpath] = children
 
@@ -99,13 +95,13 @@ class Node:
 
     def get_child(self, key, node_type, path=None):
         children = self.get_children(key, node_type, path)
-        if children != None:
+        if children is None:
             return children[0]
 
         return None
 
     def debug_dump(self):
-        self._node
+        self._node.dump()
 
     def load_ref(self, xsd, refid):
         return self._parser.parser_from_ref_id(xsd, refid)

@@ -17,4 +17,4 @@ from ...docsect import DocSect
 
 class DocSect4(DocSect):
     def __init__(self, node, parser):
-        super.__init__(node, parser, '4')
+        super().__init__(node, parser, '4')

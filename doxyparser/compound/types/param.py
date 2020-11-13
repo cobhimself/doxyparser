@@ -19,7 +19,7 @@ from ...node import Node
 
 class Param(Node):
     def __init__(self, node, parser):
-        super.__init__(node, parser, 'param')
+        super().__init__(node, parser, 'param')
 
     def get_attributes(self):
         return self.get_text('attributes', '')

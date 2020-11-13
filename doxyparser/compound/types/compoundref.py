@@ -17,7 +17,7 @@ from ...node import Node
 
 class CompoundRef(Node):
     def __init__(self, node, parser):
-        super.__init__(node, parser, 'compoundref')
+        super().__init__(node, parser, 'compoundref')
 
     def get_refid(self):
         return self.get('refid', '')

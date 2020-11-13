@@ -5,7 +5,7 @@ Model representation of a docParamListType from doxygen
   <xsd:sequence>
     <xsd:element name="parameteritem" type="docParamListItem" minOccurs="0" maxOccurs="unbounded" />
   </xsd:sequence>
-  <xsd:attribute name="kind" type="DoxParamListKind" /> 
+  <xsd:attribute name="kind" type="DoxParamListKind" />
 </xsd:complexType>
 """
 from ...node import Node

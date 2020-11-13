@@ -10,9 +10,10 @@ Model representation of a doxygenindex Element from doxygen
   <xsd:attribute ref="xml:lang" use="required"/>
 </xsd:complexType>
 """
-from ...node import Node
 from xml.etree.ElementTree import Element
 from typing import Optional
+
+from ...node import Node
 from .compound import Compound
 
 
@@ -22,7 +23,7 @@ class DoxygenIndex(Node):
         self,
         kind: Optional[str] = None
     ) -> dict[Compound]:
-        path = '' if kind == None else '/[@kind="' + kind + '"]'
+        path = '' if kind is None else '/[@kind="' + kind + '"]'
         return self.get_children(
             xsd='index',
             tag='compound',

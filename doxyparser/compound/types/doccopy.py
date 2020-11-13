@@ -7,7 +7,7 @@ Model representation of a doccopy type Element from doxygen
     <xsd:element name="sect1" type="docSect1Type" minOccurs="0" maxOccurs="unbounded" />
     <xsd:element name="internal" type="docInternalType" minOccurs="0" />
   </xsd:sequence>
-  <xsd:attribute name="link" type="xsd:string" /> 
+  <xsd:attribute name="link" type="xsd:string" />
 </xsd:complexType>
 """
 from ...node import Node

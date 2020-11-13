@@ -18,7 +18,7 @@ from ...docsect import DocSect
 
 class DocSect2(DocSect):
     def __init__(self, node, parser):
-        super.__init__(node, parser, '2')
+        super().__init__(node, parser, '2')
 
     def get_sect3s(self):
         return self.get_children('sect3', 'DocSect3')

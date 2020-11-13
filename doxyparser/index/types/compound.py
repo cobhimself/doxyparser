@@ -21,7 +21,7 @@ class Compound(Node):
         return self.get_text('name')
 
     def get_members(self, kind=None):
-        path = '' if kind == None else '/[@kind="' + kind + '"]'
+        path = '' if kind is None else '/[@kind="' + kind + '"]'
         return self.get_children(
             xsd='index',
             tag='member',
