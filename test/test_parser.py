@@ -18,5 +18,5 @@ def test_parse_index():
 
 
 def test_parser_refid():
-    node = parser.parser_ref_id('namespace_src')
+    node = parser.parse_ref_id('namespace_src')
     assert type(node) == Doxygen

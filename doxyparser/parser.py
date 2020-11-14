@@ -11,7 +11,7 @@ class Parser:
             tree
         )
 
-    def parser_ref_id(self, refid, xsd='compound'):
+    def parse_ref_id(self, refid, xsd='compound'):
         tree = self._loader.load_refid(refid)
         return self.get_node_from_tree(
             xsd,
