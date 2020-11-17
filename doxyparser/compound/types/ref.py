@@ -15,11 +15,11 @@ class Ref(Node):
     </xsd:simpleContent>
     </xsd:complexType>
     """
-    def get_ref_id(self):
-        return self.get_text('refid')
+    def get_refid(self):
+        return self.get('refid')
 
     def get_prot(self):
-        return self.get_text('prot', '')
+        return self.get('prot', '')
 
     def is_inline(self):
         return self.get_bool('inline')
