@@ -42,11 +42,6 @@ class CompoundDef(Node):
     <xsd:attribute name="abstract" type="DoxBool" use="optional"/>
     </xsd:complexType>
     """
-    def __init__(self, node, parser):
-        super().__init__(node, parser, 'compounddef')
-        self._elements = {
-
-        }
 
     def get_id(self):
         return self.get('id')
@@ -73,40 +68,49 @@ class CompoundDef(Node):
         return self.get_bool('abstract')
 
     def get_compound_name(self):
-        return self.find('compoundname', '')
+        return self.get_text('compoundname')
 
     def get_title(self):
-        return self.find('compoundname', '')
+        return self.get_text('title')
 
     def get_base_compound_refs(self):
-        return self.get_children('basecompoundref', 'CompoundRef')
+        return self.get_children('basecompoundref')
 
     def get_derived_compound_refs(self):
-        return self.get_children('derivedcompoundref', 'CompoundRef')
+        return self.get_children('derivedcompoundref')
 
     def get_includes(self):
-        return self.get_children('includes', 'Inc')
+        return self.get_children('includes')
 
     def get_included_by(self):
-        return self.get_children('includedby', 'Inc')
+        return self.get_children('includedby')
 
     def get_inner_dirs(self):
-        return self.get_children('innerdir', 'Ref')
+        return self.get_children('innerdir')
 
     def get_inner_files(self):
-        return self.get_children('innerfile', 'Ref')
+        return self.get_children('innerfile')
 
     def get_inner_classes(self):
-        return self.get_children('innerclass', 'Ref')
+        return self.get_children('innerclass')
 
     def get_inner_namespaces(self):
-        return self.get_children('innernamespace', 'Ref')
+        return self.get_children('innernamespace')
 
     def get_inner_pages(self):
-        return self.get_children('innerpage', 'Ref')
+        return self.get_children('innerpage')
 
     def get_inner_groups(self):
-        return self.get_children('innergroup', 'Ref')
+        return self.get_children('innergroup')
 
     def get_section_def(self):
-        return self.get_children('sectiondef', 'SectionDef')
+        return self.get_children('sectiondef')
+
+    def get_brief_description(self):
+        return self.get_child('briefdescription')
+
+    def get_detailed_description(self):
+        return self.get_child('detaileddescription')
+
+    def get_location(self):
+        return self.get_child('location')
