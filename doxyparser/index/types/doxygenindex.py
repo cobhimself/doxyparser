@@ -24,8 +24,7 @@ class DoxygenIndex(Node):
     ) -> dict[Compound]:
         path = '' if kind is None else '/[@kind="' + kind + '"]'
         return self.get_children(
-            xsd='index',
-            tag='compound',
+            'compound',
             path=path
         )
 
