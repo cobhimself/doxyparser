@@ -1,0 +1,51 @@
+# This is the name of the nodes this test data is associated with.
+compounddef:
+  # The keys at this level are "node getters". They are appended to `get_` and
+  # the combined method is called on the Doxygen class. Example: a key of
+  # 'namespace_compounddefs' would have a "node getter" value of
+  # 'get_namespace_compounddefs'.
+  namespace_compounddefs:
+    #Each item in this list represents a single compounddef node retrieved
+    #through the above "node getter". Each item's top-level keys represent
+    #"value getters". The keys are appended to `get_` to form the final "value
+    #getter" method to be called on the node received from the parent "node
+    #getter". The value for the below can be one of two things:
+    #
+    #  1. The value to confirm the "value getter" returns.
+    #  2. An associative array of specific confirmations to be made.
+    #
+    # Specific confirmations are specified by a key and the value is what the
+    # expectation is. For example, the 'count' key would have a numeric value
+    # we expect a count of the items returned by the "value getter" to have.
+    #
+    # A 'children' key would specify we want to make additional assertions
+    # about the node retrieved through the "node getter". The 'children' key
+    # requires a 'getter' with the value to append to `get_` to obtain the
+    # child data. The 'expectations' key
+    -
+      id: namespace_src
+      kind: namespace
+      language: PHP
+      compound_name: Src
+      inner_classes:
+        count: 2
+        children:
+          getter: inner_classes
+          expectations:
+            - refid: class_src_1_1_extending_class
+              prot: public
+              class_name: Src::ExtendingClass
+            - refid: class_src_1_1_simple_class
+              prot: public
+              class_name: Src::SimpleClass
+      brief_description:
+        empty: true
+      detailed_description:
+        empty: true
+      location:
+        children:
+          getter: location
+          expectations:
+            - file: test/_sample_data/php/src/ExtendingClass.php
+              line: 3
+              column: 10
