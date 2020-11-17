@@ -1,6 +1,6 @@
-import xml.etree.ElementTree as ET
 from doxyparser import TAG_MAP
 from importlib import import_module
+from .tree import Tree
 
 
 class Loader():
@@ -12,21 +12,42 @@ class Loader():
         self._cache = {}
 
     def load_index(self):
-        return ET.parse(self._xml_dir + '/index.xml')
+        """Return the Tree associated with the index.xml file.
+
+        Returns:
+            Tree: The tree with the data from index.xml
+        """
+        return Tree().parse(self._xml_dir + '/index.xml')
 
     def load_tag_class(self, xsd, tag):
+        """
+        Load the given doxyparser class associated with the given xsd
+        and tag.
+
+        Args:
+            xsd (string): The xsd folder where the tag class can be found.
+            tag (string): The tag whos doxyparser model should be loaded.
+
+        Raises:
+            Exception: If the given xsd cannot be found.
+            Exception: If no class mapping exists for the given tag.
+
+        Returns:
+            class: The doxyparser class for the given xsd and tag.
+        """
         if (xsd, tag) not in self._cache:
 
             if xsd not in TAG_MAP.keys():
                 raise Exception(
-                    'Unknown doxyparser xsd type: ' + xsd +
-                    ' check TAG_MAP in doxyparser/__init__.py'
+                    'Unable to load tag class with xsd "' + xsd + '", '
+                    + 'tag: "' + tag + '". Check TAG_MAP in doxyparser/__init__.py'
                 )
 
             if tag not in TAG_MAP[xsd].keys():
                 raise Exception(
-                    'No class mapping for tag ' + tag + 'is set! Update doxyparser/__init__.py'
+                    'No class mapping for tag ' + tag + ' is set! Update doxyparser/__init__.py'
                 )
+
             path = TAG_MAP[xsd][tag]
             parts = path.split('.')
             final = parts.pop()
@@ -39,5 +60,12 @@ class Loader():
         return self._cache[(xsd, tag)]
 
     def load_refid(self, refid):
-        tree = ET.parse(self._xml_dir + '/' + refid + '.xml')
-        return tree
+        """Load the Tree for the given refid
+
+        Args:
+            refid (string): The refid file to load (minus .xml)
+
+        Returns:
+            Tree: The tree for the refid xml file.
+        """
+        return Tree().parse(self._xml_dir + '/' + refid + '.xml')
