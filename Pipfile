@@ -11,7 +11,8 @@ autopep8 = "*"
 pyyaml = "*"
 toml = "*"
 pytest-cov = "*"
-clint = "*"
 
 [requires]
 python_version = "3.9"
+
+[packages]
