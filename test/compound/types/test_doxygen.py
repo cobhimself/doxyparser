@@ -5,7 +5,7 @@ doxygen = helper.get_parser().parse_ref_id('namespace_src')
 
 def test_doxygen():
     compounddefs = doxygen.get_compounddefs()
-    assert 1 == len(compounddefs)
+    assert len(compounddefs) == 1
 
 
 def test_get_version():
