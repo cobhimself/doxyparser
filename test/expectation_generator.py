@@ -8,6 +8,7 @@ try:
 except ImportError:
     from yaml import Dumper
 
+
 class Expectations():
     def __init__(self, tree):
         self._tree = tree
@@ -32,14 +33,14 @@ class Expectations():
                 current['_tail'] = tail
         else:
             if text != '' or tail != '':
-                #We have an element that contains text and other elements
+                # We have an element that contains text and other elements
                 current['_complex'] = [text]
                 is_complex = True
 
             for child in list(element):
                 data = self.handle(child)
                 if is_complex:
-                    #Did we have tail text?
+                    # Did we have tail text?
                     tail = data.pop('_tail', None)
                     current['_complex'].append({child.tag: data})
                     if tail is not None:
@@ -56,10 +57,11 @@ class Expectations():
 
         return current
 
+
 class ExpectationGenerator():
     def __init__(self, xmlfile, output):
         here = str(pathlib.Path(__file__).parent)
-        xmldir =  here + '/_sample_data/_build/php/xml/'
+        xmldir = here + '/_sample_data/_build/php/xml/'
         ymldir = here + '/_expectation_data/'
         self._xmlfile = xmldir + xmlfile + '.xml'
         self._ymloutput = ymldir + output + '.yml'
