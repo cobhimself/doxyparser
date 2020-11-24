@@ -1,9 +1,9 @@
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
 
-class DocCopy(DocTitleCmdGroup):
+class DocHeadingType(DocTitleCmdGroup):
     """
-    Model representation of a docheading type Element from doxygen
+    Model representation of a docHeadingType from doxygen
 
     <xsd:complexType name="docHeadingType" mixed="true">
         <xsd:group ref="docTitleCmdGroup" minOccurs="0" maxOccurs="unbounded" />

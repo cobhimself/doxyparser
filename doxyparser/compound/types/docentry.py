@@ -1,7 +1,7 @@
 from ...node import Node
 
 
-class DocEntry(Node):
+class DocEntryType(Node):
     """
     Model representation of a docEntryType from doxygen
 

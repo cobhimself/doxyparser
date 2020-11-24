@@ -1,9 +1,9 @@
 from ...node import Node
 
 
-class DocAnchor(Node):
+class DocAnchorType(Node):
     """
-    Model representation of a docanchor type from doxygen
+    Model representation of a docAnchorType from doxygen
 
     <xsd:complexType name="docAnchorType" mixed="true">
         <xsd:attribute name="id" type="xsd:string" />

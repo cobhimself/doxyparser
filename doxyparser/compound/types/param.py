@@ -1,6 +1,8 @@
 from ...node import Node
+from ...decorators import tag
 
 
+@tag('param')
 class Param(Node):
     """
     Model representation of a param Element from doxygen
@@ -18,8 +20,6 @@ class Param(Node):
     </xsd:sequence>
     </xsd:complexType>
     """
-    def __init__(self, node, parser):
-        super().__init__(node, parser, 'param')
 
     def get_attributes(self):
         return self.get_text('attributes', '')

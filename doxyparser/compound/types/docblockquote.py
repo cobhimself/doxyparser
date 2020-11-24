@@ -1,7 +1,7 @@
 from ...node import Node
 
 
-class DocBlockQuote(Node):
+class DocBlockQuoteType(Node):
     """
     Model representation of a docblockquote type Element from doxygen
 

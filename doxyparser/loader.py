@@ -7,9 +7,10 @@ class Loader():
     """Class responsible for loading xml files and classes relating to nodes
     """
 
+    cache = {}
+
     def __init__(self, xml_dir):
         self._xml_dir = xml_dir
-        self._cache = {}
 
     def load_index(self):
         """Return the Tree associated with the index.xml file.
@@ -17,9 +18,13 @@ class Loader():
         Returns:
             Tree: The tree with the data from index.xml
         """
-        return Tree().parse(self._xml_dir + '/index.xml')
+        return self.load('index')
 
-    def load_tag_class(self, xsd, tag):
+    def load(self, file):
+        return Tree().parse(self._xml_dir + '/' + file + '.xml')
+
+    @staticmethod
+    def load_tag_class(xsd, tag):
         """
         Load the given doxyparser class associated with the given xsd
         and tag.
@@ -35,7 +40,7 @@ class Loader():
         Returns:
             class: The doxyparser class for the given xsd and tag.
         """
-        if (xsd, tag) not in self._cache:
+        if (xsd, tag) not in Loader.cache:
 
             if xsd not in TAG_MAP.keys():
                 raise Exception(
@@ -55,9 +60,9 @@ class Loader():
 
             module = import_module(package)
 
-            self._cache[(xsd, tag)] = getattr(module, final)
+            Loader.cache[(xsd, tag)] = getattr(module, final)
 
-        return self._cache[(xsd, tag)]
+        return Loader.cache[(xsd, tag)]
 
     def load_refid(self, refid):
         """Load the Tree for the given refid
@@ -68,4 +73,4 @@ class Loader():
         Returns:
             Tree: The tree for the refid xml file.
         """
-        return Tree().parse(self._xml_dir + '/' + refid + '.xml')
+        return self.load(refid)

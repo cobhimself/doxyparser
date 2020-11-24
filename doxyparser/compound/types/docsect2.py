@@ -18,8 +18,8 @@ class DocSect2(DocSect):
     </xsd:complexType>
     """
 
-    def __init__(self, node, parser):
-        super().__init__(node, parser, '2')
+    def __init__(self, node, parser, tree):
+        super().__init__(node, parser, tree, '2')
 
     def get_sect3s(self):
         return self.get_children('sect3', 'DocSect3')

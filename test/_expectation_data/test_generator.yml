@@ -1,0 +1,363 @@
+'{http://www.w3.org/2001/XMLSchema-instance}noNamespaceSchemaLocation': index.xsd
+version: 1.8.20
+'{http://www.w3.org/XML/1998/namespace}lang': en-US
+compounds:
+  count: 18
+  expectations:
+    compound:
+    - ref_id: class_src_1_1_more_1_1_deep_class
+      kind: class
+      members:
+        count: 3
+        expectations:
+          member:
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a5c6fc8c684b5406f85f65ae5e6a92bdb
+            kind: function
+            name:
+              _text: thisIsPrivate
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a505a7c599c5c139d478ec1000fa6ae58
+            kind: function
+            name:
+              _text: thisIsPublic
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a6c3a5cf3c55dab4b7dd109cfbda3ee72
+            kind: function
+            name:
+              _text: thisIsProtected
+      member_functions:
+        count: 3
+        expectations:
+          member:
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a5c6fc8c684b5406f85f65ae5e6a92bdb
+            kind: function
+            name:
+              _text: thisIsPrivate
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a505a7c599c5c139d478ec1000fa6ae58
+            kind: function
+            name:
+              _text: thisIsPublic
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a6c3a5cf3c55dab4b7dd109cfbda3ee72
+            kind: function
+            name:
+              _text: thisIsProtected
+    - ref_id: interface_src_1_1_more_1_1_deep_interface
+      kind: interface
+      members:
+        count: 3
+        expectations:
+          member:
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1a18204a00c4baad93287c49b69b036992
+            kind: function
+            name:
+              _text: requiredMethod
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1ac2b9b763a3b172b6a712dcc14e0d5246
+            kind: function
+            name:
+              _text: requiredMethod2
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1a2430a756137d42461b19ecef4ca588b6
+            kind: function
+            name:
+              _text: requiredMethod3
+      member_functions:
+        count: 3
+        expectations:
+          member:
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1a18204a00c4baad93287c49b69b036992
+            kind: function
+            name:
+              _text: requiredMethod
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1ac2b9b763a3b172b6a712dcc14e0d5246
+            kind: function
+            name:
+              _text: requiredMethod2
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1a2430a756137d42461b19ecef4ca588b6
+            kind: function
+            name:
+              _text: requiredMethod3
+    - ref_id: class_src_1_1_extending_class
+      kind: class
+      members:
+        count: 1
+        expectations:
+          member:
+            ref_id: class_src_1_1_extending_class_1aea1aecc414ac021af88923cf77a655f8
+            kind: function
+            name:
+              _text: additionalMethod
+      member_functions:
+        count: 1
+        expectations:
+          member:
+            ref_id: class_src_1_1_extending_class_1aea1aecc414ac021af88923cf77a655f8
+            kind: function
+            name:
+              _text: additionalMethod
+    - ref_id: class_src_1_1_simple_class
+      kind: class
+      members:
+        count: 5
+        expectations:
+          member:
+          - ref_id: class_src_1_1_simple_class_1a8bacb57c1bf1d2c2c7ec81c69748f3db
+            kind: variable
+            name:
+              _text: $simplePrivateString
+          - ref_id: class_src_1_1_simple_class_1a5424cdfc78e3eede0fec9336bf69a5fb
+            kind: variable
+            name:
+              _text: $simpleProtectedString
+          - ref_id: class_src_1_1_simple_class_1a7e362a39f27152e4d5ef2729e870cd6e
+            kind: variable
+            name:
+              _text: $simplePublicString
+          - ref_id: class_src_1_1_simple_class_1ab64e40bc8736a98779771e3dc676eaa1
+            kind: function
+            name:
+              _text: __construct
+          - ref_id: class_src_1_1_simple_class_1a314e66f4701707ffdde373175bb08e8f
+            kind: function
+            name:
+              _text: testMethod
+      member_functions:
+        count: 2
+        expectations:
+          member:
+          - ref_id: class_src_1_1_simple_class_1ab64e40bc8736a98779771e3dc676eaa1
+            kind: function
+            name:
+              _text: __construct
+          - ref_id: class_src_1_1_simple_class_1a314e66f4701707ffdde373175bb08e8f
+            kind: function
+            name:
+              _text: testMethod
+      member_variables:
+        count: 3
+        expectations:
+          member:
+          - ref_id: class_src_1_1_simple_class_1a8bacb57c1bf1d2c2c7ec81c69748f3db
+            kind: variable
+            name:
+              _text: $simplePrivateString
+          - ref_id: class_src_1_1_simple_class_1a5424cdfc78e3eede0fec9336bf69a5fb
+            kind: variable
+            name:
+              _text: $simpleProtectedString
+          - ref_id: class_src_1_1_simple_class_1a7e362a39f27152e4d5ef2729e870cd6e
+            kind: variable
+            name:
+              _text: $simplePublicString
+    - ref_id: namespace_simple_class
+      kind: namespace
+    - ref_id: namespace_src
+      kind: namespace
+    - ref_id: namespace_src_1_1_extending_class
+      kind: namespace
+    - ref_id: namespace_src_1_1_more
+      kind: namespace
+    - ref_id: _extending_class_8php
+      kind: file
+    - ref_id: _deep_class_8php
+      kind: file
+    - ref_id: _deep_interface_8php
+      kind: file
+    - ref_id: _deep_trait_8php
+      kind: file
+    - ref_id: _simple_class_8php
+      kind: file
+    - ref_id: dir_aff6df607ed6189b93aaafc2d0e42449
+      kind: dir
+    - ref_id: dir_04192932d1755613d2b2bc6452a59b35
+      kind: dir
+    - ref_id: dir_c961a6d6ff74ea8517bcd12fcd838577
+      kind: dir
+    - ref_id: dir_492ad140db23dd00fabd61e5862a21cb
+      kind: dir
+    - ref_id: dir_13e138d54eb8818da29c3992edef070a
+      kind: dir
+compound_classes:
+  count: 3
+  expectations:
+    compound:
+    - ref_id: class_src_1_1_more_1_1_deep_class
+      kind: class
+      members:
+        count: 3
+        expectations:
+          member:
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a5c6fc8c684b5406f85f65ae5e6a92bdb
+            kind: function
+            name:
+              _text: thisIsPrivate
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a505a7c599c5c139d478ec1000fa6ae58
+            kind: function
+            name:
+              _text: thisIsPublic
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a6c3a5cf3c55dab4b7dd109cfbda3ee72
+            kind: function
+            name:
+              _text: thisIsProtected
+      member_functions:
+        count: 3
+        expectations:
+          member:
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a5c6fc8c684b5406f85f65ae5e6a92bdb
+            kind: function
+            name:
+              _text: thisIsPrivate
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a505a7c599c5c139d478ec1000fa6ae58
+            kind: function
+            name:
+              _text: thisIsPublic
+          - ref_id: class_src_1_1_more_1_1_deep_class_1a6c3a5cf3c55dab4b7dd109cfbda3ee72
+            kind: function
+            name:
+              _text: thisIsProtected
+    - ref_id: class_src_1_1_extending_class
+      kind: class
+      members:
+        count: 1
+        expectations:
+          member:
+            ref_id: class_src_1_1_extending_class_1aea1aecc414ac021af88923cf77a655f8
+            kind: function
+            name:
+              _text: additionalMethod
+      member_functions:
+        count: 1
+        expectations:
+          member:
+            ref_id: class_src_1_1_extending_class_1aea1aecc414ac021af88923cf77a655f8
+            kind: function
+            name:
+              _text: additionalMethod
+    - ref_id: class_src_1_1_simple_class
+      kind: class
+      members:
+        count: 5
+        expectations:
+          member:
+          - ref_id: class_src_1_1_simple_class_1a8bacb57c1bf1d2c2c7ec81c69748f3db
+            kind: variable
+            name:
+              _text: $simplePrivateString
+          - ref_id: class_src_1_1_simple_class_1a5424cdfc78e3eede0fec9336bf69a5fb
+            kind: variable
+            name:
+              _text: $simpleProtectedString
+          - ref_id: class_src_1_1_simple_class_1a7e362a39f27152e4d5ef2729e870cd6e
+            kind: variable
+            name:
+              _text: $simplePublicString
+          - ref_id: class_src_1_1_simple_class_1ab64e40bc8736a98779771e3dc676eaa1
+            kind: function
+            name:
+              _text: __construct
+          - ref_id: class_src_1_1_simple_class_1a314e66f4701707ffdde373175bb08e8f
+            kind: function
+            name:
+              _text: testMethod
+      member_functions:
+        count: 2
+        expectations:
+          member:
+          - ref_id: class_src_1_1_simple_class_1ab64e40bc8736a98779771e3dc676eaa1
+            kind: function
+            name:
+              _text: __construct
+          - ref_id: class_src_1_1_simple_class_1a314e66f4701707ffdde373175bb08e8f
+            kind: function
+            name:
+              _text: testMethod
+      member_variables:
+        count: 3
+        expectations:
+          member:
+          - ref_id: class_src_1_1_simple_class_1a8bacb57c1bf1d2c2c7ec81c69748f3db
+            kind: variable
+            name:
+              _text: $simplePrivateString
+          - ref_id: class_src_1_1_simple_class_1a5424cdfc78e3eede0fec9336bf69a5fb
+            kind: variable
+            name:
+              _text: $simpleProtectedString
+          - ref_id: class_src_1_1_simple_class_1a7e362a39f27152e4d5ef2729e870cd6e
+            kind: variable
+            name:
+              _text: $simplePublicString
+compound_interfaces:
+  count: 1
+  expectations:
+    compound:
+      ref_id: interface_src_1_1_more_1_1_deep_interface
+      kind: interface
+      members:
+        count: 3
+        expectations:
+          member:
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1a18204a00c4baad93287c49b69b036992
+            kind: function
+            name:
+              _text: requiredMethod
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1ac2b9b763a3b172b6a712dcc14e0d5246
+            kind: function
+            name:
+              _text: requiredMethod2
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1a2430a756137d42461b19ecef4ca588b6
+            kind: function
+            name:
+              _text: requiredMethod3
+      member_functions:
+        count: 3
+        expectations:
+          member:
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1a18204a00c4baad93287c49b69b036992
+            kind: function
+            name:
+              _text: requiredMethod
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1ac2b9b763a3b172b6a712dcc14e0d5246
+            kind: function
+            name:
+              _text: requiredMethod2
+          - ref_id: interface_src_1_1_more_1_1_deep_interface_1a2430a756137d42461b19ecef4ca588b6
+            kind: function
+            name:
+              _text: requiredMethod3
+compound_namespaces:
+  count: 4
+  expectations:
+    compound:
+    - ref_id: namespace_simple_class
+      kind: namespace
+    - ref_id: namespace_src
+      kind: namespace
+    - ref_id: namespace_src_1_1_extending_class
+      kind: namespace
+    - ref_id: namespace_src_1_1_more
+      kind: namespace
+compound_files:
+  count: 5
+  expectations:
+    compound:
+    - ref_id: _extending_class_8php
+      kind: file
+    - ref_id: _deep_class_8php
+      kind: file
+    - ref_id: _deep_interface_8php
+      kind: file
+    - ref_id: _deep_trait_8php
+      kind: file
+    - ref_id: _simple_class_8php
+      kind: file
+compound_dirs:
+  count: 5
+  expectations:
+    compound:
+    - ref_id: dir_aff6df607ed6189b93aaafc2d0e42449
+      kind: dir
+    - ref_id: dir_04192932d1755613d2b2bc6452a59b35
+      kind: dir
+    - ref_id: dir_c961a6d6ff74ea8517bcd12fcd838577
+      kind: dir
+    - ref_id: dir_492ad140db23dd00fabd61e5862a21cb
+      kind: dir
+    - ref_id: dir_13e138d54eb8818da29c3992edef070a
+      kind: dir

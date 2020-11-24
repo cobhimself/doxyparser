@@ -1,9 +1,9 @@
 from ...node import Node
 
 
-class DocEmoji(Node):
+class DocEmojiType(Node):
     """
-    Model representation of a docemoji type from doxygen
+    Model representation of a docEmojiType from doxygen
 
     <xsd:complexType name="docEmojiType">
         <xsd:attribute name="name" type="xsd:string"/>

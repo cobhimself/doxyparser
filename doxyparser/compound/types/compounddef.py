@@ -1,10 +1,10 @@
 from ...node import Node
 
 
-class CompoundDef(Node):
+class CompoundDefType(Node):
     """
     Model representation of a compound def Element from doxygen
-    
+
     <xsd:complexType name="compounddefType">
     <xsd:sequence>
         <xsd:element name="compoundname" type="xsd:string"/>

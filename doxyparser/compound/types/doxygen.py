@@ -1,6 +1,7 @@
 from ...node import Node
 from typing import Optional
 from ...compound.types.compounddef import CompoundDef
+from ...decorators import collection
 
 
 class Doxygen(Node):
@@ -18,6 +19,7 @@ class Doxygen(Node):
     </xsd:complexType>
     """
 
+    @collection('compounddef', '/[@kind="{}"]')
     def get_compounddefs(
         self,
         kind: Optional[str] = None
@@ -30,6 +32,9 @@ class Doxygen(Node):
 
     def get_namespace_compounddefs(self):
         return self.get_compounddefs('namespace')
+
+    def get_class_compounddefs(self):
+        return self.get_compounddefs('class')
 
     def get_version(self):
         return self.get('version')

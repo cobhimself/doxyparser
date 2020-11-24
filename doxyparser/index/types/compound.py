@@ -1,6 +1,15 @@
 from ...node import Node
+from ...decorators import tag, collection
 
 
+@tag('compound')
+@collection(
+    tag_name='member',
+    xpath='/[@kind="{kind}"]',
+    collectors={
+        'functions': {'kind': 'function'},
+        'variables': {'kind': 'variable'}
+    })
 class Compound(Node):
     """
     Model representation of a CompoundType Element from doxygen
@@ -19,21 +28,8 @@ class Compound(Node):
     def get_name(self):
         return self.get_text('name')
 
-    def get_members(self, kind=None):
-        path = '' if kind is None else '/[@kind="' + kind + '"]'
-        return self.get_children(
-            tag='member',
-            path=path
-        )
-
     def get_refid(self):
         return self.get('refid')
 
     def get_kind(self):
         return self.get('kind')
-
-    def get_member_functions(self):
-        return self.get_members('function')
-
-    def get_member_variables(self):
-        return self.get_members('variable')

@@ -1,9 +1,9 @@
 from ...node import Node
 
 
-class DocFormula(Node):
+class DocFormulaType(Node):
     """
-    Model representation of a docformula type from doxygen
+    Model representation of a docFormulaType from doxygen
 
     <xsd:complexType name="docFormulaType" mixed="true">
         <xsd:attribute name="id" type="xsd:string" />

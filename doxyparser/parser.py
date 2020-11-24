@@ -67,7 +67,10 @@ class Parser:
                 and tag.
         """
         tag = self.get_tag_class(xsd, tag)
-        return tag(element, self, tree)
+        try:
+            return tag(element, self, tree)
+        except Exception as err:
+            raise Exception('Unable to instantiate tag {}'.format(tag.__module__)) from err
 
     def get_node_from_tree(self, xsd, tree):
         """
@@ -85,3 +88,6 @@ class Parser:
         root = tree.get_parsed()
 
         return self.get_tag_class_instance(xsd, root.tag, root, tree)
+
+    def get_loader(self):
+        return self._loader

@@ -1,9 +1,9 @@
 from ...node import Node
 
 
-class CompoundRef(Node):
+class CompoundRefType(Node):
     """
-    Model representation of a compoundref Element from doxygen
+    Model representation of a compoundrefType from doxygen
 
     <xsd:complexType name="compoundRefType">
         <xsd:simpleContent>
@@ -16,8 +16,6 @@ class CompoundRef(Node):
     </xsd:complexType>
 
     """
-    def __init__(self, node, parser):
-        super().__init__(node, parser, 'compoundref')
 
     def get_refid(self):
         return self.get('refid', '')

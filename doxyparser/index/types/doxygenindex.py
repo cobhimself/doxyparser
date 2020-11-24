@@ -1,10 +1,18 @@
-from xml.etree.ElementTree import Element
-from typing import Optional
-
 from ...node import Node
-from .compound import Compound
+from ...decorators import collection, tag
 
 
+@tag('doxygenindex')
+@collection(
+    tag_name='compound',
+    xpath='/[@kind="{kind}"]',
+    collectors={
+        'classes': {'kind': 'class'},
+        'interfaces': {'kind': 'interface'},
+        'namespaces': {'kind': 'namespace'},
+        'files': {'kind': 'file'},
+        'dirs': {'kind': 'dir'}
+    })
 class DoxygenIndex(Node):
     """
     Model representation of a doxygenindex Element from doxygen
@@ -17,31 +25,6 @@ class DoxygenIndex(Node):
     <xsd:attribute ref="xml:lang" use="required"/>
     </xsd:complexType>
     """
-
-    def get_compounds(
-        self,
-        kind: Optional[str] = None
-    ) -> dict[Compound]:
-        path = '' if kind is None else '/[@kind="' + kind + '"]'
-        return self.get_children(
-            'compound',
-            path=path
-        )
-
-    def get_classes(self) -> dict[Element]:
-        return self.get_compounds('class')
-
-    def get_interfaces(self):
-        return self.get_compounds('interface')
-
-    def get_namespaces(self):
-        return self.get_compounds('namespace')
-
-    def get_files(self):
-        return self.get_compounds('file')
-
-    def get_dirs(self):
-        return self.get_compounds('dir')
 
     def get_version(self):
         return self.get('version')

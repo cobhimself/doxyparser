@@ -1,9 +1,9 @@
 from ...node import Node
 
 
-class DocCopy(Node):
+class DocCopyType(Node):
     """
-    Model representation of a doccopy type Element from doxygen
+    Model representation of a docCopyType Element from doxygen
 
     <xsd:complexType name="docCopyType">
         <xsd:sequence>

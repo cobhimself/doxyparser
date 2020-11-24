@@ -1,9 +1,9 @@
 from ...node import Node
 
 
-class CodeLine(Node):
+class CodelineType(Node):
     """
-    Model representation of a reftext type Element from doxygen
+    Model representation of a codelineType from doxygen
 
     <xsd:complexType name="codelineType">
     <xsd:sequence>

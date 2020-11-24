@@ -17,5 +17,5 @@ class DocSect4(DocSect):
     </xsd:complexType>
     """
 
-    def __init__(self, node, parser):
-        super().__init__(node, parser, '4')
+    def __init__(self, node, parser, tree):
+        super().__init__(node, parser, tree, '4')

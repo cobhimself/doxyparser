@@ -1,9 +1,10 @@
+from .decorators import COLLECTIONS, TAG, XPATH
+
 class Node:
     """
     Super class used to represent doxy xml Elements
     """
-
-    def __init__(self, node, parser, tree, tag=None):
+    def __init__(self, node, parser, tree, **kwargs):
         """
         Initialize a Node (object representation of an xml data tree)
 
@@ -20,11 +21,13 @@ class Node:
             Exception: Raised if a tag name is provided and it doesn't
                 match with the Element's tag
         """
+
         if parser is None:
             raise Exception(
                 'The node class cannot be instantiated without a parser!'
             )
 
+        tag = kwargs.pop('tag', None)
         if tag not in (None, node.tag):
             raise Exception(
                 'Invalid tag name ('
@@ -38,6 +41,41 @@ class Node:
         self._parser = parser
         self._xsd = self.__module__.split('.')[1]
         self._origin_tree = tree
+
+        self._process_meta()
+
+    def _get_meta(self, key, default=None):
+        meta = getattr(self, '_meta', None)
+        if meta is not None:
+            return meta.get(key, default)
+
+        return None
+
+    def _process_meta(self):
+        if self._validate_meta() is not None:
+            self._build_class_documentation()
+
+
+    def _validate_meta(self):
+        coll_map = self._get_meta(COLLECTIONS)
+        if coll_map is None:
+            return None
+        return True
+
+    def _build_class_documentation(self):
+        doc = ''
+        doc += 'Class model representing the doxygen {} element'.format(
+            self._get_meta(TAG)
+        )
+        setattr(self, '__doc__', doc)
+
+
+    def get_collection_tags(self):
+        return self.get_collections().keys()
+
+    def get_collections(self):
+        return self._get_meta(COLLECTIONS, None)
+
 
     def __len__(self):
         return len(self._node)
@@ -165,6 +203,24 @@ class Node:
             return children[0]
 
         return None
+
+    def get_collection(self, tag, args=None):
+        collections = self._get_meta(COLLECTIONS)
+        if None is collections and tag not in collections.keys():
+            raise Exception(
+                'No collection metadata exists in {} for tag {}!'.format(
+                    self.__module__,
+                    tag
+                )
+            )
+
+        xpath = collections[TAG][XPATH]
+
+        path = '' if args is None else xpath.format(*args)
+        return self.get_children(
+            self._xsd,
+            path=path
+        )
 
     def debug_dump(self):
         """Dump data about this element.

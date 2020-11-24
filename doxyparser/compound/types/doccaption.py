@@ -1,7 +1,7 @@
 from ..groups.doctitlecmdgroup import DocTitleCmdGroup
 
 
-class DocCaption(DocTitleCmdGroup):
+class DocCaptionType(DocTitleCmdGroup):
     """
     Model representation of a docCaptionType from doxygen
 

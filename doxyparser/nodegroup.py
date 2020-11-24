@@ -6,8 +6,8 @@ class NodeGroup(Node):
     Super class for all xsd:group types
     """
 
-    def __init__(self, node, parser):
-        super().__init__(node, parser)
+    def __init__(self, node, parser, tree):
+        super().__init__(node, parser, tree)
         self._inner = None
 
     def get_inner(self):

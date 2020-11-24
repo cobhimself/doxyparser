@@ -57,6 +57,7 @@ TAG_MAP = {
         'location': 'Location',
         'memberdef': 'MemberDef',
         'param': 'Param',
+        'para': 'DocPara',
         'ref': 'Ref',
         'reftext': 'RefText',
         'reimplement': 'Reimplement',

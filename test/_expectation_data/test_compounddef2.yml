@@ -1,0 +1,224 @@
+# This is the name of the nodes this test data is associated with.
+compounddef:
+  # The keys at this level are "node getters". They are appended to `get_` and
+  # the combined method is called on the Doxygen class. Example: a key of
+  # 'class_compounddefs' would have a "node getter" value of
+  # 'get_namespace_compounddefs'.
+  class_compounddefs:
+    #Each item in this list represents a single compounddef node retrieved
+    #through the above "node getter". Each item's top-level keys represent
+    #"value getters". The keys are appended to `get_` to form the final "value
+    #getter" method to be called on the node received from the parent "node
+    #getter". The value for the below can be one of two things:
+    #
+    #  1. The value to confirm the "value getter" returns.
+    #  2. An associative array of specific confirmations to be made.
+    #
+    # Specific confirmations are specified by a key and the value is what the
+    # expectation is. For example, the 'count' key would have a numeric value
+    # we expect a count of the items returned by the "value getter" to have.
+    #
+    # A 'children' key would specify we want to make additional assertions
+    # about the node retrieved through the "node getter". The 'children' key
+    # requires a 'getter' with the value to append to `get_` to obtain the
+    # child data. The 'expectations' key
+    -
+      refid: class_src_1_1_more_1_1_deep_class
+      kind: class
+      language: PHP
+      prot: public
+      compound_name: Src::More::DeepClass
+      base_compound_ref:
+        -
+          refid: class_src_1_1_extending_class
+          prot: public
+          virt: non-virtual
+          text: Src\ExtendingClass
+      sectiondef:
+        -
+          kind: private-func
+          memberdef:
+            file: test/_sample_data/php/src/more/DeepClass.php
+            line: 15
+            column: 22
+            bodyfile: test/_sample_data/php/src/more/DeepClass.php
+            bodystart: 15
+            bodyend: 18
+            kind: function
+            id: class_src_1_1_more_1_1_deep_class_1a5c6fc8c684b5406f85f65ae5e6a92bdb
+            prot: private
+            static: false
+            const: false
+            explicit: false
+            inline: false
+            virt: non-virtual
+            type: ""
+            definition: Src\More\DeepClass::thisIsPrivate
+            argsstring: "()"
+            name: thisIsPrivate
+            briefdescription: ""
+            detaileddescription:
+              para: This is a private method.
+            inbodydescription: ""
+            location:
+        -
+          kind: public-func
+          memberdef:
+            file: "test/_sample_data/php/src/more/DeepClass.php"
+            line: 23
+            column: 21
+            bodyfile: "test/_sample_data/php/src/more/DeepClass.php"
+            bodystart: 23
+            bodyend: 26
+            kind: function
+            id: class_src_1_1_more_1_1_deep_class_1a505a7c599c5c139d478ec1000fa6ae58
+            prot: public
+            static: false
+            const: false
+            explicit: false
+            inline: false
+            virt: non-virtual
+            type: ""
+            definition: Src\More\DeepClass::thisIsPublic
+            argsstring: "()"
+            name: thisIsPublic
+            briefdescription: ""
+            detaileddescription:
+              para: "This is a public method."
+            inbodydescription: ""
+            location:
+        -
+          kind: protected-func
+          memberdef:
+            type: ""
+            definition: Src\More\DeepClass::thisIsProtected
+            argsstring: "()"
+            name: thisIsProtected
+            briefdescription: ""
+            detaileddescription:
+              para: This is a protected method.
+            inbodydescription: ""
+            location:
+            file: test/_sample_data/php/src/more/DeepClass.php
+            line: 31
+            column: 24
+            bodyfile: test/_sample_data/php/src/more/DeepClass.php
+            bodystart: 31
+            bodyend: 34
+            kind: function
+            id: class_src_1_1_more_1_1_deep_class_1a6c3a5cf3c55dab4b7dd109cfbda3ee72
+            prot: protected
+            static: false
+            const: false
+            explicit: false
+            inline: false
+            virt: "non-virtual"
+      briefdescription: ""
+      detaileddescription:
+        para:
+          content:
+            - 'This is the '
+            - ref:
+              refid: class_src_1_1_more_1_1_deep_class
+              kindref: compound
+              __text: DeepClass
+            - ' description'
+      inheritancegraph:
+        - node:
+            id: 3
+            label: Src\SimpleClass
+            link:
+              refid: class_src_1_1_simple_class
+        - node:
+            id: 2
+            label: Src\ExtendingClass
+            link:
+              refid: class_src_1_1_simple_class
+        -
+        label: "Src\\ExtendingClass"
+          link:
+          _refid: class_src_1_1_extending_class
+          childnode:
+          _refid: 3
+          _relation: "public-inheritance"
+          _id: 2
+        -
+        label: "Src\\More\\DeepClass"
+          link:
+          _refid: class_src_1_1_more_1_1_deep_class
+          childnode:
+          _refid: 2
+          _relation: "public-inheritance"
+          _id: 1
+ collaborationgraph:
+  node:
+   -
+   label: "Src\\SimpleClass"
+    link:
+     _refid: class_src_1_1_simple_class
+    _id: 3
+   -
+   label: "Src\\ExtendingClass"
+    link:
+     _refid: class_src_1_1_extending_class
+    childnode:
+     _refid: 3
+     _relation: "public-inheritance"
+    _id: 2
+   -
+   label: "Src\\More\\DeepClass"
+    link:
+     _refid: class_src_1_1_more_1_1_deep_class
+    childnode:
+     _refid: 2
+     _relation: "public-inheritance"
+    _id: 1
+ location:
+  _file: "test/_sample_data/php/src/more/DeepClass.php"
+  _line: 10
+  _column: 1
+  _bodyfile: "test/_sample_data/php/src/more/DeepClass.php"
+  _bodystart: 11
+  _bodyend: 35
+ listofallmembers:
+  member:
+   -
+   scope: "Src::More::DeepClass"
+    name: __construct
+    _refid: class_src_1_1_simple_class_1a46a090eaf83f6274b1c3dcc8206af250
+    _prot: public
+    _virt: "non-virtual"
+   -
+   scope: "Src::More::DeepClass"
+    name: additionalMethod
+    _refid: class_src_1_1_extending_class_1aea1aecc414ac021af88923cf77a655f8
+    _prot: public
+    _virt: "non-virtual"
+   -
+   scope: "Src::More::DeepClass"
+    name: testMethod
+    _refid: class_src_1_1_simple_class_1a314e66f4701707ffdde373175bb08e8f
+    _prot: public
+    _virt: "non-virtual"
+   -
+   scope: "Src::More::DeepClass"
+    name: thisIsPrivate
+    _refid: class_src_1_1_more_1_1_deep_class_1a5c6fc8c684b5406f85f65ae5e6a92bdb
+    _prot: private
+    _virt: "non-virtual"
+   -
+   scope: "Src::More::DeepClass"
+    name: thisIsProtected
+    _refid: class_src_1_1_more_1_1_deep_class_1a6c3a5cf3c55dab4b7dd109cfbda3ee72
+    _prot: protected
+    _virt: "non-virtual"
+   -
+   scope: "Src::More::DeepClass"
+    name: thisIsPublic
+    _refid: class_src_1_1_more_1_1_deep_class_1a505a7c599c5c139d478ec1000fa6ae58
+    _prot: public
+    _virt: "non-virtual"
+ _id: ""
+ _kind: class
+ _language: PHP
+ _prot: public

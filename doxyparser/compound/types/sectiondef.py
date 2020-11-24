@@ -1,6 +1,8 @@
 from ...node import Node
+from ...decorators import tag
 
 
+@tag('sectiondef')
 class SectionDef(Node):
     """
     Model representation of a sectiondef Element from doxygen
@@ -14,8 +16,6 @@ class SectionDef(Node):
     <xsd:attribute name="kind" type="DoxSectionKind" />
     </xsd:complexType>
     """
-    def __init__(self, node, parser):
-        super().__init__(node, parser, 'sectiondef')
 
     def get_member_defs(self):
         return self.get_children('memberdef', 'MemberDef')

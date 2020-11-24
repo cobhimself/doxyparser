@@ -288,8 +288,8 @@ class DocTitleCmdGroup(NodeGroup):
     </xsd:group>
     """
 
-    def __init__(self, node, parser):
-        super().__init__(node, parser)
+    def __init__(self, node, parser, tree):
+        super().__init__(node, parser, tree)
 
         # Keys represent the tag, values represent the html entity without
         # the & and ;. If the value is '', the key can be used as the

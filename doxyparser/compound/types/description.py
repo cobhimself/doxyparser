@@ -1,7 +1,7 @@
 from ...node import Node
 
 
-class Description(Node):
+class DescriptionType(Node):
     """
     Model representation of a description type from doxygen
 
