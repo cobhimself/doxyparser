@@ -12,6 +12,7 @@ pyyaml = "*"
 toml = "*"
 pytest-cov = "*"
 inflect = "*"
+xmlformatter = "*"
 
 [requires]
 python_version = "3.9"
