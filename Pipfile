@@ -11,9 +11,13 @@ autopep8 = "*"
 pyyaml = "*"
 toml = "*"
 pytest-cov = "*"
+inflect = "*"
 
 [requires]
 python_version = "3.9"
 
 [packages]
 xmltodict = "*"
+lxml = "*"
+xmlschema = "*"
+pyinputplus = "*"
