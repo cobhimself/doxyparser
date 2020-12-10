@@ -1,22 +1,13 @@
-from xml.etree.ElementTree import tostring
-from xmlschema.validators import XsdAtomicBuiltin, XsdAtomicRestriction, XsdUnion, XsdGroup
-from ..wrap import wrap, wrapxml
-from .super import Super
+from .buildable import Buildable
 
-class Type(Super):
-
-    def __init__(self, element):
-        super().__init__(element)
-        self._attr = {}
-        self._elem = {}
-
+class Type(Buildable):
     def get_name(self):
         """Get the name of this type.
 
         Returns:
             str: The name of this type.
         """
-        return self._definition.name
+        return self.get_definition().name
 
     def has_content(self):
         """Determine whether or not this type has either nested elements
@@ -25,7 +16,7 @@ class Type(Super):
         Returns:
             bool: True if there is content in this type, False otherwise.
         """
-        return self._definition.content is not None
+        return self.get_definition().content is not None
 
     def has_empty_content(self):
         """Determine whether or not this type's content is empty.
@@ -66,7 +57,7 @@ class Type(Super):
         Returns:
             mixed: None if no content exists, mixed otherwise.
         """
-        return self._definition.content
+        return self.get_definition().content
 
     def has_simple_content(self):
         """Determine whether or not this type denys element content but
@@ -75,7 +66,10 @@ class Type(Super):
         Returns:
             bool: True if only text content is allowed, False otherwise.
         """
-        return self.has_content() and self.get_content().has_simple_content()
+        return self.has_content() and self.get_definition().has_simple_content()
+
+    def has_complex_content(self):
+        return self.has_content() and self.get_definition().has_complex_content()
 
     def has_element_only_content(self):
         """Determine whether or not this type allows child elements but denys
@@ -126,9 +120,8 @@ class Type(Super):
     def is_any_type(self):
         return self.get_local_name() == 'anyType'
 
-
     def is_text_only(self):
-        return self._definition.has_simple_content()
+        return self.get_definition().has_simple_content()
 
     def allows_elements_and_text(self):
         """Alias method for has_mixed_content()
@@ -138,35 +131,6 @@ class Type(Super):
                 otherwise.
         """
         return self.has_mixed_content()
-
-    def get_attributes(self):
-        """Get a list of Attributes associated with this type.
-
-        Returns:
-            Attribute[]: A list of Attribute models for the attributes in
-                this type.
-        """
-        if len(self._attr) == 0:
-            from .attribute import Attribute
-            for attr_name, attr in self._definition.attributes.items():
-                self._attr[attr_name] = Attribute(attr, self)
-
-        return self._attr
-
-    def get_elements(self):
-        """Return a list of Elements associated with this type.
-
-        Returns:
-            Element[]: A list of Element models for the elements in this
-                type.
-        """
-        if len(self._elem) == 0:
-            from .element import Element
-            if self._definition.has_complex_content():
-                for elem in self._definition.content.iter_elements():
-                    self._elem[elem.name] = Element(elem, Type(elem.type))
-
-        return self._elem
 
     def get_local_name(self):
         my_type = self.get_definition()

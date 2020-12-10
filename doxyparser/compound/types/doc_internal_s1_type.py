@@ -1,0 +1,18 @@
+# This class has been auto-generated. To add/modify
+# functionality, extend it.
+from ...node import Node
+
+@element('para', 'docParaType')
+@element('sect2', 'docSect2Type')
+class DocInternalS1Type(Node):
+    """Model representation of a doxygen docInternalS1Type type.
+
+    Type XSD:
+
+    <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="docInternalS1Type" mixed="true">
+        <xsd:sequence>
+          <xsd:element name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
+          <xsd:element name="sect2" type="docSect2Type" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+      </xsd:complexType>
+    """

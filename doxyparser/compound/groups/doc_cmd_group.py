@@ -1,0 +1,99 @@
+# This class has been auto-generated. To add/modify
+# functionality, extend it.
+from .doc_title_cmd_group import DocTitleCmdGroup
+
+@collection('diafile', '/[@type={}]', {
+    'htmls': 'html',
+    'latexes': 'latex',
+    'docbooks': 'docbook',
+    'rtfs': 'rtf',
+})
+@collection('dotfile', '/[@type={}]', {
+    'htmls': 'html',
+    'latexes': 'latex',
+    'docbooks': 'docbook',
+    'rtfs': 'rtf',
+})
+@collection('mscfile', '/[@type={}]', {
+    'htmls': 'html',
+    'latexes': 'latex',
+    'docbooks': 'docbook',
+    'rtfs': 'rtf',
+})
+@collection('parameterlist', '/[@kind={}]', {
+    'params': 'param',
+    'retvals': 'retval',
+    'exceptions': 'exception',
+    'templateparams': 'templateparam',
+})
+@collection('simplesect', '/[@kind={}]', {
+    'sees': 'see',
+    'returns': 'return',
+    'authors': 'author',
+    'author': 'authors',
+    'versions': 'version',
+    'sinces': 'since',
+    'dates': 'date',
+    'notes': 'note',
+    'warnings': 'warning',
+    'pres': 'pre',
+    'posts': 'post',
+    'copyrights': 'copyright',
+    'invariants': 'invariant',
+    'remarks': 'remark',
+    'attentions': 'attention',
+    'pars': 'par',
+    'rc': 'rcs',
+})
+@element('blockquote', 'docBlockQuoteType')
+@element('copydoc', 'docCopyType')
+@element('heading', 'docHeadingType')
+@element('indexentry', 'docIndexEntryType')
+@element('itemizedlist', 'docListType')
+@element('language', 'docLanguageType')
+@element('orderedlist', 'docListType')
+@element('parblock', 'docParBlockType')
+@element('preformatted', 'docMarkupType')
+@element('programlisting', 'listingType')
+@element('table', 'docTableType')
+@element('title', 'docTitleType')
+@element('toclist', 'docTocListType')
+@element('variablelist', 'docVariableListType')
+@element('verbatim', 'simple')
+@element('xrefsect', 'docXRefSectType')
+@placeholders([
+    'hruler'
+])
+class DocCmdGroup(DocTitleCmdGroup):
+    """Model representation of a doxygen docCmdGroup group.
+
+    Type XSD:
+
+    <xsd:group xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="docCmdGroup">
+        <xsd:choice>
+          <xsd:group ref="docTitleCmdGroup" />
+          <xsd:element name="hruler" type="docEmptyType" />
+          <xsd:element name="preformatted" type="docMarkupType" />
+          <xsd:element name="programlisting" type="listingType" />
+          <xsd:element name="verbatim" type="xsd:string" />
+          <xsd:element name="indexentry" type="docIndexEntryType" />
+          <xsd:element name="orderedlist" type="docListType" />
+          <xsd:element name="itemizedlist" type="docListType" />
+          <xsd:element name="simplesect" type="docSimpleSectType" />
+          <xsd:element name="title" type="docTitleType" />
+          <xsd:element name="variablelist" type="docVariableListType" />
+          <xsd:element name="table" type="docTableType" />
+          <xsd:element name="heading" type="docHeadingType" />
+          <xsd:element name="dotfile" type="docImageType" />
+          <xsd:element name="mscfile" type="docImageType" />
+          <xsd:element name="diafile" type="docImageType" />
+          <xsd:element name="toclist" type="docTocListType" />
+          <xsd:element name="language" type="docLanguageType" />
+          <xsd:element name="parameterlist" type="docParamListType" />
+          <xsd:element name="xrefsect" type="docXRefSectType" />
+          <xsd:element name="copydoc" type="docCopyType" />
+          <xsd:element name="blockquote" type="docBlockQuoteType" />
+          <xsd:element name="parblock" type="docParBlockType" />
+        </xsd:choice>
+      </xsd:group>
+    """
