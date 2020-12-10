@@ -3,16 +3,16 @@ from .super import Super
 from .type import Type
 
 class Typeable(Super):
-    def __init__(self, element, type_instance=None):
+    def __init__(self, definition, type_instance=None):
         if type_instance is None:
             self._type = Type(
-                element if isinstance(element, XsdAnyAttribute)
-                else element.type
+                definition if isinstance(definition, XsdAnyAttribute)
+                else definition.type
             )
         else:
             self._type = type_instance
 
-        super().__init__(element)
+        super().__init__(definition)
 
     def get_type(self):
         return self._type
