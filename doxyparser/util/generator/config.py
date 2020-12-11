@@ -3,9 +3,9 @@ import pathlib
 
 
 try:
-    from yaml import CLoader as Loader, CDumper as Dumper
+    from yaml import CLoader as Loader
 except ImportError:
-    from yaml import Loader, Dumper
+    from yaml import Loader
 
 EXT = '.xsd'
 XSD = 'xsd'
@@ -23,8 +23,11 @@ TYPE = 'type'
 ENUMS = 'enums'
 
 class Config():
+    """Class which aids in the reading and writing of class generation for
+    xsd-based classes.
+    """
 
-    def __init__(self, path, xsd):
+    def __init__(self, path):
         self._path = path
         self._config = None
         self._xsd = None

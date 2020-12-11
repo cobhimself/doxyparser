@@ -1,8 +1,36 @@
 from ..wrap import wrap
-from doxyparser.util.generator.config import SIMPLE, ENUMS, BOOLS, COMPLEX, PLACEHOLDER, ANY
+from textwrap import dedent
+from doxyparser.util.generator.config import SIMPLE, BOOLS, COMPLEX, PLACEHOLDER, ANY
 import inflect
 
 class ClassDef():
+
+    HEAD_COMMENT = """
+    MIT License
+
+    Copyright (c) 2020 Collin Brooks
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+
+    This class has been auto-generated. To add/modify functionality, extend it.
+    See util/generator/element_generator.py"""
+
     def __init__(self, name, config, definition):
         self._name = name
         self._config = config
@@ -53,6 +81,9 @@ class ClassDef():
     def set_class_doc(self, doc):
         self._doc = doc
 
+    def get_module_doc(self):
+        return wrap('"""' + dedent(self.HEAD_COMMENT) + "\n" + '"""')
+
     def get_class_doc(self):
         return wrap('"""' + self._doc + "\n" + '"""', '    ', '    ')
 
@@ -68,8 +99,7 @@ class ClassDef():
 
     def __str__(self):
         self.build()
-        out = "# This class has been auto-generated. To add/modify\n"
-        out += "# functionality, extend it.\n"
+        out = self.get_module_doc() + "\n"
         out += self.get_imports() + "\n\n"
         out += self.get_decorators() + "\n"
         out += f"class {self.get_class_name(self._name)}({self.get_extends()}):\n"

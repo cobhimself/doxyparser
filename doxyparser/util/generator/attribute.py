@@ -1,9 +1,12 @@
-from xmlschema.validators import XsdAtomicBuiltin, XsdAtomicRestriction, XsdUnion
 from xmlschema.validators.attributes import XsdAnyAttribute
 
 from .typeable import Typeable
 
 class Attribute(Typeable):
+    """Class responsible for holding information relating to xsd schema
+    attributes
+    """
+
     def __init__(self, element, parent):
         self._enums = None
         self._parent = parent
