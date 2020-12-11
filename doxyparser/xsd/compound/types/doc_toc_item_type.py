@@ -25,6 +25,7 @@ This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
 from ..groups.doc_title_cmd_group import DocTitleCmdGroup
+from ....decorators import attr
 
 @attr('id')
 class DocTocItemType(DocTitleCmdGroup):

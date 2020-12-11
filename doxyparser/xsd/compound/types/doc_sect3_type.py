@@ -24,7 +24,8 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ...node import Node
+from ....node import Node
+from ....decorators import attr, element
 
 @attr('id')
 @element('internal', 'docInternalS3Type')

@@ -25,6 +25,7 @@ This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
 from ..groups.doc_title_cmd_group import DocTitleCmdGroup
+from ....decorators import boolattr, attr
 
 @attr('caption')
 @attr('height')

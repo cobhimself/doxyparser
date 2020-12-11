@@ -1,3 +1,4 @@
+import re
 from ..wrap import wrap
 from textwrap import dedent
 from doxyparser.util.generator.config import SIMPLE, BOOLS, COMPLEX, PLACEHOLDER, ANY
@@ -56,8 +57,23 @@ class ClassDef():
                 self.add_import(f'from {relative_path}{self.get_file_name(sup)} import {class_name}')
                 self.extends(class_name)
         else:
-            self.add_import('from ...node import Node')
+            self.add_import('from ....node import Node')
             self.extends('Node')
+
+    def determine_decorator_include(self):
+        decorators = self._decorators
+        seen = []
+        regex = r"@(.*)\("
+
+        for decorator in decorators:
+            matches = re.search(regex, decorator)
+            if matches:
+                match = matches.group(1)
+                if match not in seen:
+                    seen.append(match)
+
+        if len(seen) > 0:
+            self.add_import('from ....decorators import ' + ', '.join(seen))
 
     @staticmethod
     def get_file_name(name):
@@ -99,6 +115,7 @@ class ClassDef():
 
     def __str__(self):
         self.build()
+        self.determine_decorator_include()
         out = self.get_module_doc() + "\n"
         out += self.get_imports() + "\n\n"
         out += self.get_decorators() + "\n"
