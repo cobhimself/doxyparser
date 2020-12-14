@@ -27,7 +27,6 @@ generated doxyparser xsd library.
 import re
 from textwrap import dedent
 import inflect
-from ..wrap import wrap
 from .config import SIMPLE, BOOLS, COMPLEX, PLACEHOLDER, ANY
 
 
@@ -78,6 +77,29 @@ class ClassDef():
             Config: The config object
         """
         return self._config
+
+    @staticmethod
+    def indent(text, initial_indent='', subsequent_indent=''):
+        """Indent the given text
+
+        Args:
+            text (str): The text to indent
+            initial_indent (str, optional): The string to place before the first
+                line. Defaults to ''.
+            subsequent_indent (str, optional): The string to place before the
+                rest of the lines. Defaults to ''.
+
+        Returns:
+            str: The indented string
+        """
+        lines = text.splitlines()
+        begin = initial_indent + lines.pop(0)
+        final_lines = []
+        for line in lines:
+            final_lines.append((subsequent_indent + line)
+                               if line.strip() else '')
+
+        return begin + "\n" + "\n".join(final_lines)
 
     def get_definition(self):
         """Get the definition of the element represented by this class.
@@ -197,7 +219,7 @@ class ClassDef():
         Returns:
             str: The documentation
         """
-        return wrap('"""' + dedent(self.HEAD_COMMENT) + "\n" + '"""')
+        return self.indent('"""' + dedent(self.HEAD_COMMENT) + "\n" + '"""')
 
     def get_class_doc(self):
         """Get the documentation the class should use.
@@ -205,7 +227,7 @@ class ClassDef():
         Returns:
             str: The documentation
         """
-        return wrap('"""' + self._doc + "\n" + '"""', '    ', '    ')
+        return self.indent('"""' + self._doc + "\n" + '"""', '    ', '    ')
 
     @staticmethod
     def get_class_name(name):
