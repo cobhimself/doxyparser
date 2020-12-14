@@ -26,8 +26,8 @@ import sys
 import os
 from xmlschema import XMLSchema
 from doxyparser.util.generator import cache
-from .generator.classdef import ElementClassDef, TypeClassDef, GroupClassDef
-from .generator.config import Config
+from doxyparser.util.generator.classdef import ElementClassDef, TypeClassDef, GroupClassDef
+from doxyparser.util.generator.config import Config
 
 
 class ElementGenerator():
@@ -338,6 +338,7 @@ class ElementGenerator():
         """
         # if config is None:
         config = self._config.load()
+        config.set_xsd(self._xsd)
 
         # Groups
         for name, group_type in cache.get_group_cache().items():
