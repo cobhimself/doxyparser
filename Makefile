@@ -41,3 +41,4 @@ config:
 .PHONY: elements
 elements:
 	python -m doxyparser.util.element_generator compound elements
+	python -m doxyparser.util.element_generator index elements
