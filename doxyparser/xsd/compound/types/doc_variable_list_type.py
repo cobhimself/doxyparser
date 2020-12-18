@@ -24,8 +24,8 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ..groups.doc_variable_list_group import DocVariableListGroup
 
+from ..groups.doc_variable_list_group import DocVariableListGroup
 
 class DocVariableListType(DocVariableListGroup):
     """Model representation of a doxygen docVariableListType type.

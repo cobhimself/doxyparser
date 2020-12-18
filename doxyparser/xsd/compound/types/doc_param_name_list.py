@@ -24,15 +24,21 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import collection, element
 
-@collection('parametername', '/[@direction={}]', {
-    'ins': 'in',
-    'outs': 'out',
-    'inouts': 'inout',
+from ....decorators.collection import Collection
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_param_name import DocParamName
+from ..types.doc_param_type import DocParamType
+
+@Collection('parametername', 'docParamName', {
+    '/[@direction={}': {
+        'ins': 'in',
+        'outs': 'out',
+        'inouts': 'inout',
+    }
 })
-@element('parametertype', 'docParamType')
+@Element('parametertype', 'docParamType')
 class DocParamNameList(Node):
     """Model representation of a doxygen docParamNameList type.
 
@@ -44,4 +50,22 @@ class DocParamNameList(Node):
           <xsd:element name="parametername" type="docParamName" minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Parametername(DocParamName):
+    """Model representation of a doxygen parametername element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="parametername" type="docParamName" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Parametertype(DocParamType):
+    """Model representation of a doxygen parametertype element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="parametertype" type="docParamType" minOccurs="0" maxOccurs="unbounded" />
     """

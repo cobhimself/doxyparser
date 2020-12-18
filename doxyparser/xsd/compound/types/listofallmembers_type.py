@@ -24,19 +24,23 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import collection
 
-@collection('member', '/[@prot={}]', {
-    'publics': 'public',
-    'protecteds': 'protected',
-    'privates': 'private',
-    'packages': 'package',
-})
-@collection('member', '/[@virt={}]', {
-    'non_virtuals': 'non-virtual',
-    'virtuals': 'virtual',
-    'pure_virtuals': 'pure-virtual',
+from ....decorators.collection import Collection
+from ....node import Node
+from ..types.member_ref_type import MemberRefType
+
+@Collection('member', 'memberRefType', {
+    '/[@prot={}': {
+        'publics': 'public',
+        'protecteds': 'protected',
+        'privates': 'private',
+        'packages': 'package',
+    },
+    '/[@virt={}': {
+        'non_virtuals': 'non-virtual',
+        'virtuals': 'virtual',
+        'pure_virtuals': 'pure-virtual',
+    }
 })
 class ListofallmembersType(Node):
     """Model representation of a doxygen listofallmembersType type.
@@ -48,4 +52,13 @@ class ListofallmembersType(Node):
           <xsd:element name="member" type="memberRefType" minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Member(MemberRefType):
+    """Model representation of a doxygen member element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="member" type="memberRefType" minOccurs="0" maxOccurs="unbounded" />
     """

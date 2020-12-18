@@ -24,14 +24,22 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import collection, element
 
-@collection('ref', '/[@kindref={}]', {
-    'compounds': 'compound',
-    'members': 'member',
+from ....decorators.attr import Attr
+from ....decorators.collection import Collection
+from ....decorators.element import Element
+from ....node import Node
+from ..types.ref_text_type import RefTextType
+from ..types.sp_type import SpType
+
+@Attr('class', ['comment', 'normal', 'preprocessor', 'keyword', 'keywordtype', 'keywordflow', 'stringliteral', 'charliteral', 'vhdlkeyword', 'vhdllogic', 'vhdlchar', 'vhdldigit'])
+@Collection('ref', 'refTextType', {
+    '/[@kindref={}': {
+        'compounds': 'compound',
+        'members': 'member',
+    }
 })
-@element('sp', 'spType')
+@Element('sp', 'spType')
 class HighlightType(Node):
     """Model representation of a doxygen highlightType type.
 
@@ -44,4 +52,22 @@ class HighlightType(Node):
         </xsd:choice>
         <xsd:attribute name="class" type="DoxHighlightClass" />
       </xsd:complexType>
+    """
+
+
+class Ref(RefTextType):
+    """Model representation of a doxygen ref element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ref" type="refTextType" />
+    """
+
+
+class Sp(SpType):
+    """Model representation of a doxygen sp element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="sp" type="spType" />
     """

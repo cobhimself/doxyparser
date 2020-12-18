@@ -24,50 +24,58 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element, collection
 
-@collection('memberdef', '/[@accessor={}]', {
-    'retains': 'retain',
-    'copies': 'copy',
-    'assigns': 'assign',
-    'weaks': 'weak',
-    'strongs': 'strong',
-    'unretaineds': 'unretained',
+from ....decorators.attr import Attr
+from ....decorators.collection import Collection
+from ....decorators.element import Element
+from ....node import Node
+from ..types.description_type import DescriptionType
+from ..types.memberdef_type import MemberdefType
+
+@Attr('kind', ['user-defined', 'public-type', 'public-func', 'public-attrib', 'public-slot', 'signal', 'dcop-func', 'property', 'event', 'public-static-func', 'public-static-attrib', 'protected-type', 'protected-func', 'protected-attrib', 'protected-slot', 'protected-static-func', 'protected-static-attrib', 'package-type', 'package-func', 'package-attrib', 'package-static-func', 'package-static-attrib', 'private-type', 'private-func', 'private-attrib', 'private-slot', 'private-static-func', 'private-static-attrib', 'friend', 'related', 'define', 'prototype', 'typedef', 'enum', 'func', 'var'])
+@Collection('memberdef', 'memberdefType', {
+    '/[@accessor={}': {
+        'retains': 'retain',
+        'copies': 'copy',
+        'assigns': 'assign',
+        'weaks': 'weak',
+        'strongs': 'strong',
+        'unretaineds': 'unretained',
+    },
+    '/[@kind={}': {
+        'defines': 'define',
+        'properties': 'property',
+        'events': 'event',
+        'variables': 'variable',
+        'typedefs': 'typedef',
+        'enums': 'enum',
+        'functions': 'function',
+        'signals': 'signal',
+        'prototypes': 'prototype',
+        'friends': 'friend',
+        'dcops': 'dcop',
+        'slots': 'slot',
+        'interfaces': 'interface',
+        'services': 'service',
+    },
+    '/[@prot={}': {
+        'publics': 'public',
+        'protecteds': 'protected',
+        'privates': 'private',
+        'packages': 'package',
+    },
+    '/[@refqual={}': {
+        'lvalues': 'lvalue',
+        'rvalues': 'rvalue',
+    },
+    '/[@virt={}': {
+        'non_virtuals': 'non-virtual',
+        'virtuals': 'virtual',
+        'pure_virtuals': 'pure-virtual',
+    }
 })
-@collection('memberdef', '/[@kind={}]', {
-    'defines': 'define',
-    'properties': 'property',
-    'events': 'event',
-    'variables': 'variable',
-    'typedefs': 'typedef',
-    'enums': 'enum',
-    'functions': 'function',
-    'signals': 'signal',
-    'prototypes': 'prototype',
-    'friends': 'friend',
-    'dcops': 'dcop',
-    'slots': 'slot',
-    'interfaces': 'interface',
-    'services': 'service',
-})
-@collection('memberdef', '/[@prot={}]', {
-    'publics': 'public',
-    'protecteds': 'protected',
-    'privates': 'private',
-    'packages': 'package',
-})
-@collection('memberdef', '/[@refqual={}]', {
-    'lvalues': 'lvalue',
-    'rvalues': 'rvalue',
-})
-@collection('memberdef', '/[@virt={}]', {
-    'non_virtuals': 'non-virtual',
-    'virtuals': 'virtual',
-    'pure_virtuals': 'pure-virtual',
-})
-@element('description', 'descriptionType')
-@element('header', 'simple')
+@Element('description', 'descriptionType')
+@Element('header', str)
 class SectiondefType(Node):
     """Model representation of a doxygen sectiondefType type.
 
@@ -81,4 +89,22 @@ class SectiondefType(Node):
         </xsd:sequence>
         <xsd:attribute name="kind" type="DoxSectionKind" />
       </xsd:complexType>
+    """
+
+
+class Description(DescriptionType):
+    """Model representation of a doxygen description element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="description" type="descriptionType" minOccurs="0" />
+    """
+
+
+class Memberdef(MemberdefType):
+    """Model representation of a doxygen memberdef element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="memberdef" type="memberdefType" maxOccurs="unbounded" />
     """

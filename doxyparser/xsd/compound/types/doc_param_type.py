@@ -24,12 +24,16 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import collection
 
-@collection('ref', '/[@kindref={}]', {
-    'compounds': 'compound',
-    'members': 'member',
+from ....decorators.collection import Collection
+from ....node import Node
+from ..types.ref_text_type import RefTextType
+
+@Collection('ref', 'refTextType', {
+    '/[@kindref={}': {
+        'compounds': 'compound',
+        'members': 'member',
+    }
 })
 class DocParamType(Node):
     """Model representation of a doxygen docParamType type.
@@ -41,4 +45,13 @@ class DocParamType(Node):
           <xsd:element name="ref" type="refTextType" minOccurs="0" maxOccurs="1" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Ref(RefTextType):
+    """Model representation of a doxygen ref element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ref" type="refTextType" minOccurs="0" maxOccurs="1" />
     """

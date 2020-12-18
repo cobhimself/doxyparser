@@ -24,25 +24,32 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import boolattr, attr, collection
 
-@attr('lineno')
-@attr('refid')
-@boolattr('external')
-@collection('highlight', '/[@class={}]', {
-    'comments': 'comment',
-    'normals': 'normal',
-    'preprocessors': 'preprocessor',
-    'keywords': 'keyword',
-    'keywordtypes': 'keywordtype',
-    'keywordflows': 'keywordflow',
-    'stringliterals': 'stringliteral',
-    'charliterals': 'charliteral',
-    'vhdlkeywords': 'vhdlkeyword',
-    'vhdllogics': 'vhdllogic',
-    'vhdlchars': 'vhdlchar',
-    'vhdldigits': 'vhdldigit',
+from ....decorators.attr import Attr
+from ....decorators.boolattr import BoolAttr
+from ....decorators.collection import Collection
+from ....node import Node
+from ..types.highlight_type import HighlightType
+
+@Attr('lineno', int)
+@Attr('refid', str)
+@Attr('refkind', ['compound', 'member'])
+@BoolAttr('external')
+@Collection('highlight', 'highlightType', {
+    '/[@class={}': {
+        'comments': 'comment',
+        'normals': 'normal',
+        'preprocessors': 'preprocessor',
+        'keywords': 'keyword',
+        'keywordtypes': 'keywordtype',
+        'keywordflows': 'keywordflow',
+        'stringliterals': 'stringliteral',
+        'charliterals': 'charliteral',
+        'vhdlkeywords': 'vhdlkeyword',
+        'vhdllogics': 'vhdllogic',
+        'vhdlchars': 'vhdlchar',
+        'vhdldigits': 'vhdldigit',
+    }
 })
 class CodelineType(Node):
     """Model representation of a doxygen codelineType type.
@@ -58,4 +65,13 @@ class CodelineType(Node):
         <xsd:attribute name="refkind" type="DoxRefKind" />
         <xsd:attribute name="external" type="DoxBool" />
       </xsd:complexType>
+    """
+
+
+class Highlight(HighlightType):
+    """Model representation of a doxygen highlight element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="highlight" type="highlightType" minOccurs="0" maxOccurs="unbounded" />
     """

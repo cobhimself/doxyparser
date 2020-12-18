@@ -24,52 +24,57 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, collection
 
-@attr('lang')
-@attr('version')
-@collection('compounddef', '/[@kind={}]', {
-    'classes': 'class',
-    'structs': 'struct',
-    'unions': 'union',
-    'interfaces': 'interface',
-    'protocols': 'protocol',
-    'categories': 'category',
-    'exceptions': 'exception',
-    'services': 'service',
-    'singletons': 'singleton',
-    'modules': 'module',
-    'types': 'type',
-    'files': 'file',
-    'namespaces': 'namespace',
-    'groups': 'group',
-    'pages': 'page',
-    'examples': 'example',
-    'dirs': 'dir',
-})
-@collection('compounddef', '/[@language={}]', {
-    'Unknowns': 'Unknown',
-    'IDLS': 'IDL',
-    'Javas': 'Java',
-    'C#S': 'C#',
-    'DS': 'D',
-    'PHPS': 'PHP',
-    'Objective_Cs': 'Objective-C',
-    'C++S': 'C++',
-    'JavaScripts': 'JavaScript',
-    'Pythons': 'Python',
-    'Fortrans': 'Fortran',
-    'VHDLS': 'VHDL',
-    'XMLS': 'XML',
-    'SQLS': 'SQL',
-    'Markdowns': 'Markdown',
-})
-@collection('compounddef', '/[@prot={}]', {
-    'publics': 'public',
-    'protecteds': 'protected',
-    'privates': 'private',
-    'packages': 'package',
+from ....decorators.attr import Attr
+from ....decorators.collection import Collection
+from ....node import Node
+from ..types.compounddef_type import CompounddefType
+
+@Attr('lang', str)
+@Attr('version', str)
+@Collection('compounddef', 'compounddefType', {
+    '/[@kind={}': {
+        'classes': 'class',
+        'structs': 'struct',
+        'unions': 'union',
+        'interfaces': 'interface',
+        'protocols': 'protocol',
+        'categories': 'category',
+        'exceptions': 'exception',
+        'services': 'service',
+        'singletons': 'singleton',
+        'modules': 'module',
+        'types': 'type',
+        'files': 'file',
+        'namespaces': 'namespace',
+        'groups': 'group',
+        'pages': 'page',
+        'examples': 'example',
+        'dirs': 'dir',
+    },
+    '/[@language={}': {
+        'Unknowns': 'Unknown',
+        'IDLS': 'IDL',
+        'Javas': 'Java',
+        'C#S': 'C#',
+        'DS': 'D',
+        'PHPS': 'PHP',
+        'Objective_Cs': 'Objective-C',
+        'C++S': 'C++',
+        'JavaScripts': 'JavaScript',
+        'Pythons': 'Python',
+        'Fortrans': 'Fortran',
+        'VHDLS': 'VHDL',
+        'XMLS': 'XML',
+        'SQLS': 'SQL',
+        'Markdowns': 'Markdown',
+    },
+    '/[@prot={}': {
+        'publics': 'public',
+        'protecteds': 'protected',
+        'privates': 'private',
+        'packages': 'package',
+    }
 })
 class DoxygenType(Node):
     """Model representation of a doxygen DoxygenType type.
@@ -83,4 +88,13 @@ class DoxygenType(Node):
         <xsd:attribute name="version" type="DoxVersionNumber" use="required" />
         <xsd:attribute ref="xml:lang" use="required" />
       </xsd:complexType>
+    """
+
+
+class Compounddef(CompounddefType):
+    """Model representation of a doxygen compounddef element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="compounddef" type="compounddefType" minOccurs="0" />
     """

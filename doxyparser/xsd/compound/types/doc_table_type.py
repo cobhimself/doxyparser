@@ -24,13 +24,17 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, element
 
-@attr('cols')
-@attr('rows')
-@element('caption', 'docCaptionType')
-@element('row', 'docRowType')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_caption_type import DocCaptionType
+from ..types.doc_row_type import DocRowType
+
+@Attr('cols', int)
+@Attr('rows', int)
+@Element('caption', 'docCaptionType')
+@Element('row', 'docRowType')
 class DocTableType(Node):
     """Model representation of a doxygen docTableType type.
 
@@ -44,4 +48,22 @@ class DocTableType(Node):
         <xsd:attribute name="rows" type="xsd:integer" />
         <xsd:attribute name="cols" type="xsd:integer" />
       </xsd:complexType>
+    """
+
+
+class Caption(DocCaptionType):
+    """Model representation of a doxygen caption element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="caption" type="docCaptionType" minOccurs="0" maxOccurs="1" />
+    """
+
+
+class Row(DocRowType):
+    """Model representation of a doxygen row element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="row" type="docRowType" minOccurs="0" maxOccurs="unbounded" />
     """

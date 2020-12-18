@@ -24,11 +24,14 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('listitem', 'docListItemType')
-@element('varlistentry', 'docVarListEntryType')
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_list_item_type import DocListItemType
+from ..types.doc_var_list_entry_type import DocVarListEntryType
+
+@Element('listitem', 'docListItemType')
+@Element('varlistentry', 'docVarListEntryType')
 class DocVariableListGroup(Node):
     """Model representation of a doxygen docVariableListGroup group.
 
@@ -40,4 +43,22 @@ class DocVariableListGroup(Node):
           <xsd:element name="listitem" type="docListItemType" />
         </xsd:sequence>
       </xsd:group>
+    """
+
+
+class Listitem(DocListItemType):
+    """Model representation of a doxygen listitem element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="listitem" type="docListItemType" />
+    """
+
+
+class Varlistentry(DocVarListEntryType):
+    """Model representation of a doxygen varlistentry element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="varlistentry" type="docVarListEntryType" />
     """

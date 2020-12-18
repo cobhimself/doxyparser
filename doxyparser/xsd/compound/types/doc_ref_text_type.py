@@ -24,11 +24,13 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ..groups.doc_title_cmd_group import DocTitleCmdGroup
-from ....decorators import attr
 
-@attr('external')
-@attr('refid')
+from ....decorators.attr import Attr
+from ..groups.doc_title_cmd_group import DocTitleCmdGroup
+
+@Attr('external', str)
+@Attr('kindref', ['compound', 'member'])
+@Attr('refid', str)
 class DocRefTextType(DocTitleCmdGroup):
     """Model representation of a doxygen docRefTextType type.
 

@@ -24,10 +24,11 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ..groups.doc_title_cmd_group import DocTitleCmdGroup
-from ....decorators import attr
 
-@attr('url')
+from ....decorators.attr import Attr
+from ..groups.doc_title_cmd_group import DocTitleCmdGroup
+
+@Attr('url', str)
 class DocURLLink(DocTitleCmdGroup):
     """Model representation of a doxygen docURLLink type.
 

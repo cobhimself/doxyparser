@@ -24,10 +24,11 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr
 
-@attr('value')
+from ....decorators.attr import Attr
+from ....node import Node
+
+@Attr('value', int)
 class SpType(Node):
     """Model representation of a doxygen spType type.
 

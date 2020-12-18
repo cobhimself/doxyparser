@@ -24,10 +24,12 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('listitem', 'docListItemType')
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_list_item_type import DocListItemType
+
+@Element('listitem', 'docListItemType')
 class DocListType(Node):
     """Model representation of a doxygen docListType type.
 
@@ -38,4 +40,13 @@ class DocListType(Node):
           <xsd:element name="listitem" type="docListItemType" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Listitem(DocListItemType):
+    """Model representation of a doxygen listitem element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="listitem" type="docListItemType" maxOccurs="unbounded" />
     """

@@ -24,11 +24,14 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import boolattr, attr
 
-@attr('refid')
-@boolattr('inline')
+from ....decorators.attr import Attr
+from ....decorators.boolattr import BoolAttr
+from ....node import Node
+
+@Attr('prot', ['public', 'protected', 'private', 'package'])
+@Attr('refid', str)
+@BoolAttr('inline')
 class RefType(Node):
     """Model representation of a doxygen refType type.
 

@@ -24,12 +24,14 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('name', 'simple')
-@element('reference', 'simple')
-@element('tableofcontents', 'tableofcontentsType')
+from ....decorators.element import Element
+from ....node import Node
+from ..types.tableofcontents_type import TableofcontentsType
+
+@Element('name', str)
+@Element('reference', str)
+@Element('tableofcontents', 'tableofcontentsType')
 class TableofcontentsKindType(Node):
     """Model representation of a doxygen tableofcontentsKindType type.
 
@@ -42,4 +44,13 @@ class TableofcontentsKindType(Node):
           <xsd:element name="tableofcontents" type="tableofcontentsType" minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Tableofcontents(TableofcontentsType):
+    """Model representation of a doxygen tableofcontents element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="tableofcontents" type="tableofcontentsType" minOccurs="0" maxOccurs="unbounded" />
     """

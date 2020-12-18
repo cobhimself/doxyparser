@@ -24,14 +24,19 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import boolattr, attr, element
 
-@attr('class')
-@attr('colspan')
-@attr('rowspan')
-@boolattr('thead')
-@element('para', 'docParaType')
+from ....decorators.attr import Attr
+from ....decorators.boolattr import BoolAttr
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_para_type import DocParaType
+
+@Attr('align', ['left', 'right', 'center'])
+@Attr('class', str)
+@Attr('colspan', int)
+@Attr('rowspan', int)
+@BoolAttr('thead')
+@Element('para', 'docParaType')
 class DocEntryType(Node):
     """Model representation of a doxygen docEntryType type.
 
@@ -48,4 +53,13 @@ class DocEntryType(Node):
         <xsd:attribute name="class" type="xsd:string" />
         <xsd:anyAttribute processContents="skip" />
       </xsd:complexType>
+    """
+
+
+class Para(DocParaType):
+    """Model representation of a doxygen para element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
     """

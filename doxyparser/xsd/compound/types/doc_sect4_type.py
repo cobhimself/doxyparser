@@ -24,13 +24,17 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, element
 
-@attr('id')
-@element('internal', 'docInternalS4Type')
-@element('para', 'docParaType')
-@element('title', 'simple')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_internal_s4_type import DocInternalS4Type
+from ..types.doc_para_type import DocParaType
+
+@Attr('id', str)
+@Element('internal', 'docInternalS4Type')
+@Element('para', 'docParaType')
+@Element('title', str)
 class DocSect4Type(Node):
     """Model representation of a doxygen docSect4Type type.
 
@@ -46,4 +50,22 @@ class DocSect4Type(Node):
         </xsd:sequence>
         <xsd:attribute name="id" type="xsd:string" />
       </xsd:complexType>
+    """
+
+
+class Internal(DocInternalS4Type):
+    """Model representation of a doxygen internal element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="internal" type="docInternalS4Type" minOccurs="0" />
+    """
+
+
+class Para(DocParaType):
+    """Model representation of a doxygen para element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
     """

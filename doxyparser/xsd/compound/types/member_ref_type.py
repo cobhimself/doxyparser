@@ -24,13 +24,17 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, element
 
-@attr('ambiguityscope')
-@attr('refid')
-@element('name', 'any')
-@element('scope', 'any')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+
+@Attr('ambiguityscope', str)
+@Attr('prot', ['public', 'protected', 'private', 'package'])
+@Attr('refid', str)
+@Attr('virt', ['non-virtual', 'virtual', 'pure-virtual'])
+@Element('name', 'any')
+@Element('scope', 'any')
 class MemberRefType(Node):
     """Model representation of a doxygen memberRefType type.
 

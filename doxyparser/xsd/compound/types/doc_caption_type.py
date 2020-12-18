@@ -24,8 +24,8 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ..groups.doc_title_cmd_group import DocTitleCmdGroup
 
+from ..groups.doc_title_cmd_group import DocTitleCmdGroup
 
 class DocCaptionType(DocTitleCmdGroup):
     """Model representation of a doxygen docCaptionType type.

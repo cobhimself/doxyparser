@@ -24,11 +24,16 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('para', 'docParaType')
-@element('title', 'docTitleType')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_para_type import DocParaType
+from ..types.doc_title_type import DocTitleType
+
+@Attr('kind', ['see', 'return', 'author', 'authors', 'version', 'since', 'date', 'note', 'warning', 'pre', 'post', 'copyright', 'invariant', 'remark', 'attention', 'par', 'rcs'])
+@Element('para', 'docParaType')
+@Element('title', 'docTitleType')
 class DocSimpleSectType(Node):
     """Model representation of a doxygen docSimpleSectType type.
 
@@ -43,4 +48,22 @@ class DocSimpleSectType(Node):
         </xsd:sequence>
         <xsd:attribute name="kind" type="DoxSimpleSectKind" />
       </xsd:complexType>
+    """
+
+
+class Para(DocParaType):
+    """Model representation of a doxygen para element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="para" type="docParaType" minOccurs="1" maxOccurs="unbounded" />
+    """
+
+
+class Title(DocTitleType):
+    """Model representation of a doxygen title element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="title" type="docTitleType" minOccurs="0" />
     """

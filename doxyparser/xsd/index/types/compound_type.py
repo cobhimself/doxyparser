@@ -24,26 +24,33 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, collection, element
 
-@attr('refid')
-@collection('member', '/[@kind={}]', {
-    'defines': 'define',
-    'properties': 'property',
-    'events': 'event',
-    'variables': 'variable',
-    'typedefs': 'typedef',
-    'enums': 'enum',
-    'enumvalues': 'enumvalue',
-    'functions': 'function',
-    'signals': 'signal',
-    'prototypes': 'prototype',
-    'friends': 'friend',
-    'dcops': 'dcop',
-    'slots': 'slot',
+from ....decorators.attr import Attr
+from ....decorators.collection import Collection
+from ....decorators.element import Element
+from ....node import Node
+from ..types.member_type import MemberType
+
+@Attr('kind', ['class', 'struct', 'union', 'interface', 'protocol', 'category', 'exception', 'file', 'namespace', 'group', 'page', 'example', 'dir', 'type'])
+@Attr('refid', str)
+@Collection('member', 'MemberType', {
+    '/[@kind={}': {
+        'defines': 'define',
+        'properties': 'property',
+        'events': 'event',
+        'variables': 'variable',
+        'typedefs': 'typedef',
+        'enums': 'enum',
+        'enumvalues': 'enumvalue',
+        'functions': 'function',
+        'signals': 'signal',
+        'prototypes': 'prototype',
+        'friends': 'friend',
+        'dcops': 'dcop',
+        'slots': 'slot',
+    }
 })
-@element('name', 'simple')
+@Element('name', str)
 class CompoundType(Node):
     """Model representation of a doxygen CompoundType type.
 
@@ -57,4 +64,13 @@ class CompoundType(Node):
         <xsd:attribute name="refid" type="xsd:string" use="required" />
         <xsd:attribute name="kind" type="CompoundKind" use="required" />
       </xsd:complexType>
+    """
+
+
+class Member(MemberType):
+    """Model representation of a doxygen member element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="member" type="MemberType" minOccurs="0" maxOccurs="unbounded" />
     """

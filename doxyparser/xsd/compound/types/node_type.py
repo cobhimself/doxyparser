@@ -24,21 +24,28 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, element, collection
 
-@attr('id')
-@collection('childnode', '/[@relation={}]', {
-    'includes': 'include',
-    'usages': 'usage',
-    'template_instances': 'template-instance',
-    'public_inheritances': 'public-inheritance',
-    'protected_inheritances': 'protected-inheritance',
-    'private_inheritances': 'private-inheritance',
-    'type_constraints': 'type-constraint',
+from ....decorators.attr import Attr
+from ....decorators.collection import Collection
+from ....decorators.element import Element
+from ....node import Node
+from ..types.childnode_type import ChildnodeType
+from ..types.link_type import LinkType
+
+@Attr('id', str)
+@Collection('childnode', 'childnodeType', {
+    '/[@relation={}': {
+        'includes': 'include',
+        'usages': 'usage',
+        'template_instances': 'template-instance',
+        'public_inheritances': 'public-inheritance',
+        'protected_inheritances': 'protected-inheritance',
+        'private_inheritances': 'private-inheritance',
+        'type_constraints': 'type-constraint',
+    }
 })
-@element('label', 'any')
-@element('link', 'linkType')
+@Element('label', 'any')
+@Element('link', 'linkType')
 class NodeType(Node):
     """Model representation of a doxygen nodeType type.
 
@@ -52,4 +59,22 @@ class NodeType(Node):
         </xsd:sequence>
         <xsd:attribute name="id" type="xsd:string" />
       </xsd:complexType>
+    """
+
+
+class Childnode(ChildnodeType):
+    """Model representation of a doxygen childnode element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="childnode" type="childnodeType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Link(LinkType):
+    """Model representation of a doxygen link element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="link" type="linkType" minOccurs="0" />
     """

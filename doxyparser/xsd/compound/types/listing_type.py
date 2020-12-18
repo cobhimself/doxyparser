@@ -24,13 +24,18 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, collection
 
-@attr('filename')
-@collection('codeline', '/[@refkind={}]', {
-    'compounds': 'compound',
-    'members': 'member',
+from ....decorators.attr import Attr
+from ....decorators.collection import Collection
+from ....node import Node
+from ..types.codeline_type import CodelineType
+
+@Attr('filename', str)
+@Collection('codeline', 'codelineType', {
+    '/[@refkind={}': {
+        'compounds': 'compound',
+        'members': 'member',
+    }
 })
 class ListingType(Node):
     """Model representation of a doxygen listingType type.
@@ -43,4 +48,13 @@ class ListingType(Node):
         </xsd:sequence>
         <xsd:attribute name="filename" type="xsd:string" use="optional" />
       </xsd:complexType>
+    """
+
+
+class Codeline(CodelineType):
+    """Model representation of a doxygen codeline element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="codeline" type="codelineType" minOccurs="0" maxOccurs="unbounded" />
     """

@@ -24,10 +24,13 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr
 
-@attr('refid')
+from ....decorators.attr import Attr
+from ....node import Node
+
+@Attr('prot', ['public', 'protected', 'private', 'package'])
+@Attr('refid', str)
+@Attr('virt', ['non-virtual', 'virtual', 'pure-virtual'])
 class CompoundRefType(Node):
     """Model representation of a doxygen compoundRefType type.
 

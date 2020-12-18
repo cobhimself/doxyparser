@@ -24,13 +24,18 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, element
 
-@attr('link')
-@element('internal', 'docInternalType')
-@element('para', 'docParaType')
-@element('sect1', 'docSect1Type')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_internal_type import DocInternalType
+from ..types.doc_para_type import DocParaType
+from ..types.doc_sect1_type import DocSect1Type
+
+@Attr('link', str)
+@Element('internal', 'docInternalType')
+@Element('para', 'docParaType')
+@Element('sect1', 'docSect1Type')
 class DocCopyType(Node):
     """Model representation of a doxygen docCopyType type.
 
@@ -44,4 +49,31 @@ class DocCopyType(Node):
         </xsd:sequence>
         <xsd:attribute name="link" type="xsd:string" /> 
       </xsd:complexType>
+    """
+
+
+class Internal(DocInternalType):
+    """Model representation of a doxygen internal element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="internal" type="docInternalType" minOccurs="0" />
+    """
+
+
+class Para(DocParaType):
+    """Model representation of a doxygen para element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Sect1(DocSect1Type):
+    """Model representation of a doxygen sect1 element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="sect1" type="docSect1Type" minOccurs="0" maxOccurs="unbounded" />
     """

@@ -24,14 +24,17 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ..groups.doc_title_cmd_group import DocTitleCmdGroup
-from ....decorators import boolattr, attr
 
-@attr('caption')
-@attr('height')
-@attr('name')
-@attr('width')
-@boolattr('inline')
+from ....decorators.attr import Attr
+from ....decorators.boolattr import BoolAttr
+from ..groups.doc_title_cmd_group import DocTitleCmdGroup
+
+@Attr('caption', str)
+@Attr('height', str)
+@Attr('name', str)
+@Attr('type', ['html', 'latex', 'docbook', 'rtf'])
+@Attr('width', str)
+@BoolAttr('inline')
 class DocImageType(DocTitleCmdGroup):
     """Model representation of a doxygen docImageType type.
 

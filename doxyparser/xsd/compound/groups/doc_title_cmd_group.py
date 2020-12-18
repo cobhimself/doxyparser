@@ -24,60 +24,81 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element, collection, placeholders
 
-@collection('dot', '/[@type={}]', {
-    'htmls': 'html',
-    'latexes': 'latex',
-    'docbooks': 'docbook',
-    'rtfs': 'rtf',
+from ....decorators.collection import Collection
+from ....decorators.element import Element
+from ....decorators.placeholders import Placeholders
+from ....node import Node
+from ..types.doc_anchor_type import DocAnchorType
+from ..types.doc_emoji_type import DocEmojiType
+from ..types.doc_formula_type import DocFormulaType
+from ..types.doc_html_only_type import DocHtmlOnlyType
+from ..types.doc_image_type import DocImageType
+from ..types.doc_markup_type import DocMarkupType
+from ..types.doc_ref_text_type import DocRefTextType
+from ..types.doc_u_r_l_link import DocURLLink
+
+@Collection('dot', 'docImageType', {
+    '/[@type={}': {
+        'htmls': 'html',
+        'latexes': 'latex',
+        'docbooks': 'docbook',
+        'rtfs': 'rtf',
+    }
 })
-@collection('image', '/[@type={}]', {
-    'htmls': 'html',
-    'latexes': 'latex',
-    'docbooks': 'docbook',
-    'rtfs': 'rtf',
+@Collection('image', 'docImageType', {
+    '/[@type={}': {
+        'htmls': 'html',
+        'latexes': 'latex',
+        'docbooks': 'docbook',
+        'rtfs': 'rtf',
+    }
 })
-@collection('msc', '/[@type={}]', {
-    'htmls': 'html',
-    'latexes': 'latex',
-    'docbooks': 'docbook',
-    'rtfs': 'rtf',
+@Collection('msc', 'docImageType', {
+    '/[@type={}': {
+        'htmls': 'html',
+        'latexes': 'latex',
+        'docbooks': 'docbook',
+        'rtfs': 'rtf',
+    }
 })
-@collection('plantuml', '/[@type={}]', {
-    'htmls': 'html',
-    'latexes': 'latex',
-    'docbooks': 'docbook',
-    'rtfs': 'rtf',
+@Collection('plantuml', 'docImageType', {
+    '/[@type={}': {
+        'htmls': 'html',
+        'latexes': 'latex',
+        'docbooks': 'docbook',
+        'rtfs': 'rtf',
+    }
 })
-@collection('ref', '/[@kindref={}]', {
-    'compounds': 'compound',
-    'members': 'member',
+@Collection('ref', 'docRefTextType', {
+    '/[@kindref={}': {
+        'compounds': 'compound',
+        'members': 'member',
+    }
 })
-@element('anchor', 'docAnchorType')
-@element('bold', 'docMarkupType')
-@element('center', 'docMarkupType')
-@element('computeroutput', 'docMarkupType')
-@element('del', 'docMarkupType')
-@element('docbookonly', 'simple')
-@element('emoji', 'docEmojiType')
-@element('emphasis', 'docMarkupType')
-@element('formula', 'docFormulaType')
-@element('htmlonly', 'docHtmlOnlyType')
-@element('ins', 'docMarkupType')
-@element('latexonly', 'simple')
-@element('manonly', 'simple')
-@element('rtfonly', 'simple')
-@element('s', 'docMarkupType')
-@element('small', 'docMarkupType')
-@element('strike', 'docMarkupType')
-@element('subscript', 'docMarkupType')
-@element('superscript', 'docMarkupType')
-@element('ulink', 'docURLLink')
-@element('underline', 'docMarkupType')
-@element('xmlonly', 'simple')
-@placeholders([
+@Element('anchor', 'docAnchorType')
+@Element('bold', 'docMarkupType')
+@Element('center', 'docMarkupType')
+@Element('computeroutput', 'docMarkupType')
+@Element('del', 'docMarkupType')
+@Element('docbookonly', str)
+@Element('emoji', 'docEmojiType')
+@Element('emphasis', 'docMarkupType')
+@Element('formula', 'docFormulaType')
+@Element('htmlonly', 'docHtmlOnlyType')
+@Element('ins', 'docMarkupType')
+@Element('latexonly', str)
+@Element('manonly', str)
+@Element('rtfonly', str)
+@Element('s', 'docMarkupType')
+@Element('small', 'docMarkupType')
+@Element('strike', 'docMarkupType')
+@Element('subscript', 'docMarkupType')
+@Element('superscript', 'docMarkupType')
+@Element('ulink', 'docURLLink')
+@Element('underline', 'docMarkupType')
+@Element('xmlonly', str)
+@Placeholders([
     'linebreak',
     'nonbreakablespace',
     'iexcl',
@@ -615,4 +636,202 @@ class DocTitleCmdGroup(Node):
           <xsd:element name="tm" type="docEmptyType" />
         </xsd:choice>
       </xsd:group>
+    """
+
+
+class Anchor(DocAnchorType):
+    """Model representation of a doxygen anchor element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="anchor" type="docAnchorType" />
+    """
+
+
+class Bold(DocMarkupType):
+    """Model representation of a doxygen bold element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="bold" type="docMarkupType" />
+    """
+
+
+class Center(DocMarkupType):
+    """Model representation of a doxygen center element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="center" type="docMarkupType" />
+    """
+
+
+class Computeroutput(DocMarkupType):
+    """Model representation of a doxygen computeroutput element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="computeroutput" type="docMarkupType" />
+    """
+
+
+class Del(DocMarkupType):
+    """Model representation of a doxygen del element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="del" type="docMarkupType" />
+    """
+
+
+class Dot(DocImageType):
+    """Model representation of a doxygen dot element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="dot" type="docImageType" />
+    """
+
+
+class Emoji(DocEmojiType):
+    """Model representation of a doxygen emoji element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="emoji" type="docEmojiType" />
+    """
+
+
+class Emphasis(DocMarkupType):
+    """Model representation of a doxygen emphasis element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="emphasis" type="docMarkupType" />
+    """
+
+
+class Formula(DocFormulaType):
+    """Model representation of a doxygen formula element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="formula" type="docFormulaType" />
+    """
+
+
+class Htmlonly(DocHtmlOnlyType):
+    """Model representation of a doxygen htmlonly element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="htmlonly" type="docHtmlOnlyType" />
+    """
+
+
+class Image(DocImageType):
+    """Model representation of a doxygen image element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="image" type="docImageType" />
+    """
+
+
+class Ins(DocMarkupType):
+    """Model representation of a doxygen ins element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ins" type="docMarkupType" />
+    """
+
+
+class Msc(DocImageType):
+    """Model representation of a doxygen msc element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="msc" type="docImageType" />
+    """
+
+
+class Plantuml(DocImageType):
+    """Model representation of a doxygen plantuml element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="plantuml" type="docImageType" />
+    """
+
+
+class Ref(DocRefTextType):
+    """Model representation of a doxygen ref element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ref" type="docRefTextType" />
+    """
+
+
+class S(DocMarkupType):
+    """Model representation of a doxygen s element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="s" type="docMarkupType" />
+    """
+
+
+class Small(DocMarkupType):
+    """Model representation of a doxygen small element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="small" type="docMarkupType" />
+    """
+
+
+class Strike(DocMarkupType):
+    """Model representation of a doxygen strike element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="strike" type="docMarkupType" />
+    """
+
+
+class Subscript(DocMarkupType):
+    """Model representation of a doxygen subscript element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="subscript" type="docMarkupType" />
+    """
+
+
+class Superscript(DocMarkupType):
+    """Model representation of a doxygen superscript element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="superscript" type="docMarkupType" />
+    """
+
+
+class Ulink(DocURLLink):
+    """Model representation of a doxygen ulink element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ulink" type="docURLLink" />
+    """
+
+
+class Underline(DocMarkupType):
+    """Model representation of a doxygen underline element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="underline" type="docMarkupType" />
     """

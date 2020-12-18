@@ -24,11 +24,14 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, element
 
-@attr('refid')
-@element('name', 'simple')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+
+@Attr('kind', ['define', 'property', 'event', 'variable', 'typedef', 'enum', 'enumvalue', 'function', 'signal', 'prototype', 'friend', 'dcop', 'slot'])
+@Attr('refid', str)
+@Element('name', str)
 class MemberType(Node):
     """Model representation of a doxygen MemberType type.
 

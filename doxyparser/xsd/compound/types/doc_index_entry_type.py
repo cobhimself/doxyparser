@@ -24,11 +24,12 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('primaryie', 'simple')
-@element('secondaryie', 'simple')
+from ....decorators.element import Element
+from ....node import Node
+
+@Element('primaryie', str)
+@Element('secondaryie', str)
 class DocIndexEntryType(Node):
     """Model representation of a doxygen docIndexEntryType type.
 

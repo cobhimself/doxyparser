@@ -24,10 +24,12 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('node', 'nodeType')
+from ....decorators.element import Element
+from ....node import Node
+from ..types.node_type import NodeType
+
+@Element('node', 'nodeType')
 class GraphType(Node):
     """Model representation of a doxygen graphType type.
 
@@ -38,4 +40,13 @@ class GraphType(Node):
           <xsd:element name="node" type="nodeType" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Node(NodeType):
+    """Model representation of a doxygen node element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="node" type="nodeType" maxOccurs="unbounded" />
     """

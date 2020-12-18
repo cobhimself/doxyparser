@@ -24,17 +24,20 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('array', 'any')
-@element('attributes', 'any')
-@element('briefdescription', 'descriptionType')
-@element('declname', 'any')
-@element('defname', 'any')
-@element('defval', 'linkedTextType')
-@element('type', 'linkedTextType')
-@element('typeconstraint', 'linkedTextType')
+from ....decorators.element import Element
+from ....node import Node
+from ..types.description_type import DescriptionType
+from ..types.linked_text_type import LinkedTextType
+
+@Element('array', 'any')
+@Element('attributes', 'any')
+@Element('briefdescription', 'descriptionType')
+@Element('declname', 'any')
+@Element('defname', 'any')
+@Element('defval', 'linkedTextType')
+@Element('type', 'linkedTextType')
+@Element('typeconstraint', 'linkedTextType')
 class ParamType(Node):
     """Model representation of a doxygen paramType type.
 
@@ -52,4 +55,40 @@ class ParamType(Node):
           <xsd:element name="briefdescription" type="descriptionType" minOccurs="0" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Briefdescription(DescriptionType):
+    """Model representation of a doxygen briefdescription element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="briefdescription" type="descriptionType" minOccurs="0" />
+    """
+
+
+class Defval(LinkedTextType):
+    """Model representation of a doxygen defval element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="defval" type="linkedTextType" minOccurs="0" />
+    """
+
+
+class Type(LinkedTextType):
+    """Model representation of a doxygen type element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="type" type="linkedTextType" minOccurs="0" />
+    """
+
+
+class Typeconstraint(LinkedTextType):
+    """Model representation of a doxygen typeconstraint element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="typeconstraint" type="linkedTextType" minOccurs="0" />
     """

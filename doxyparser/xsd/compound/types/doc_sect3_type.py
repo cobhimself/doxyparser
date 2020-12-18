@@ -24,14 +24,19 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, element
 
-@attr('id')
-@element('internal', 'docInternalS3Type')
-@element('para', 'docParaType')
-@element('sect4', 'docSect4Type')
-@element('title', 'simple')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_internal_s3_type import DocInternalS3Type
+from ..types.doc_para_type import DocParaType
+from ..types.doc_sect4_type import DocSect4Type
+
+@Attr('id', str)
+@Element('internal', 'docInternalS3Type')
+@Element('para', 'docParaType')
+@Element('sect4', 'docSect4Type')
+@Element('title', str)
 class DocSect3Type(Node):
     """Model representation of a doxygen docSect3Type type.
 
@@ -48,4 +53,31 @@ class DocSect3Type(Node):
         </xsd:sequence>
         <xsd:attribute name="id" type="xsd:string" />
       </xsd:complexType>
+    """
+
+
+class Internal(DocInternalS3Type):
+    """Model representation of a doxygen internal element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="internal" type="docInternalS3Type" minOccurs="0" />
+    """
+
+
+class Para(DocParaType):
+    """Model representation of a doxygen para element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Sect4(DocSect4Type):
+    """Model representation of a doxygen sect4 element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="sect4" type="docSect4Type" minOccurs="0" maxOccurs="unbounded" />
     """

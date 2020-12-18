@@ -24,14 +24,19 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, element
 
-@attr('id')
-@element('briefdescription', 'descriptionType')
-@element('detaileddescription', 'descriptionType')
-@element('initializer', 'linkedTextType')
-@element('name', 'any')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+from ..types.description_type import DescriptionType
+from ..types.linked_text_type import LinkedTextType
+
+@Attr('id', str)
+@Attr('prot', ['public', 'protected', 'private', 'package'])
+@Element('briefdescription', 'descriptionType')
+@Element('detaileddescription', 'descriptionType')
+@Element('initializer', 'linkedTextType')
+@Element('name', 'any')
 class EnumvalueType(Node):
     """Model representation of a doxygen enumvalueType type.
 
@@ -47,4 +52,31 @@ class EnumvalueType(Node):
         <xsd:attribute name="id" type="xsd:string" />
         <xsd:attribute name="prot" type="DoxProtectionKind" />
       </xsd:complexType>
+    """
+
+
+class Briefdescription(DescriptionType):
+    """Model representation of a doxygen briefdescription element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="briefdescription" type="descriptionType" minOccurs="0" />
+    """
+
+
+class Detaileddescription(DescriptionType):
+    """Model representation of a doxygen detaileddescription element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="detaileddescription" type="descriptionType" minOccurs="0" />
+    """
+
+
+class Initializer(LinkedTextType):
+    """Model representation of a doxygen initializer element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="initializer" type="linkedTextType" minOccurs="0" />
     """

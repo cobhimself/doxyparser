@@ -24,10 +24,14 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('parameteritem', 'docParamListItem')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_param_list_item import DocParamListItem
+
+@Attr('kind', ['param', 'retval', 'exception', 'templateparam'])
+@Element('parameteritem', 'docParamListItem')
 class DocParamListType(Node):
     """Model representation of a doxygen docParamListType type.
 
@@ -39,4 +43,13 @@ class DocParamListType(Node):
         </xsd:sequence>
         <xsd:attribute name="kind" type="DoxParamListKind" /> 
       </xsd:complexType>
+    """
+
+
+class Parameteritem(DocParamListItem):
+    """Model representation of a doxygen parameteritem element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="parameteritem" type="docParamListItem" minOccurs="0" maxOccurs="unbounded" />
     """

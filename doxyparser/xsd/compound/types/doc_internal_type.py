@@ -24,11 +24,14 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('para', 'docParaType')
-@element('sect1', 'docSect1Type')
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_para_type import DocParaType
+from ..types.doc_sect1_type import DocSect1Type
+
+@Element('para', 'docParaType')
+@Element('sect1', 'docSect1Type')
 class DocInternalType(Node):
     """Model representation of a doxygen docInternalType type.
 
@@ -40,4 +43,22 @@ class DocInternalType(Node):
           <xsd:element name="sect1" type="docSect1Type" minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Para(DocParaType):
+    """Model representation of a doxygen para element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Sect1(DocSect1Type):
+    """Model representation of a doxygen sect1 element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="sect1" type="docSect1Type" minOccurs="0" maxOccurs="unbounded" />
     """

@@ -24,11 +24,13 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import boolattr, attr
 
-@attr('refid')
-@boolattr('local')
+from ....decorators.attr import Attr
+from ....decorators.boolattr import BoolAttr
+from ....node import Node
+
+@Attr('refid', str)
+@BoolAttr('local')
 class IncType(Node):
     """Model representation of a doxygen incType type.
 

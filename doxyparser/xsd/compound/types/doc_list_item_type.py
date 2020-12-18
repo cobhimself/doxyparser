@@ -24,10 +24,12 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('para', 'docParaType')
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_para_type import DocParaType
+
+@Element('para', 'docParaType')
 class DocListItemType(Node):
     """Model representation of a doxygen docListItemType type.
 
@@ -38,4 +40,13 @@ class DocListItemType(Node):
           <xsd:element name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Para(DocParaType):
+    """Model representation of a doxygen para element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="para" type="docParaType" minOccurs="0" maxOccurs="unbounded" />
     """

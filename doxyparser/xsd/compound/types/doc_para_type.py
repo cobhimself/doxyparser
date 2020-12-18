@@ -24,8 +24,8 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ..groups.doc_cmd_group import DocCmdGroup
 
+from ..groups.doc_cmd_group import DocCmdGroup
 
 class DocParaType(DocCmdGroup):
     """Model representation of a doxygen docParaType type.

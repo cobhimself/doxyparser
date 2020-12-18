@@ -24,10 +24,12 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('tocitem', 'docTocItemType')
+from ....decorators.element import Element
+from ....node import Node
+from ..types.doc_toc_item_type import DocTocItemType
+
+@Element('tocitem', 'docTocItemType')
 class DocTocListType(Node):
     """Model representation of a doxygen docTocListType type.
 
@@ -38,4 +40,13 @@ class DocTocListType(Node):
           <xsd:element name="tocitem" type="docTocItemType" minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Tocitem(DocTocItemType):
+    """Model representation of a doxygen tocitem element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="tocitem" type="docTocItemType" minOccurs="0" maxOccurs="unbounded" />
     """

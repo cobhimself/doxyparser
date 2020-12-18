@@ -24,8 +24,8 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
 
+from ....node import Node
 
 class DocEmptyType(Node):
     """Model representation of a doxygen docEmptyType type.

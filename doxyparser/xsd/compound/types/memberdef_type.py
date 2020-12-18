@@ -24,71 +24,90 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import boolattr, attr, element, collection
 
-@attr('id')
-@boolattr('add')
-@boolattr('attribute')
-@boolattr('bound')
-@boolattr('const')
-@boolattr('constexpr')
-@boolattr('constrained')
-@boolattr('explicit')
-@boolattr('final')
-@boolattr('gettable')
-@boolattr('initonly')
-@boolattr('inline')
-@boolattr('maybeambiguous')
-@boolattr('maybedefault')
-@boolattr('maybevoid')
-@boolattr('mutable')
-@boolattr('new')
-@boolattr('noexcept')
-@boolattr('optional')
-@boolattr('privategettable')
-@boolattr('privatesettable')
-@boolattr('property')
-@boolattr('protectedgettable')
-@boolattr('protectedsettable')
-@boolattr('raise')
-@boolattr('readable')
-@boolattr('readonly')
-@boolattr('removable')
-@boolattr('remove')
-@boolattr('required')
-@boolattr('sealed')
-@boolattr('settable')
-@boolattr('static')
-@boolattr('strong')
-@boolattr('transient')
-@boolattr('volatile')
-@boolattr('writable')
-@collection('enumvalue', '/[@prot={}]', {
-    'publics': 'public',
-    'protecteds': 'protected',
-    'privates': 'private',
-    'packages': 'package',
+from ....decorators.attr import Attr
+from ....decorators.boolattr import BoolAttr
+from ....decorators.collection import Collection
+from ....decorators.element import Element
+from ....node import Node
+from ..types.description_type import DescriptionType
+from ..types.enumvalue_type import EnumvalueType
+from ..types.linked_text_type import LinkedTextType
+from ..types.location_type import LocationType
+from ..types.param_type import ParamType
+from ..types.reference_type import ReferenceType
+from ..types.reimplement_type import ReimplementType
+from ..types.templateparamlist_type import TemplateparamlistType
+
+@Attr('accessor', ['retain', 'copy', 'assign', 'weak', 'strong', 'unretained'])
+@Attr('id', str)
+@Attr('kind', ['define', 'property', 'event', 'variable', 'typedef', 'enum', 'function', 'signal', 'prototype', 'friend', 'dcop', 'slot', 'interface', 'service'])
+@Attr('prot', ['public', 'protected', 'private', 'package'])
+@Attr('refqual', ['lvalue', 'rvalue'])
+@Attr('virt', ['non-virtual', 'virtual', 'pure-virtual'])
+@BoolAttr('add')
+@BoolAttr('attribute')
+@BoolAttr('bound')
+@BoolAttr('const')
+@BoolAttr('constexpr')
+@BoolAttr('constrained')
+@BoolAttr('explicit')
+@BoolAttr('final')
+@BoolAttr('gettable')
+@BoolAttr('initonly')
+@BoolAttr('inline')
+@BoolAttr('maybeambiguous')
+@BoolAttr('maybedefault')
+@BoolAttr('maybevoid')
+@BoolAttr('mutable')
+@BoolAttr('new')
+@BoolAttr('noexcept')
+@BoolAttr('optional')
+@BoolAttr('privategettable')
+@BoolAttr('privatesettable')
+@BoolAttr('property')
+@BoolAttr('protectedgettable')
+@BoolAttr('protectedsettable')
+@BoolAttr('raise')
+@BoolAttr('readable')
+@BoolAttr('readonly')
+@BoolAttr('removable')
+@BoolAttr('remove')
+@BoolAttr('required')
+@BoolAttr('sealed')
+@BoolAttr('settable')
+@BoolAttr('static')
+@BoolAttr('strong')
+@BoolAttr('transient')
+@BoolAttr('volatile')
+@BoolAttr('writable')
+@Collection('enumvalue', 'enumvalueType', {
+    '/[@prot={}': {
+        'publics': 'public',
+        'protecteds': 'protected',
+        'privates': 'private',
+        'packages': 'package',
+    }
 })
-@element('argsstring', 'any')
-@element('bitfield', 'any')
-@element('briefdescription', 'descriptionType')
-@element('definition', 'any')
-@element('detaileddescription', 'descriptionType')
-@element('exceptions', 'linkedTextType')
-@element('inbodydescription', 'descriptionType')
-@element('initializer', 'linkedTextType')
-@element('location', 'locationType')
-@element('name', 'any')
-@element('param', 'paramType')
-@element('read', 'any')
-@element('referencedby', 'referenceType')
-@element('references', 'referenceType')
-@element('reimplementedby', 'reimplementType')
-@element('reimplements', 'reimplementType')
-@element('templateparamlist', 'templateparamlistType')
-@element('type', 'linkedTextType')
-@element('write', 'any')
+@Element('argsstring', 'any')
+@Element('bitfield', 'any')
+@Element('briefdescription', 'descriptionType')
+@Element('definition', 'any')
+@Element('detaileddescription', 'descriptionType')
+@Element('exceptions', 'linkedTextType')
+@Element('inbodydescription', 'descriptionType')
+@Element('initializer', 'linkedTextType')
+@Element('location', 'locationType')
+@Element('name', 'any')
+@Element('param', 'paramType')
+@Element('read', 'any')
+@Element('referencedby', 'referenceType')
+@Element('references', 'referenceType')
+@Element('reimplementedby', 'reimplementType')
+@Element('reimplements', 'reimplementType')
+@Element('templateparamlist', 'templateparamlistType')
+@Element('type', 'linkedTextType')
+@Element('write', 'any')
 class MemberdefType(Node):
     """Model representation of a doxygen memberdefType type.
 
@@ -169,4 +188,130 @@ class MemberdefType(Node):
         <xsd:attribute name="maybeambiguous" type="DoxBool" use="optional" />
 
       </xsd:complexType>
+    """
+
+
+class Briefdescription(DescriptionType):
+    """Model representation of a doxygen briefdescription element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="briefdescription" type="descriptionType" minOccurs="0" />
+    """
+
+
+class Detaileddescription(DescriptionType):
+    """Model representation of a doxygen detaileddescription element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="detaileddescription" type="descriptionType" minOccurs="0" />
+    """
+
+
+class Enumvalue(EnumvalueType):
+    """Model representation of a doxygen enumvalue element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="enumvalue" type="enumvalueType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Exceptions(LinkedTextType):
+    """Model representation of a doxygen exceptions element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="exceptions" type="linkedTextType" minOccurs="0" />
+    """
+
+
+class Inbodydescription(DescriptionType):
+    """Model representation of a doxygen inbodydescription element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="inbodydescription" type="descriptionType" minOccurs="0" />
+    """
+
+
+class Initializer(LinkedTextType):
+    """Model representation of a doxygen initializer element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="initializer" type="linkedTextType" minOccurs="0" />
+    """
+
+
+class Location(LocationType):
+    """Model representation of a doxygen location element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="location" type="locationType" />
+    """
+
+
+class Param(ParamType):
+    """Model representation of a doxygen param element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="param" type="paramType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Referencedby(ReferenceType):
+    """Model representation of a doxygen referencedby element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="referencedby" type="referenceType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class References(ReferenceType):
+    """Model representation of a doxygen references element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="references" type="referenceType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Reimplementedby(ReimplementType):
+    """Model representation of a doxygen reimplementedby element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="reimplementedby" type="reimplementType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Reimplements(ReimplementType):
+    """Model representation of a doxygen reimplements element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="reimplements" type="reimplementType" minOccurs="0" maxOccurs="unbounded" />
+    """
+
+
+class Templateparamlist(TemplateparamlistType):
+    """Model representation of a doxygen templateparamlist element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="templateparamlist" type="templateparamlistType" minOccurs="0" />
+    """
+
+
+class Type(LinkedTextType):
+    """Model representation of a doxygen type element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="type" type="linkedTextType" minOccurs="0" />
     """

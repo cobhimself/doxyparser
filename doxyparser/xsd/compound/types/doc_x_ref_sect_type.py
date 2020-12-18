@@ -24,12 +24,15 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, element
 
-@attr('id')
-@element('xrefdescription', 'descriptionType')
-@element('xreftitle', 'simple')
+from ....decorators.attr import Attr
+from ....decorators.element import Element
+from ....node import Node
+from ..types.description_type import DescriptionType
+
+@Attr('id', str)
+@Element('xrefdescription', 'descriptionType')
+@Element('xreftitle', str)
 class DocXRefSectType(Node):
     """Model representation of a doxygen docXRefSectType type.
 
@@ -42,4 +45,13 @@ class DocXRefSectType(Node):
         </xsd:sequence>
         <xsd:attribute name="id" type="xsd:string" /> 
       </xsd:complexType>
+    """
+
+
+class Xrefdescription(DescriptionType):
+    """Model representation of a doxygen xrefdescription element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="xrefdescription" type="descriptionType" />
     """

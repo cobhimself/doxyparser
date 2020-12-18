@@ -24,10 +24,12 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import element
 
-@element('param', 'paramType')
+from ....decorators.element import Element
+from ....node import Node
+from ..types.param_type import ParamType
+
+@Element('param', 'paramType')
 class TemplateparamlistType(Node):
     """Model representation of a doxygen templateparamlistType type.
 
@@ -38,4 +40,13 @@ class TemplateparamlistType(Node):
           <xsd:element name="param" type="paramType" minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
       </xsd:complexType>
+    """
+
+
+class Param(ParamType):
+    """Model representation of a doxygen param element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="param" type="paramType" minOccurs="0" maxOccurs="unbounded" />
     """

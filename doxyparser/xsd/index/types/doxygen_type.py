@@ -24,26 +24,31 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ....node import Node
-from ....decorators import attr, collection
 
-@attr('lang')
-@attr('version')
-@collection('compound', '/[@kind={}]', {
-    'classes': 'class',
-    'structs': 'struct',
-    'unions': 'union',
-    'interfaces': 'interface',
-    'protocols': 'protocol',
-    'categories': 'category',
-    'exceptions': 'exception',
-    'files': 'file',
-    'namespaces': 'namespace',
-    'groups': 'group',
-    'pages': 'page',
-    'examples': 'example',
-    'dirs': 'dir',
-    'types': 'type',
+from ....decorators.attr import Attr
+from ....decorators.collection import Collection
+from ....node import Node
+from ..types.compound_type import CompoundType
+
+@Attr('lang', str)
+@Attr('version', str)
+@Collection('compound', 'CompoundType', {
+    '/[@kind={}': {
+        'classes': 'class',
+        'structs': 'struct',
+        'unions': 'union',
+        'interfaces': 'interface',
+        'protocols': 'protocol',
+        'categories': 'category',
+        'exceptions': 'exception',
+        'files': 'file',
+        'namespaces': 'namespace',
+        'groups': 'group',
+        'pages': 'page',
+        'examples': 'example',
+        'dirs': 'dir',
+        'types': 'type',
+    }
 })
 class DoxygenType(Node):
     """Model representation of a doxygen DoxygenType type.
@@ -57,4 +62,13 @@ class DoxygenType(Node):
         <xsd:attribute name="version" type="xsd:string" use="required" />
         <xsd:attribute ref="xml:lang" use="required" />
       </xsd:complexType>
+    """
+
+
+class Compound(CompoundType):
+    """Model representation of a doxygen compound element.
+
+    Type XSD:
+
+    <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="compound" type="CompoundType" minOccurs="0" maxOccurs="unbounded" />
     """

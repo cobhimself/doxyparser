@@ -24,8 +24,8 @@ SOFTWARE.
 This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
-from ..types.doxygen_type import DoxygenType
 
+from ..types.doxygen_type import DoxygenType
 
 class Doxygenindex(DoxygenType):
     """Model representation of a doxygen doxygenindex element.
