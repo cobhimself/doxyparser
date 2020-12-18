@@ -1,5 +1,3 @@
-from .decorators import COLLECTIONS, TAG, XPATH
-
 class Node:
     """
     Super class used to represent doxy xml Elements

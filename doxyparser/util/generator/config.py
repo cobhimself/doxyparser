@@ -61,8 +61,11 @@ class Config():
         Args:
             xsd (str): The name of the source xsd file without the extension.
         """
-        self._provide(self._config[XSD], xsd, {})
         self._xsd = xsd
+        self._provide(self.get_config(), xsd, {})
+
+    def clear_xsd(self):
+        self.get_config()[self._xsd] = {}
 
     def load(self):
         """Load the configuration found at the given path.
@@ -174,6 +177,7 @@ class Config():
         config = self.get_config()
 
         self._provide(config, key, {})
+
         return config[key]
 
     def get_xsd_files(self):
@@ -296,6 +300,7 @@ class Config():
         """
         return self.get_type_config(type_name).get(ELEMENTS, {})
 
+
     def get_group_elements(self, group_name):
         """Return element data for the group with the given name.
 
@@ -354,7 +359,7 @@ class Config():
         group_info[ELEMENTS] = self.get_element_info(group.get_elements())
         groups = group.get_groups()
         if len(groups) > 0:
-            group_info[GROUPS] = [key for key in groups.keys()]
+            group_info[GROUPS] = list(groups.keys())
 
         self.set_path(group_info, GROUPS, name)
 
@@ -446,8 +451,8 @@ class Config():
                 continue
 
             # catchall
-            self._provide(info, SIMPLE, [])
-            info[SIMPLE].append(attr.get_name())
+            self._provide(info, SIMPLE, {})
+            info[SIMPLE][attr.get_name()] = attr.get_type().get_local_name()
 
         return info
 
@@ -469,8 +474,8 @@ class Config():
                 self._provide(info, ANY, [])
                 info[ANY].append(elem.get_name())
             elif elem.is_simple():
-                self._provide(info, SIMPLE, [])
-                info[SIMPLE].append(elem.get_name())
+                self._provide(info, SIMPLE, {})
+                info[SIMPLE][elem.get_name()] = elem.get_type().get_local_name()
             elif elem.is_complex():
                 self._provide(info, COMPLEX, {})
                 info[COMPLEX][elem.get_name()] = elem.get_type_name()

@@ -30,7 +30,7 @@ xsd:
           placeholder:
           - hruler
           simple:
-          - verbatim
+            verbatim: str
         groups:
         - docTitleCmdGroup
       docTitleCmdGroup:
@@ -310,11 +310,11 @@ xsd:
           - euro
           - tm
           simple:
-          - manonly
-          - xmlonly
-          - rtfonly
-          - latexonly
-          - docbookonly
+            docbookonly: str
+            latexonly: str
+            manonly: str
+            rtfonly: str
+            xmlonly: str
       docVariableListGroup:
         elements:
           complex:
@@ -324,8 +324,8 @@ xsd:
       DoxygenType:
         attributes:
           simple:
-          - version
-          - lang
+            lang: str
+            version: str
         elements:
           complex:
             compounddef: compounddefType
@@ -341,7 +341,7 @@ xsd:
             - private-inheritance
             - type-constraint
           simple:
-          - refid
+            refid: str
         elements:
           any:
           - edgelabel
@@ -354,8 +354,8 @@ xsd:
             - compound
             - member
           simple:
-          - lineno
-          - refid
+            lineno: int
+            refid: str
         elements:
           complex:
             highlight: highlightType
@@ -372,7 +372,7 @@ xsd:
             - virtual
             - pure-virtual
           simple:
-          - refid
+            refid: str
       compounddefType:
         attributes:
           bools:
@@ -417,7 +417,7 @@ xsd:
             - Markdown
             prot: *id001
           simple:
-          - id
+            id: str
         elements:
           complex:
             basecompoundref: compoundRefType
@@ -443,8 +443,8 @@ xsd:
             tableofcontents: tableofcontentsType
             templateparamlist: templateparamlistType
           simple:
-          - compoundname
-          - title
+            compoundname: str
+            title: str
       descriptionType:
         elements:
           complex:
@@ -452,11 +452,11 @@ xsd:
             para: docParaType
             sect1: docSect1Type
           simple:
-          - title
+            title: str
       docAnchorType:
         attributes:
           simple:
-          - id
+            id: str
       docBlockQuoteType:
         elements:
           complex:
@@ -467,7 +467,7 @@ xsd:
       docCopyType:
         attributes:
           simple:
-          - link
+            link: str
         elements:
           complex:
             internal: docInternalType
@@ -476,8 +476,8 @@ xsd:
       docEmojiType:
         attributes:
           simple:
-          - name
-          - unicode
+            name: str
+            unicode: str
       docEmptyType: {}
       docEntryType:
         attributes:
@@ -489,26 +489,26 @@ xsd:
             - right
             - center
           simple:
-          - class
-          - colspan
-          - rowspan
+            class: str
+            colspan: int
+            rowspan: int
         elements:
           complex:
             para: docParaType
       docFormulaType:
         attributes:
           simple:
-          - id
+            id: str
       docHeadingType:
         attributes:
           simple:
-          - level
+            level: int
         groups:
         - docTitleCmdGroup
       docHtmlOnlyType:
         attributes:
           simple:
-          - block
+            block: str
       docImageType:
         attributes:
           bools:
@@ -520,17 +520,17 @@ xsd:
             - docbook
             - rtf
           simple:
-          - name
-          - width
-          - height
-          - caption
+            caption: str
+            height: str
+            name: str
+            width: str
         groups:
         - docTitleCmdGroup
       docIndexEntryType:
         elements:
           simple:
-          - primaryie
-          - secondaryie
+            primaryie: str
+            secondaryie: str
       docInternalS1Type:
         elements:
           complex:
@@ -558,7 +558,7 @@ xsd:
       docLanguageType:
         attributes:
           simple:
-          - langid
+            langid: str
         elements:
           complex:
             para: docParaType
@@ -620,8 +620,8 @@ xsd:
           enums:
             kindref: *id002
           simple:
-          - refid
-          - external
+            external: str
+            refid: str
         groups:
         - docTitleCmdGroup
       docRowType:
@@ -631,46 +631,46 @@ xsd:
       docSect1Type:
         attributes:
           simple:
-          - id
+            id: str
         elements:
           complex:
             internal: docInternalS1Type
             para: docParaType
             sect2: docSect2Type
           simple:
-          - title
+            title: str
       docSect2Type:
         attributes:
           simple:
-          - id
+            id: str
         elements:
           complex:
             internal: docInternalS2Type
             para: docParaType
             sect3: docSect3Type
           simple:
-          - title
+            title: str
       docSect3Type:
         attributes:
           simple:
-          - id
+            id: str
         elements:
           complex:
             internal: docInternalS3Type
             para: docParaType
             sect4: docSect4Type
           simple:
-          - title
+            title: str
       docSect4Type:
         attributes:
           simple:
-          - id
+            id: str
         elements:
           complex:
             internal: docInternalS4Type
             para: docParaType
           simple:
-          - title
+            title: str
       docSimpleSectType:
         attributes:
           enums:
@@ -699,8 +699,8 @@ xsd:
       docTableType:
         attributes:
           simple:
-          - rows
-          - cols
+            cols: int
+            rows: int
         elements:
           complex:
             caption: docCaptionType
@@ -711,7 +711,7 @@ xsd:
       docTocItemType:
         attributes:
           simple:
-          - id
+            id: str
         groups:
         - docTitleCmdGroup
       docTocListType:
@@ -721,7 +721,7 @@ xsd:
       docURLLink:
         attributes:
           simple:
-          - url
+            url: str
         groups:
         - docTitleCmdGroup
       docVarListEntryType:
@@ -734,18 +734,18 @@ xsd:
       docXRefSectType:
         attributes:
           simple:
-          - id
+            id: str
         elements:
           complex:
             xrefdescription: descriptionType
           simple:
-          - xreftitle
+            xreftitle: str
       enumvalueType:
         attributes:
           enums:
             prot: *id001
           simple:
-          - id
+            id: str
         elements:
           any:
           - name
@@ -782,12 +782,12 @@ xsd:
           bools:
           - local
           simple:
-          - refid
+            refid: str
       linkType:
         attributes:
           simple:
-          - refid
-          - external
+            external: str
+            refid: str
       linkedTextType:
         elements:
           complex:
@@ -795,7 +795,7 @@ xsd:
       listingType:
         attributes:
           simple:
-          - filename
+            filename: str
         elements:
           complex:
             codeline: codelineType
@@ -806,23 +806,23 @@ xsd:
       locationType:
         attributes:
           simple:
-          - file
-          - line
-          - column
-          - declfile
-          - declline
-          - declcolumn
-          - bodyfile
-          - bodystart
-          - bodyend
+            bodyend: int
+            bodyfile: str
+            bodystart: int
+            column: int
+            declcolumn: int
+            declfile: str
+            declline: int
+            file: str
+            line: int
       memberRefType:
         attributes:
           enums:
             prot: *id001
             virt: *id003
           simple:
-          - refid
-          - ambiguityscope
+            ambiguityscope: str
+            refid: str
         elements:
           any:
           - scope
@@ -895,7 +895,7 @@ xsd:
             - rvalue
             virt: *id003
           simple:
-          - id
+            id: str
         elements:
           any:
           - definition
@@ -922,7 +922,7 @@ xsd:
       nodeType:
         attributes:
           simple:
-          - id
+            id: str
         elements:
           any:
           - label
@@ -946,9 +946,9 @@ xsd:
           enums:
             kindref: *id002
           simple:
-          - refid
-          - external
-          - tooltip
+            external: str
+            refid: str
+            tooltip: str
       refType:
         attributes:
           bools:
@@ -956,18 +956,18 @@ xsd:
           enums:
             prot: *id001
           simple:
-          - refid
+            refid: str
       referenceType:
         attributes:
           simple:
-          - refid
-          - compoundref
-          - startline
-          - endline
+            compoundref: str
+            endline: int
+            refid: str
+            startline: int
       reimplementType:
         attributes:
           simple:
-          - refid
+            refid: str
       sectiondefType:
         attributes:
           enums:
@@ -1013,18 +1013,18 @@ xsd:
             description: descriptionType
             memberdef: memberdefType
           simple:
-          - header
+            header: str
       spType:
         attributes:
           simple:
-          - value
+            value: int
       tableofcontentsKindType:
         elements:
           complex:
             tableofcontents: tableofcontentsType
           simple:
-          - name
-          - reference
+            name: str
+            reference: str
       tableofcontentsType:
         elements:
           complex:
@@ -1056,17 +1056,17 @@ xsd:
             - dir
             - type
           simple:
-          - refid
+            refid: str
         elements:
           complex:
             member: MemberType
           simple:
-          - name
+            name: str
       DoxygenType:
         attributes:
           simple:
-          - version
-          - lang
+            lang: str
+            version: str
         elements:
           complex:
             compound: CompoundType
@@ -1088,7 +1088,7 @@ xsd:
             - dcop
             - slot
           simple:
-          - refid
+            refid: str
         elements:
           simple:
-          - name
+            name: str

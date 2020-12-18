@@ -45,6 +45,9 @@ class Super():
         """
         return self._definition
 
+    def get_xml(self):
+        return self.get_definition().tostring()
+
     def get_type_from_cache(self, type_name):
         """Get the type with the given name from our type cache.
 
@@ -293,6 +296,11 @@ class Type(Buildable):
         return self.has_content() and self.get_definition().has_simple_content()
 
     def has_complex_content(self):
+        """Determine whether or not this type allows element content.
+
+        Returns:
+            bool: True if elements are allowed, False otherwise.
+        """
         return self.has_content() and self.get_definition().has_complex_content()
 
     def has_element_only_content(self):
@@ -358,22 +366,23 @@ class Type(Buildable):
 
     def get_local_name(self):
         my_type = self.get_definition()
-        name = my_type.name
         local_name = my_type.local_name
-        if local_name is not None and local_name == 'string':
-            return 'str'
-        elif name is None:
-            if my_type.is_union():
-                for i in my_type.member_types:
-                    if i.is_restriction():
-                        name = i.primitive_type.local_name
-                        break
-            elif my_type.is_restriction():
-                name = my_type.primitive_type.local_name
-            elif isinstance(my_type, XsdAtomicBuiltin):
-                name = my_type.local_name
+        if my_type.is_restriction():
+            name = my_type.root_type.python_type.__name__
+        elif my_type.is_union():
+            for i in my_type.member_types:
+                if i.is_restriction():
+                    name = i.root_type.python_type.__name__
+                    break
+        elif my_type.is_complex():
+            name = local_name
+        elif my_type.is_simple():
+            if isinstance(my_type, XsdAtomicBuiltin):
+                name = my_type.python_type.__name__
+            else:
+                name = my_type.python_type
         else:
-            name = my_type.local_name
+            name = my_type.python_type.__name__
 
         return name
 

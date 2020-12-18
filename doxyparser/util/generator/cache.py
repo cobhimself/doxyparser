@@ -27,8 +27,12 @@ from .types import Group, Type, Element
 
 group_cache = {}
 type_cache = {}
-element_cache = []
+element_cache = {}
 
+def clear():
+    group_cache.clear()
+    type_cache.clear()
+    element_cache.clear()
 
 def get_group_cache():
     """Get the group cache.
@@ -82,6 +86,29 @@ def get_type(type_name):
     """
     return type_cache.get(type_name)
 
+def get_element(element):
+    name = element.name
+    node_type = element.node_type
+
+    return element_cache.get((name, node_type))
+
+def get_type_or_define(type_name, node_type):
+    if get_type(type_name) is None:
+        add_type(node_type)
+
+    return get_type(type_name)
+
+def get_group_or_define(group_name, group):
+    if get_group(group_name) is None:
+        add_group(group)
+
+    return get_group(group_name)
+
+def get_element_or_define(element):
+    if get_element(element) is None:
+        add_element(element)
+
+    return get_element(element)
 
 def add_group(group):
     """Add the given group to cache
@@ -107,7 +134,7 @@ def add_element(element):
     Args:
         group (XsdElement): The XsdElement to add to cache
     """
-    element_cache.append(Element(
+    element_cache[(element.name, element.type.name)] = Element(
         element,
         get_type(element.type.name)
-    ))
+    )

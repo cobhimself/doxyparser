@@ -24,10 +24,10 @@ SOFTWARE.
 import pathlib
 import sys
 import os
-from xmlschema import XMLSchema
 from doxyparser.util.generator import cache
-from doxyparser.util.generator.classdef import ElementClassDef, TypeClassDef, GroupClassDef
-from doxyparser.util.generator.config import Config
+from doxyparser.util.schema import Schema
+from doxyparser.util.generator.classdef import ElementClassDef, element_factory, group_factory, type_factory
+from doxyparser.util.generator.config import Config, COMPLEX
 
 
 class ElementGenerator():
@@ -50,7 +50,10 @@ class ElementGenerator():
         Args:
             xsd (str): The xsd file name without the extension.
         """
-        self._schema = XMLSchema(self._get_xsd_file_path(xsd))
+        self._schema = Schema(self._get_xsd_file_path(xsd))
+
+    def get_schema(self):
+        return self._schema
 
     @staticmethod
     def _write(path, content):
@@ -61,6 +64,12 @@ class ElementGenerator():
             content (str): The content to write.
         """
         file = open(path, 'w')
+        file.write(content)
+        file.close()
+
+    @staticmethod
+    def _append(path, content):
+        file = open(path, 'a')
         file.write(content)
         file.close()
 
@@ -94,7 +103,7 @@ class ElementGenerator():
         Returns:
             str: The directory where files for this xsd will be placed.
         """
-        return self._get_xsd_dir() + f'/{xsd}/'
+        return self._get_xsd_dir() + f'{xsd}/'
 
     def _get_elements_dir(self, xsd):
         """Get the elements directory for the given xsd.
@@ -132,6 +141,70 @@ class ElementGenerator():
         """
         return self._get_dir_for_xsd(xsd) + 'groups/'
 
+    def _generate_groups(self, xsd_name):
+        config = self._config
+        groups_dir = self._get_groups_dir(xsd_name)
+        groups = config.get_groups()
+        schema = self.get_schema()
+        if len(groups) > 0:
+            self._write_package_folders([groups_dir])
+
+        for group_name in groups.keys():
+            class_def = group_factory(
+                group_name,
+                config,
+                schema.get_group_definition(group_name),
+                schema.get_group_element_definitions(group_name)
+            )
+            out = groups_dir + class_def.get_file_name(group_name) + '.py'
+            self._write(
+                out,
+                str(class_def)
+            )
+
+    def _generate_types(self, xsd_name):
+        config = self._config
+        types_dir = self._get_types_dir(xsd_name)
+        types = config.get_types()
+        schema = self.get_schema()
+        if len(types) > 0:
+            self._write_package_folders([types_dir])
+
+        # Types
+        for type_name in types.keys():
+            class_def = type_factory(
+                type_name,
+                self._config,
+                schema.get_type_definition(type_name),
+                schema.get_type_element_definitions(type_name)
+            )
+            self._write(
+                types_dir + class_def.get_file_name(type_name) + '.py',
+                str(class_def)
+            )
+
+    def _generate_elements(self, xsd_name):
+        config = self._config
+        elements_dir = self._get_elements_dir(xsd_name)
+        elements = config.get_elements()
+        schema = self.get_schema()
+        if len(elements) > 0:
+            self._write_package_folders([elements_dir])
+
+        # Elements
+        for element_name, element_type in elements.items():
+            class_def = element_factory(
+                element_name,
+                element_type,
+                schema.get_element_definition(element_name),
+                self._config,
+            )
+            ElementGenerator._write(
+                elements_dir +
+                class_def.get_file_name(element_name) + '.py',
+                str(class_def)
+            )
+
     def generate(self):
         """Generate the classes based on our config.
         """
@@ -139,185 +212,17 @@ class ElementGenerator():
         for xsd_name in config.get_xsd_names():
             self.load_schema(xsd_name)
             config.set_xsd(xsd_name)
-            groups_dir = self._get_groups_dir(xsd_name)
-            types_dir = self._get_types_dir(xsd_name)
-            elements_dir = self._get_elements_dir(xsd_name)
-
-            dirs = []
-
-            groups = config.get_groups()
-            if len(groups) > 0:
-                dirs.append(groups_dir)
-
-            types = config.get_types()
-            if len(types) > 0:
-                dirs.append(types_dir)
-
-            elements = config.get_elements()
-            if len(elements) > 0:
-                dirs.append(elements_dir)
-
-            if len(dirs) > 0:
-                dirs.append(self._get_xsd_dir())
-                dirs.append(self._get_dir_for_xsd(xsd_name))
-
-            self._write_package_folders(dirs)
-
-            # Groups
-            for group_name in groups.keys():
-                class_def = GroupClassDef(
-                    group_name,
-                    self._config,
-                    self._get_group_definition(group_name)
-                )
-                self._write(
-                    groups_dir + class_def.get_file_name(group_name) + '.py',
-                    str(class_def)
-                )
-
-            # Types
-            for type_name in types.keys():
-                class_def = TypeClassDef(
-                    type_name,
-                    self._config,
-                    self._get_type_definition(type_name)
-                )
-                self._write(
-                    types_dir + class_def.get_file_name(type_name) + '.py',
-                    str(class_def)
-                )
-
-            # Elements
-            for element_name in elements.keys():
-                class_def = ElementClassDef(
-                    element_name,
-                    self._config,
-                    self._get_element_definition(element_name)
-                )
-                ElementGenerator._write(
-                    elements_dir +
-                    class_def.get_file_name(element_name) + '.py',
-                    str(class_def)
-                )
+            cache.clear()
+            self._generate_groups(xsd_name)
+            self._generate_types(xsd_name)
+            self._generate_elements(xsd_name)
 
     def generate_config(self):
         """Generate the config for our final class generation.
         """
         self.load_schema(self._xsd)
-        self._compile_groups()
-        self._compile_types()
-        self._compile_elements()
+        self._schema.compile()
         self._write_config()
-
-    def _compile_groups(self):
-        """Compile a cache of group data from our schema.
-        """
-        for group in self._schema.groups.values():
-            cache.add_group(group)
-
-    def _compile_types(self):
-        """Compile a cache of type data from our schema.
-        """
-        for com in self._schema.complex_types:
-            cache.add_type(com)
-
-    def _compile_elements(self):
-        """Compile a cache of global element data from our schema.
-        """
-        # Global elements
-        for element in self._schema.elements.values():
-            cache.add_element(element)
-
-    def _get_type(self, type_name):
-        """Search the schema for the given type.
-
-        Args:
-            type_name (str): The name of the type to get.
-
-        Raises:
-            AttributeError: If unable to find the given type.
-
-        Returns:
-            XsdType: The type.
-        """
-        my_type = self._schema.types.get(type_name)
-        if my_type is None:
-            raise AttributeError(f'Unable to find type with name {type_name}')
-
-        return my_type
-
-    def _get_group(self, group_name):
-        """Search the schema for the given group.
-
-        Args:
-            group_name (str): The name of the group to get.
-
-        Raises:
-            AttributeError: If unable to find the given group.
-
-        Returns:
-            XsdGroup: The group.
-        """
-        my_group = self._schema.groups.get(group_name)
-        if my_group is None:
-            raise AttributeError(
-                f'Unable to find group with name {group_name}'
-            )
-
-        return my_group
-
-    def _get_element(self, element_name):
-        """Search the schema for the given element.
-
-        Args:
-            element_name (str): The name of the element to get.
-
-        Raises:
-            AttributeError: If unable to find the given element.
-
-        Returns:
-            XsdElement: The element.
-        """
-        my_element = self._schema.elements.get(element_name)
-        if my_element is None:
-            raise AttributeError(
-                f'Unable to find element with name {element_name}'
-            )
-
-        return my_element
-
-    def _get_type_definition(self, type_name):
-        """Return the xml definition of the given type.
-
-        Args:
-            type_name (str): The type to retrieve the raw xml for.
-
-        Returns:
-            str: The xml version of the given type.
-        """
-        return self._get_type(type_name).tostring()
-
-    def _get_element_definition(self, element_name):
-        """Return the xml definition of the given element.
-
-        Args:
-            element_name (str): The element to retrieve the raw xml for.
-
-        Returns:
-            str: The xml version of the given element.
-        """
-        return self._get_element(element_name).tostring()
-
-    def _get_group_definition(self, group_name):
-        """Return the xml definition of the given group.
-
-        Args:
-            group_name (str): The group to retrieve the raw xml for.
-
-        Returns:
-            str: The xml version of the given group.
-        """
-        return self._get_group(group_name).tostring()
 
     @staticmethod
     def _write_package_folders(dirs):
@@ -339,6 +244,7 @@ class ElementGenerator():
         # if config is None:
         config = self._config.load()
         config.set_xsd(self._xsd)
+        config.clear_xsd()
 
         # Groups
         for name, group_type in cache.get_group_cache().items():
@@ -349,9 +255,8 @@ class ElementGenerator():
             config.add_type_config(name, node_type)
 
         # Elements
-        for element in cache.get_element_cache():
-            name = element.get_name()
-            config.add_element_config(name, element.get_type_local_name())
+        for element_name, element_type in cache.get_element_cache():
+            config.add_element_config(element_name, element_type)
 
         self._config.save()
 

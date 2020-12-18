@@ -27,7 +27,7 @@ generated doxyparser xsd library.
 import re
 from textwrap import dedent
 import inflect
-from .config import SIMPLE, BOOLS, COMPLEX, PLACEHOLDER, ANY
+from .config import SIMPLE, BOOLS, COMPLEX, PLACEHOLDER, ANY, ENUMS
 
 
 class ClassDef():
@@ -69,6 +69,25 @@ class ClassDef():
         self._decorators = []
         self._doc = ''
         self._supers = []
+        self._add_header = True
+        self._child_classes = []
+        self._child_definitions = {}
+        self._parent_class = None
+
+    def add_header(self, add_header=True):
+        self._add_header = add_header
+
+    def add_child_class(self, class_content):
+        self._child_classes.append(class_content)
+
+    def add_child_definitions(self, definitions):
+        self._child_definitions = definitions
+
+    def set_parent_class(self, parent_class):
+        self._parent_class = parent_class
+
+    def get_parent_class(self):
+        return self._parent_class
 
     def get_config(self):
         """Get the configuration data to generate classes from.
@@ -109,6 +128,17 @@ class ClassDef():
         """
         return self._definition
 
+    def get_child_definition(self, name):
+        definition = self._child_definitions.get(name)
+        if definition is None:
+            raise AttributeError(f'Could not get definition for {name}!')
+        return self._child_definitions.get(name)
+
+    def get_parent_or_self(self):
+        parent_class = self.get_parent_class()
+        return parent_class if parent_class is not None else self
+
+
     def get_name(self):
         """Get the name of the element this class represents.
 
@@ -125,21 +155,23 @@ class ClassDef():
             relative_path (str): The relative path to prepend to the super class' name.
             supers (list): The list of super class names this class should extend.
         """
+        cls = self.get_parent_or_self()
         if supers is not None and len(supers) > 0:
             for sup in supers:
                 class_name = self.get_class_name(sup)
-                self.add_import(
+                cls.add_import(
                     f'from {relative_path}{self.get_file_name(sup)} import {class_name}')
                 self.extends(class_name)
         else:
-            self.add_import('from ....node import Node')
+            cls.add_import('from ....node import Node')
             self.extends('Node')
 
     def determine_decorator_include(self):
         """Determine the different includes necessary for the decorators this
         class uses.
         """
-        decorators = self._decorators
+        cls = self.get_parent_or_self()
+        decorators = cls._decorators
         seen = []
         regex = r"@(.*)\("
 
@@ -150,8 +182,8 @@ class ClassDef():
                 if match not in seen:
                     seen.append(match)
 
-        if len(seen) > 0:
-            self.add_import('from ....decorators import ' + ', '.join(seen))
+        for decorator in seen:
+            cls.add_import(f'from ....decorators.{decorator.lower()} import {decorator}')
 
     @staticmethod
     def get_file_name(name):
@@ -171,7 +203,8 @@ class ClassDef():
         Args:
             import_line (str): An import line to add to this class.
         """
-        self._import_lines.append(import_line)
+        if import_line not in self._import_lines:
+            self._import_lines.append(import_line)
 
     def get_imports(self):
         """Get the imports this class definition has.
@@ -179,7 +212,7 @@ class ClassDef():
         Returns:
             str: A line separated list of imports.
         """
-        return "\n".join(self._import_lines)
+        return "\n".join(sorted(self._import_lines))
 
     def extends(self, name):
         """Add a class for this class to extend.
@@ -219,7 +252,10 @@ class ClassDef():
         Returns:
             str: The documentation
         """
-        return self.indent('"""' + dedent(self.HEAD_COMMENT) + "\n" + '"""')
+        if self._add_header:
+            return self.indent('"""' + dedent(self.HEAD_COMMENT) + "\n" + '"""') + "\n"
+
+        return ''
 
     def get_class_doc(self):
         """Get the documentation the class should use.
@@ -268,13 +304,21 @@ class ClassDef():
         """
         self.build()
         self.determine_decorator_include()
-        out = self.get_module_doc() + "\n"
-        out += self.get_imports() + "\n\n"
-        out += self.get_decorators() + "\n"
+        mod_doc = self.get_module_doc()
+        imports = self.get_imports()
+        decorators = self.get_decorators()
+        class_doc = self.get_class_doc()
+        child_classes = "\n\n\n".join(self._child_classes)
+
+        out = (mod_doc + "\n") if mod_doc != '' else ''
+        out += (imports + "\n\n") if imports != '' else ''
+        out += (decorators + "\n") if decorators != '' else ''
         out += f"class {self.get_class_name(self._name)}({self.get_extends()}):\n"
-        out += self.get_class_doc()
+        out += (class_doc) if class_doc != '' else ''
+        out += ("\n\n\n" + child_classes) if child_classes != '' else ''
         # final new line
-        out += "\n"
+        if self.get_parent_class() is None:
+            out += "\n"
 
         return out
 
@@ -286,10 +330,17 @@ class ClassDef():
         """
         for category, category_config in attributes.items():
             for attr_name in category_config:
-                if category == SIMPLE:
-                    self.add_decorator(f"@attr('{attr_name}')")
+                if category in [SIMPLE, ENUMS]:
+                    self.add_decorator(f"@Attr('{attr_name}', {category_config[attr_name]})")
                 elif category == BOOLS:
-                    self.add_decorator(f"@boolattr('{attr_name}')")
+                    self.add_decorator(f"@BoolAttr('{attr_name}')")
+
+    def _add_element_decorator(self, element_name, element_type):
+        if element_type not in ('str', 'int', 'float'):
+            element_type = f"'{element_type}'"
+        self.add_decorator(
+            f"@Element('{element_name}', {element_type})")
+
 
     def add_elements_to_class(self, elements):
         """Add the given elements to the decorators for this class.
@@ -307,13 +358,12 @@ class ClassDef():
         for category in categories:
             category_config = elements.get(category)
             # The items in these categories are just element names, not types
-            if category in [ANY, SIMPLE]:
+            if category in [ANY]:
                 for elem_name in category_config:
-                    self.add_decorator(
-                        f"@element('{elem_name}', '{category}')")
+                    self._add_element_decorator(elem_name, category)
             elif category == PLACEHOLDER:
                 if len(category_config) > 0:
-                    decorator = "@placeholders([\n"
+                    decorator = "@Placeholders([\n"
                     decorator += ",\n".join(
                         [f"    '{p}'" for p in category_config])
                     decorator += "\n])"
@@ -325,8 +375,9 @@ class ClassDef():
                             self.add_collection_decorators(
                                 elem_name, type_name)
                         else:
-                            self.add_decorator(
-                                f"@element('{elem_name}', '{type_name}')")
+                            self._add_element_decorator(elem_name, type_name)
+                    elif category == SIMPLE:
+                        self._add_element_decorator(elem_name, type_name)
                     else:
                         raise Exception(
                             f'Unknown element config category {category}')
@@ -339,14 +390,31 @@ class ClassDef():
             type_name (str): The name of its type.
         """
         enum_attrs = self.get_config().get_type_enum_attributes(type_name)
+        collection = f"@Collection('{elem_name}', '{type_name}', {{\n"
+        filters = []
         for attr, enums in enum_attrs.items():
-            collection = f"@collection('{elem_name}', '/[@{attr}={{}}]', {{\n"
+            item = f"    '/[@{attr}={{}}': {{\n"
             for enum in enums:
                 plural_key = inflect.engine().plural(enum.replace('-', '_'))
-                collection += f"    '{plural_key}': '{enum}',\n"
-            collection += "})"
-            self.add_decorator(collection)
+                item += f"        '{plural_key}': '{enum}',\n"
+            item += "    }"
+            filters.append(item)
+        collection += ",\n".join(filters) + "\n"
 
+        collection += "})"
+
+        self.add_decorator(collection)
+
+    def add_complex_element_child_classes(self, complex_elements):
+        for element_name, element_type in complex_elements:
+            self.add_child_class(str(element_factory(
+                element_name,
+                element_type,
+                self.get_child_definition(element_name),
+                self._config,
+                add_header=False,
+                parent_class=self
+            )))
 
 class TypeClassDef(ClassDef):
     """Class representing a Type class.
@@ -365,6 +433,10 @@ class TypeClassDef(ClassDef):
         self.add_attributes_to_class(config.get_type_attributes(type_name))
         self.add_elements_to_class(config.get_type_elements(type_name))
 
+        complex_elements = config.get_type_elements(type_name).get(COMPLEX, {}).items()
+        self.add_complex_element_child_classes(complex_elements)
+
+
         return self
 
 
@@ -372,15 +444,29 @@ class ElementClassDef(ClassDef):
     """Class representing an Element class.
     """
 
+    def __init__(self, name, config, definition):
+        super().__init__(name, config, definition)
+        self._type_name = None
+
     def build(self):
-        config = self.get_config()
         element_name = self.get_name()
         self.determine_extends(
-            '..types.', [config.get_element_type(element_name)])
+            '..types.', [self.get_type(element_name)])
         doc = f'Model representation of a doxygen {element_name} element.' + "\n\n"
         doc += "Type XSD:\n\n"
         doc += self.get_definition()
         self.set_class_doc(doc)
+
+    def set_type(self, type_name):
+        self._type_name = type_name
+
+    def get_type(self, element_name):
+        config = self.get_config()
+        if self._type_name is None:
+            self._type_name = config.get_element_type(element_name)
+
+        return self._type_name
+
 
 
 class GroupClassDef(ClassDef):
@@ -397,3 +483,26 @@ class GroupClassDef(ClassDef):
         doc += self.get_definition()
         self.set_class_doc(doc)
         self.add_elements_to_class(config.get_group_elements(group_name))
+
+        complex_elements = config.get_group_elements(group_name).get(COMPLEX, {}).items()
+        self.add_complex_element_child_classes(complex_elements)
+
+def group_factory(group_name, config, definition, element_definitions):
+    group_class = GroupClassDef(group_name, config, definition)
+    group_class.add_child_definitions(element_definitions)
+
+    return group_class
+
+def type_factory(type_name, config, definition, element_definitions):
+    type_class = TypeClassDef(type_name, config, definition)
+    type_class.add_child_definitions(element_definitions)
+
+    return type_class
+
+def element_factory(element_name, element_type, definition, config, add_header=True, parent_class=None):
+    element_class = ElementClassDef(element_name, config, definition)
+    element_class.set_type(element_type)
+    element_class.add_header(add_header)
+    element_class.set_parent_class(parent_class)
+
+    return element_class
