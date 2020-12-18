@@ -74,6 +74,9 @@ class ClassDef():
         self._child_definitions = {}
         self._parent_class = None
 
+    def get_decorators(self):
+        return self._decorators
+
     def add_header(self, add_header=True):
         self._add_header = add_header
 
@@ -171,7 +174,7 @@ class ClassDef():
         class uses.
         """
         cls = self.get_parent_or_self()
-        decorators = cls._decorators
+        decorators = cls.get_decorators()
         seen = []
         regex = r"@(.*)\("
 
@@ -230,7 +233,7 @@ class ClassDef():
         """
         self._decorators.append(decorator)
 
-    def get_decorators(self):
+    def get_sorted_decorators(self):
         """Get the final decorators output.
 
         Returns:
@@ -306,7 +309,7 @@ class ClassDef():
         self.determine_decorator_include()
         mod_doc = self.get_module_doc()
         imports = self.get_imports()
-        decorators = self.get_decorators()
+        decorators = self.get_sorted_decorators()
         class_doc = self.get_class_doc()
         child_classes = "\n\n\n".join(self._child_classes)
 
