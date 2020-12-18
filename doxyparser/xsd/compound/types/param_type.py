@@ -58,6 +58,7 @@ class ParamType(Node):
     """
 
 
+@Tag('briefdescription')
 class Briefdescription(DescriptionType):
     """Model representation of a doxygen briefdescription element.
 
@@ -67,6 +68,7 @@ class Briefdescription(DescriptionType):
     """
 
 
+@Tag('defval')
 class Defval(LinkedTextType):
     """Model representation of a doxygen defval element.
 
@@ -76,6 +78,7 @@ class Defval(LinkedTextType):
     """
 
 
+@Tag('type')
 class Type(LinkedTextType):
     """Model representation of a doxygen type element.
 
@@ -85,6 +88,7 @@ class Type(LinkedTextType):
     """
 
 
+@Tag('typeconstraint')
 class Typeconstraint(LinkedTextType):
     """Model representation of a doxygen typeconstraint element.
 

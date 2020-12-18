@@ -43,6 +43,7 @@ class DocTocListType(Node):
     """
 
 
+@Tag('tocitem')
 class Tocitem(DocTocItemType):
     """Model representation of a doxygen tocitem element.
 

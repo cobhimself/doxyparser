@@ -25,8 +25,10 @@ This class has been auto-generated. To add/modify functionality, extend it.
 See util/generator/element_generator.py
 """
 
+from ....decorators.tag import Tag
 from ..types.doxygen_type import DoxygenType
 
+@Tag('doxygenindex')
 class Doxygenindex(DoxygenType):
     """Model representation of a doxygen doxygenindex element.
 

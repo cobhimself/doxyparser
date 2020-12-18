@@ -55,6 +55,7 @@ class ListofallmembersType(Node):
     """
 
 
+@Tag('member')
 class Member(MemberRefType):
     """Model representation of a doxygen member element.
 

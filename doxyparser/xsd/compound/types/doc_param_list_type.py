@@ -46,6 +46,7 @@ class DocParamListType(Node):
     """
 
 
+@Tag('parameteritem')
 class Parameteritem(DocParamListItem):
     """Model representation of a doxygen parameteritem element.
 

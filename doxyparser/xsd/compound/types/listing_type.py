@@ -51,6 +51,7 @@ class ListingType(Node):
     """
 
 
+@Tag('codeline')
 class Codeline(CodelineType):
     """Model representation of a doxygen codeline element.
 

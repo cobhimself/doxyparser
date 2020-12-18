@@ -55,6 +55,7 @@ class HighlightType(Node):
     """
 
 
+@Tag('ref')
 class Ref(RefTextType):
     """Model representation of a doxygen ref element.
 
@@ -64,6 +65,7 @@ class Ref(RefTextType):
     """
 
 
+@Tag('sp')
 class Sp(SpType):
     """Model representation of a doxygen sp element.
 

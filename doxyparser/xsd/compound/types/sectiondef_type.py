@@ -92,6 +92,7 @@ class SectiondefType(Node):
     """
 
 
+@Tag('description')
 class Description(DescriptionType):
     """Model representation of a doxygen description element.
 
@@ -101,6 +102,7 @@ class Description(DescriptionType):
     """
 
 
+@Tag('memberdef')
 class Memberdef(MemberdefType):
     """Model representation of a doxygen memberdef element.
 

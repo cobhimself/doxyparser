@@ -48,6 +48,7 @@ class DocXRefSectType(Node):
     """
 
 
+@Tag('xrefdescription')
 class Xrefdescription(DescriptionType):
     """Model representation of a doxygen xrefdescription element.
 

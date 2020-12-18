@@ -639,6 +639,7 @@ class DocTitleCmdGroup(Node):
     """
 
 
+@Tag('anchor')
 class Anchor(DocAnchorType):
     """Model representation of a doxygen anchor element.
 
@@ -648,6 +649,7 @@ class Anchor(DocAnchorType):
     """
 
 
+@Tag('bold')
 class Bold(DocMarkupType):
     """Model representation of a doxygen bold element.
 
@@ -657,6 +659,7 @@ class Bold(DocMarkupType):
     """
 
 
+@Tag('center')
 class Center(DocMarkupType):
     """Model representation of a doxygen center element.
 
@@ -666,6 +669,7 @@ class Center(DocMarkupType):
     """
 
 
+@Tag('computeroutput')
 class Computeroutput(DocMarkupType):
     """Model representation of a doxygen computeroutput element.
 
@@ -675,6 +679,7 @@ class Computeroutput(DocMarkupType):
     """
 
 
+@Tag('del')
 class Del(DocMarkupType):
     """Model representation of a doxygen del element.
 
@@ -684,6 +689,7 @@ class Del(DocMarkupType):
     """
 
 
+@Tag('dot')
 class Dot(DocImageType):
     """Model representation of a doxygen dot element.
 
@@ -693,6 +699,7 @@ class Dot(DocImageType):
     """
 
 
+@Tag('emoji')
 class Emoji(DocEmojiType):
     """Model representation of a doxygen emoji element.
 
@@ -702,6 +709,7 @@ class Emoji(DocEmojiType):
     """
 
 
+@Tag('emphasis')
 class Emphasis(DocMarkupType):
     """Model representation of a doxygen emphasis element.
 
@@ -711,6 +719,7 @@ class Emphasis(DocMarkupType):
     """
 
 
+@Tag('formula')
 class Formula(DocFormulaType):
     """Model representation of a doxygen formula element.
 
@@ -720,6 +729,7 @@ class Formula(DocFormulaType):
     """
 
 
+@Tag('htmlonly')
 class Htmlonly(DocHtmlOnlyType):
     """Model representation of a doxygen htmlonly element.
 
@@ -729,6 +739,7 @@ class Htmlonly(DocHtmlOnlyType):
     """
 
 
+@Tag('image')
 class Image(DocImageType):
     """Model representation of a doxygen image element.
 
@@ -738,6 +749,7 @@ class Image(DocImageType):
     """
 
 
+@Tag('ins')
 class Ins(DocMarkupType):
     """Model representation of a doxygen ins element.
 
@@ -747,6 +759,7 @@ class Ins(DocMarkupType):
     """
 
 
+@Tag('msc')
 class Msc(DocImageType):
     """Model representation of a doxygen msc element.
 
@@ -756,6 +769,7 @@ class Msc(DocImageType):
     """
 
 
+@Tag('plantuml')
 class Plantuml(DocImageType):
     """Model representation of a doxygen plantuml element.
 
@@ -765,6 +779,7 @@ class Plantuml(DocImageType):
     """
 
 
+@Tag('ref')
 class Ref(DocRefTextType):
     """Model representation of a doxygen ref element.
 
@@ -774,6 +789,7 @@ class Ref(DocRefTextType):
     """
 
 
+@Tag('s')
 class S(DocMarkupType):
     """Model representation of a doxygen s element.
 
@@ -783,6 +799,7 @@ class S(DocMarkupType):
     """
 
 
+@Tag('small')
 class Small(DocMarkupType):
     """Model representation of a doxygen small element.
 
@@ -792,6 +809,7 @@ class Small(DocMarkupType):
     """
 
 
+@Tag('strike')
 class Strike(DocMarkupType):
     """Model representation of a doxygen strike element.
 
@@ -801,6 +819,7 @@ class Strike(DocMarkupType):
     """
 
 
+@Tag('subscript')
 class Subscript(DocMarkupType):
     """Model representation of a doxygen subscript element.
 
@@ -810,6 +829,7 @@ class Subscript(DocMarkupType):
     """
 
 
+@Tag('superscript')
 class Superscript(DocMarkupType):
     """Model representation of a doxygen superscript element.
 
@@ -819,6 +839,7 @@ class Superscript(DocMarkupType):
     """
 
 
+@Tag('ulink')
 class Ulink(DocURLLink):
     """Model representation of a doxygen ulink element.
 
@@ -828,6 +849,7 @@ class Ulink(DocURLLink):
     """
 
 
+@Tag('underline')
 class Underline(DocMarkupType):
     """Model representation of a doxygen underline element.
 

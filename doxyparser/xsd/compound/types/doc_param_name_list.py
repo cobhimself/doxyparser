@@ -53,6 +53,7 @@ class DocParamNameList(Node):
     """
 
 
+@Tag('parametername')
 class Parametername(DocParamName):
     """Model representation of a doxygen parametername element.
 
@@ -62,6 +63,7 @@ class Parametername(DocParamName):
     """
 
 
+@Tag('parametertype')
 class Parametertype(DocParamType):
     """Model representation of a doxygen parametertype element.
 

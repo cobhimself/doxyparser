@@ -154,6 +154,7 @@ class DocCmdGroup(DocTitleCmdGroup):
     """
 
 
+@Tag('blockquote')
 class Blockquote(DocBlockQuoteType):
     """Model representation of a doxygen blockquote element.
 
@@ -163,6 +164,7 @@ class Blockquote(DocBlockQuoteType):
     """
 
 
+@Tag('copydoc')
 class Copydoc(DocCopyType):
     """Model representation of a doxygen copydoc element.
 
@@ -172,6 +174,7 @@ class Copydoc(DocCopyType):
     """
 
 
+@Tag('diafile')
 class Diafile(DocImageType):
     """Model representation of a doxygen diafile element.
 
@@ -181,6 +184,7 @@ class Diafile(DocImageType):
     """
 
 
+@Tag('dotfile')
 class Dotfile(DocImageType):
     """Model representation of a doxygen dotfile element.
 
@@ -190,6 +194,7 @@ class Dotfile(DocImageType):
     """
 
 
+@Tag('heading')
 class Heading(DocHeadingType):
     """Model representation of a doxygen heading element.
 
@@ -199,6 +204,7 @@ class Heading(DocHeadingType):
     """
 
 
+@Tag('indexentry')
 class Indexentry(DocIndexEntryType):
     """Model representation of a doxygen indexentry element.
 
@@ -208,6 +214,7 @@ class Indexentry(DocIndexEntryType):
     """
 
 
+@Tag('itemizedlist')
 class Itemizedlist(DocListType):
     """Model representation of a doxygen itemizedlist element.
 
@@ -217,6 +224,7 @@ class Itemizedlist(DocListType):
     """
 
 
+@Tag('language')
 class Language(DocLanguageType):
     """Model representation of a doxygen language element.
 
@@ -226,6 +234,7 @@ class Language(DocLanguageType):
     """
 
 
+@Tag('mscfile')
 class Mscfile(DocImageType):
     """Model representation of a doxygen mscfile element.
 
@@ -235,6 +244,7 @@ class Mscfile(DocImageType):
     """
 
 
+@Tag('orderedlist')
 class Orderedlist(DocListType):
     """Model representation of a doxygen orderedlist element.
 
@@ -244,6 +254,7 @@ class Orderedlist(DocListType):
     """
 
 
+@Tag('parameterlist')
 class Parameterlist(DocParamListType):
     """Model representation of a doxygen parameterlist element.
 
@@ -253,6 +264,7 @@ class Parameterlist(DocParamListType):
     """
 
 
+@Tag('parblock')
 class Parblock(DocParBlockType):
     """Model representation of a doxygen parblock element.
 
@@ -262,6 +274,7 @@ class Parblock(DocParBlockType):
     """
 
 
+@Tag('preformatted')
 class Preformatted(DocMarkupType):
     """Model representation of a doxygen preformatted element.
 
@@ -271,6 +284,7 @@ class Preformatted(DocMarkupType):
     """
 
 
+@Tag('programlisting')
 class Programlisting(ListingType):
     """Model representation of a doxygen programlisting element.
 
@@ -280,6 +294,7 @@ class Programlisting(ListingType):
     """
 
 
+@Tag('simplesect')
 class Simplesect(DocSimpleSectType):
     """Model representation of a doxygen simplesect element.
 
@@ -289,6 +304,7 @@ class Simplesect(DocSimpleSectType):
     """
 
 
+@Tag('table')
 class Table(DocTableType):
     """Model representation of a doxygen table element.
 
@@ -298,6 +314,7 @@ class Table(DocTableType):
     """
 
 
+@Tag('title')
 class Title(DocTitleType):
     """Model representation of a doxygen title element.
 
@@ -307,6 +324,7 @@ class Title(DocTitleType):
     """
 
 
+@Tag('toclist')
 class Toclist(DocTocListType):
     """Model representation of a doxygen toclist element.
 
@@ -316,6 +334,7 @@ class Toclist(DocTocListType):
     """
 
 
+@Tag('variablelist')
 class Variablelist(DocVariableListType):
     """Model representation of a doxygen variablelist element.
 
@@ -325,6 +344,7 @@ class Variablelist(DocVariableListType):
     """
 
 
+@Tag('xrefsect')
 class Xrefsect(DocXRefSectType):
     """Model representation of a doxygen xrefsect element.
 

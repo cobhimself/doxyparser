@@ -46,6 +46,7 @@ class DocVariableListGroup(Node):
     """
 
 
+@Tag('listitem')
 class Listitem(DocListItemType):
     """Model representation of a doxygen listitem element.
 
@@ -55,6 +56,7 @@ class Listitem(DocListItemType):
     """
 
 
+@Tag('varlistentry')
 class Varlistentry(DocVarListEntryType):
     """Model representation of a doxygen varlistentry element.
 

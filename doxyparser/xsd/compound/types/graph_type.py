@@ -43,6 +43,7 @@ class GraphType(Node):
     """
 
 
+@Tag('node')
 class Node(NodeType):
     """Model representation of a doxygen node element.
 

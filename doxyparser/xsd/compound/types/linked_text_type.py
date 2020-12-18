@@ -48,6 +48,7 @@ class LinkedTextType(Node):
     """
 
 
+@Tag('ref')
 class Ref(RefTextType):
     """Model representation of a doxygen ref element.
 

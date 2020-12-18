@@ -51,6 +51,7 @@ class DocSimpleSectType(Node):
     """
 
 
+@Tag('para')
 class Para(DocParaType):
     """Model representation of a doxygen para element.
 
@@ -60,6 +61,7 @@ class Para(DocParaType):
     """
 
 
+@Tag('title')
 class Title(DocTitleType):
     """Model representation of a doxygen title element.
 

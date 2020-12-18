@@ -56,6 +56,7 @@ class DocSect3Type(Node):
     """
 
 
+@Tag('internal')
 class Internal(DocInternalS3Type):
     """Model representation of a doxygen internal element.
 
@@ -65,6 +66,7 @@ class Internal(DocInternalS3Type):
     """
 
 
+@Tag('para')
 class Para(DocParaType):
     """Model representation of a doxygen para element.
 
@@ -74,6 +76,7 @@ class Para(DocParaType):
     """
 
 
+@Tag('sect4')
 class Sect4(DocSect4Type):
     """Model representation of a doxygen sect4 element.
 

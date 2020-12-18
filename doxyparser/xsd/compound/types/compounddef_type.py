@@ -223,6 +223,7 @@ class CompounddefType(Node):
     """
 
 
+@Tag('basecompoundref')
 class Basecompoundref(CompoundRefType):
     """Model representation of a doxygen basecompoundref element.
 
@@ -232,6 +233,7 @@ class Basecompoundref(CompoundRefType):
     """
 
 
+@Tag('briefdescription')
 class Briefdescription(DescriptionType):
     """Model representation of a doxygen briefdescription element.
 
@@ -241,6 +243,7 @@ class Briefdescription(DescriptionType):
     """
 
 
+@Tag('collaborationgraph')
 class Collaborationgraph(GraphType):
     """Model representation of a doxygen collaborationgraph element.
 
@@ -250,6 +253,7 @@ class Collaborationgraph(GraphType):
     """
 
 
+@Tag('derivedcompoundref')
 class Derivedcompoundref(CompoundRefType):
     """Model representation of a doxygen derivedcompoundref element.
 
@@ -259,6 +263,7 @@ class Derivedcompoundref(CompoundRefType):
     """
 
 
+@Tag('detaileddescription')
 class Detaileddescription(DescriptionType):
     """Model representation of a doxygen detaileddescription element.
 
@@ -268,6 +273,7 @@ class Detaileddescription(DescriptionType):
     """
 
 
+@Tag('incdepgraph')
 class Incdepgraph(GraphType):
     """Model representation of a doxygen incdepgraph element.
 
@@ -277,6 +283,7 @@ class Incdepgraph(GraphType):
     """
 
 
+@Tag('includedby')
 class Includedby(IncType):
     """Model representation of a doxygen includedby element.
 
@@ -286,6 +293,7 @@ class Includedby(IncType):
     """
 
 
+@Tag('includes')
 class Includes(IncType):
     """Model representation of a doxygen includes element.
 
@@ -295,6 +303,7 @@ class Includes(IncType):
     """
 
 
+@Tag('inheritancegraph')
 class Inheritancegraph(GraphType):
     """Model representation of a doxygen inheritancegraph element.
 
@@ -304,6 +313,7 @@ class Inheritancegraph(GraphType):
     """
 
 
+@Tag('innerclass')
 class Innerclass(RefType):
     """Model representation of a doxygen innerclass element.
 
@@ -313,6 +323,7 @@ class Innerclass(RefType):
     """
 
 
+@Tag('innerdir')
 class Innerdir(RefType):
     """Model representation of a doxygen innerdir element.
 
@@ -322,6 +333,7 @@ class Innerdir(RefType):
     """
 
 
+@Tag('innerfile')
 class Innerfile(RefType):
     """Model representation of a doxygen innerfile element.
 
@@ -331,6 +343,7 @@ class Innerfile(RefType):
     """
 
 
+@Tag('innergroup')
 class Innergroup(RefType):
     """Model representation of a doxygen innergroup element.
 
@@ -340,6 +353,7 @@ class Innergroup(RefType):
     """
 
 
+@Tag('innernamespace')
 class Innernamespace(RefType):
     """Model representation of a doxygen innernamespace element.
 
@@ -349,6 +363,7 @@ class Innernamespace(RefType):
     """
 
 
+@Tag('innerpage')
 class Innerpage(RefType):
     """Model representation of a doxygen innerpage element.
 
@@ -358,6 +373,7 @@ class Innerpage(RefType):
     """
 
 
+@Tag('invincdepgraph')
 class Invincdepgraph(GraphType):
     """Model representation of a doxygen invincdepgraph element.
 
@@ -367,6 +383,7 @@ class Invincdepgraph(GraphType):
     """
 
 
+@Tag('listofallmembers')
 class Listofallmembers(ListofallmembersType):
     """Model representation of a doxygen listofallmembers element.
 
@@ -376,6 +393,7 @@ class Listofallmembers(ListofallmembersType):
     """
 
 
+@Tag('location')
 class Location(LocationType):
     """Model representation of a doxygen location element.
 
@@ -385,6 +403,7 @@ class Location(LocationType):
     """
 
 
+@Tag('programlisting')
 class Programlisting(ListingType):
     """Model representation of a doxygen programlisting element.
 
@@ -394,6 +413,7 @@ class Programlisting(ListingType):
     """
 
 
+@Tag('sectiondef')
 class Sectiondef(SectiondefType):
     """Model representation of a doxygen sectiondef element.
 
@@ -403,6 +423,7 @@ class Sectiondef(SectiondefType):
     """
 
 
+@Tag('tableofcontents')
 class Tableofcontents(TableofcontentsType):
     """Model representation of a doxygen tableofcontents element.
 
@@ -412,6 +433,7 @@ class Tableofcontents(TableofcontentsType):
     """
 
 
+@Tag('templateparamlist')
 class Templateparamlist(TemplateparamlistType):
     """Model representation of a doxygen templateparamlist element.
 

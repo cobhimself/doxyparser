@@ -453,6 +453,7 @@ class ElementClassDef(ClassDef):
 
     def build(self):
         element_name = self.get_name()
+        self.add_decorator(f'@Tag(\'{element_name}\')')
         self.determine_extends(
             '..types.', [self.get_type(element_name)])
         doc = f'Model representation of a doxygen {element_name} element.' + "\n\n"

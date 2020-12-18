@@ -49,6 +49,7 @@ class DocRowType(Node):
     """
 
 
+@Tag('entry')
 class Entry(DocEntryType):
     """Model representation of a doxygen entry element.
 

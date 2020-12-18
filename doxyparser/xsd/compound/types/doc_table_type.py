@@ -51,6 +51,7 @@ class DocTableType(Node):
     """
 
 
+@Tag('caption')
 class Caption(DocCaptionType):
     """Model representation of a doxygen caption element.
 
@@ -60,6 +61,7 @@ class Caption(DocCaptionType):
     """
 
 
+@Tag('row')
 class Row(DocRowType):
     """Model representation of a doxygen row element.
 

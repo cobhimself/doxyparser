@@ -62,6 +62,7 @@ class NodeType(Node):
     """
 
 
+@Tag('childnode')
 class Childnode(ChildnodeType):
     """Model representation of a doxygen childnode element.
 
@@ -71,6 +72,7 @@ class Childnode(ChildnodeType):
     """
 
 
+@Tag('link')
 class Link(LinkType):
     """Model representation of a doxygen link element.
 

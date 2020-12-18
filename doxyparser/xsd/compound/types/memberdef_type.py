@@ -191,6 +191,7 @@ class MemberdefType(Node):
     """
 
 
+@Tag('briefdescription')
 class Briefdescription(DescriptionType):
     """Model representation of a doxygen briefdescription element.
 
@@ -200,6 +201,7 @@ class Briefdescription(DescriptionType):
     """
 
 
+@Tag('detaileddescription')
 class Detaileddescription(DescriptionType):
     """Model representation of a doxygen detaileddescription element.
 
@@ -209,6 +211,7 @@ class Detaileddescription(DescriptionType):
     """
 
 
+@Tag('enumvalue')
 class Enumvalue(EnumvalueType):
     """Model representation of a doxygen enumvalue element.
 
@@ -218,6 +221,7 @@ class Enumvalue(EnumvalueType):
     """
 
 
+@Tag('exceptions')
 class Exceptions(LinkedTextType):
     """Model representation of a doxygen exceptions element.
 
@@ -227,6 +231,7 @@ class Exceptions(LinkedTextType):
     """
 
 
+@Tag('inbodydescription')
 class Inbodydescription(DescriptionType):
     """Model representation of a doxygen inbodydescription element.
 
@@ -236,6 +241,7 @@ class Inbodydescription(DescriptionType):
     """
 
 
+@Tag('initializer')
 class Initializer(LinkedTextType):
     """Model representation of a doxygen initializer element.
 
@@ -245,6 +251,7 @@ class Initializer(LinkedTextType):
     """
 
 
+@Tag('location')
 class Location(LocationType):
     """Model representation of a doxygen location element.
 
@@ -254,6 +261,7 @@ class Location(LocationType):
     """
 
 
+@Tag('param')
 class Param(ParamType):
     """Model representation of a doxygen param element.
 
@@ -263,6 +271,7 @@ class Param(ParamType):
     """
 
 
+@Tag('referencedby')
 class Referencedby(ReferenceType):
     """Model representation of a doxygen referencedby element.
 
@@ -272,6 +281,7 @@ class Referencedby(ReferenceType):
     """
 
 
+@Tag('references')
 class References(ReferenceType):
     """Model representation of a doxygen references element.
 
@@ -281,6 +291,7 @@ class References(ReferenceType):
     """
 
 
+@Tag('reimplementedby')
 class Reimplementedby(ReimplementType):
     """Model representation of a doxygen reimplementedby element.
 
@@ -290,6 +301,7 @@ class Reimplementedby(ReimplementType):
     """
 
 
+@Tag('reimplements')
 class Reimplements(ReimplementType):
     """Model representation of a doxygen reimplements element.
 
@@ -299,6 +311,7 @@ class Reimplements(ReimplementType):
     """
 
 
+@Tag('templateparamlist')
 class Templateparamlist(TemplateparamlistType):
     """Model representation of a doxygen templateparamlist element.
 
@@ -308,6 +321,7 @@ class Templateparamlist(TemplateparamlistType):
     """
 
 
+@Tag('type')
 class Type(LinkedTextType):
     """Model representation of a doxygen type element.
 

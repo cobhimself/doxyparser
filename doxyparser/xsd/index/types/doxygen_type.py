@@ -65,6 +65,7 @@ class DoxygenType(Node):
     """
 
 
+@Tag('compound')
 class Compound(CompoundType):
     """Model representation of a doxygen compound element.
 

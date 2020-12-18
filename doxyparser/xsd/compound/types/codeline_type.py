@@ -68,6 +68,7 @@ class CodelineType(Node):
     """
 
 
+@Tag('highlight')
 class Highlight(HighlightType):
     """Model representation of a doxygen highlight element.
 

@@ -47,6 +47,7 @@ class TableofcontentsKindType(Node):
     """
 
 
+@Tag('tableofcontents')
 class Tableofcontents(TableofcontentsType):
     """Model representation of a doxygen tableofcontents element.
 

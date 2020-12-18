@@ -43,6 +43,7 @@ class TableofcontentsType(Node):
     """
 
 
+@Tag('tocsect')
 class Tocsect(TableofcontentsKindType):
     """Model representation of a doxygen tocsect element.
 

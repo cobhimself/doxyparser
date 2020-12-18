@@ -67,6 +67,7 @@ class CompoundType(Node):
     """
 
 
+@Tag('member')
 class Member(MemberType):
     """Model representation of a doxygen member element.
 

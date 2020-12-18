@@ -43,6 +43,7 @@ class DocListItemType(Node):
     """
 
 
+@Tag('para')
 class Para(DocParaType):
     """Model representation of a doxygen para element.
 

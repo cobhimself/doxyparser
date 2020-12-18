@@ -55,6 +55,7 @@ class EnumvalueType(Node):
     """
 
 
+@Tag('briefdescription')
 class Briefdescription(DescriptionType):
     """Model representation of a doxygen briefdescription element.
 
@@ -64,6 +65,7 @@ class Briefdescription(DescriptionType):
     """
 
 
+@Tag('detaileddescription')
 class Detaileddescription(DescriptionType):
     """Model representation of a doxygen detaileddescription element.
 
@@ -73,6 +75,7 @@ class Detaileddescription(DescriptionType):
     """
 
 
+@Tag('initializer')
 class Initializer(LinkedTextType):
     """Model representation of a doxygen initializer element.
 

@@ -43,6 +43,7 @@ class TemplateparamlistType(Node):
     """
 
 
+@Tag('param')
 class Param(ParamType):
     """Model representation of a doxygen param element.
 

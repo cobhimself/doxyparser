@@ -43,6 +43,7 @@ class DocVarListEntryType(Node):
     """
 
 
+@Tag('term')
 class Term(DocTitleType):
     """Model representation of a doxygen term element.
 

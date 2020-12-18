@@ -43,6 +43,7 @@ class DocListType(Node):
     """
 
 
+@Tag('listitem')
 class Listitem(DocListItemType):
     """Model representation of a doxygen listitem element.
 
