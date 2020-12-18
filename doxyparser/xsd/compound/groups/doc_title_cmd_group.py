@@ -28,6 +28,7 @@ See util/generator/element_generator.py
 from ....decorators.collection import Collection
 from ....decorators.element import Element
 from ....decorators.placeholders import Placeholders
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.doc_anchor_type import DocAnchorType
 from ..types.doc_emoji_type import DocEmojiType

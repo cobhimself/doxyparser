@@ -174,7 +174,7 @@ class ClassDef():
         class uses.
         """
         cls = self.get_parent_or_self()
-        decorators = cls.get_decorators()
+        decorators = self.get_decorators()
         seen = []
         regex = r"@(.*)\("
 
@@ -456,6 +456,7 @@ class ElementClassDef(ClassDef):
         self.add_decorator(f'@Tag(\'{element_name}\')')
         self.determine_extends(
             '..types.', [self.get_type(element_name)])
+        self.determine_decorator_include()
         doc = f'Model representation of a doxygen {element_name} element.' + "\n\n"
         doc += "Type XSD:\n\n"
         doc += self.get_definition()

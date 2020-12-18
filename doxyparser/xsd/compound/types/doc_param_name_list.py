@@ -27,6 +27,7 @@ See util/generator/element_generator.py
 
 from ....decorators.collection import Collection
 from ....decorators.element import Element
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.doc_param_name import DocParamName
 from ..types.doc_param_type import DocParamType

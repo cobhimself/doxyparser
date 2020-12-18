@@ -26,6 +26,7 @@ See util/generator/element_generator.py
 """
 
 from ....decorators.collection import Collection
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.ref_text_type import RefTextType
 

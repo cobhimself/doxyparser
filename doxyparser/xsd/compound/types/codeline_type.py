@@ -28,6 +28,7 @@ See util/generator/element_generator.py
 from ....decorators.attr import Attr
 from ....decorators.boolattr import BoolAttr
 from ....decorators.collection import Collection
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.highlight_type import HighlightType
 

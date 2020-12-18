@@ -27,6 +27,7 @@ See util/generator/element_generator.py
 
 from ....decorators.attr import Attr
 from ....decorators.element import Element
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.doc_caption_type import DocCaptionType
 from ..types.doc_row_type import DocRowType

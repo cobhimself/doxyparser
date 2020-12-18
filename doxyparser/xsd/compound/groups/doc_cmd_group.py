@@ -28,6 +28,7 @@ See util/generator/element_generator.py
 from ....decorators.collection import Collection
 from ....decorators.element import Element
 from ....decorators.placeholders import Placeholders
+from ....decorators.tag import Tag
 from ..types.doc_block_quote_type import DocBlockQuoteType
 from ..types.doc_copy_type import DocCopyType
 from ..types.doc_heading_type import DocHeadingType

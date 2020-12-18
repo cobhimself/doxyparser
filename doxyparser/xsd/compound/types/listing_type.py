@@ -27,6 +27,7 @@ See util/generator/element_generator.py
 
 from ....decorators.attr import Attr
 from ....decorators.collection import Collection
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.codeline_type import CodelineType
 

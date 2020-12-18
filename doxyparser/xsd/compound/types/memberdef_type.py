@@ -29,6 +29,7 @@ from ....decorators.attr import Attr
 from ....decorators.boolattr import BoolAttr
 from ....decorators.collection import Collection
 from ....decorators.element import Element
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.description_type import DescriptionType
 from ..types.enumvalue_type import EnumvalueType

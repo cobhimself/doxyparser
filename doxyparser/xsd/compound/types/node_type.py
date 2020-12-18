@@ -28,6 +28,7 @@ See util/generator/element_generator.py
 from ....decorators.attr import Attr
 from ....decorators.collection import Collection
 from ....decorators.element import Element
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.childnode_type import ChildnodeType
 from ..types.link_type import LinkType

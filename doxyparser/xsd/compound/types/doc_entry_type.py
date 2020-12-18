@@ -28,6 +28,7 @@ See util/generator/element_generator.py
 from ....decorators.attr import Attr
 from ....decorators.boolattr import BoolAttr
 from ....decorators.element import Element
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.doc_para_type import DocParaType
 

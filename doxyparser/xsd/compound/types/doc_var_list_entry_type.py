@@ -26,6 +26,7 @@ See util/generator/element_generator.py
 """
 
 from ....decorators.element import Element
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.doc_title_type import DocTitleType
 

@@ -28,6 +28,7 @@ See util/generator/element_generator.py
 from ....decorators.attr import Attr
 from ....decorators.collection import Collection
 from ....decorators.element import Element
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.description_type import DescriptionType
 from ..types.memberdef_type import MemberdefType

@@ -26,6 +26,7 @@ See util/generator/element_generator.py
 """
 
 from ....decorators.element import Element
+from ....decorators.tag import Tag
 from ....node import Node
 from ..types.description_type import DescriptionType
 from ..types.linked_text_type import LinkedTextType
