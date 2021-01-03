@@ -24,14 +24,14 @@ class Loader():
         return Tree().parse(self._xml_dir + '/' + file + '.xml')
 
     @staticmethod
-    def load_tag_class(xsd, tag):
+    def load_tag_class(xsd, path):
         """
         Load the given doxyparser class associated with the given xsd
         and tag.
 
         Args:
             xsd (string): The xsd folder where the tag class can be found.
-            tag (string): The tag whos doxyparser model should be loaded.
+            path (string): The path where the model can be found
 
         Raises:
             Exception: If the given xsd cannot be found.
@@ -40,29 +40,18 @@ class Loader():
         Returns:
             class: The doxyparser class for the given xsd and tag.
         """
-        if (xsd, tag) not in Loader.cache:
+        if (xsd, path) not in Loader.cache:
 
-            if xsd not in TAG_MAP.keys():
-                raise Exception(
-                    'Unable to load tag class with xsd "' + xsd + '", '
-                    + 'tag: "' + tag + '". Check TAG_MAP in doxyparser/__init__.py'
-                )
-
-            if tag not in TAG_MAP[xsd].keys():
-                raise Exception(
-                    'No class mapping for tag ' + tag + ' is set! Update doxyparser/__init__.py'
-                )
-
-            path = TAG_MAP[xsd][tag]
+            path = f'doxyparser.xsd.{xsd}.{path}'
             parts = path.split('.')
             final = parts.pop()
             package = '.'.join(parts)
 
             module = import_module(package)
 
-            Loader.cache[(xsd, tag)] = getattr(module, final)
+            Loader.cache[(xsd, path)] = getattr(module, final)
 
-        return Loader.cache[(xsd, tag)]
+        return Loader.cache[(xsd, path)]
 
     def load_refid(self, refid):
         """Load the Tree for the given refid
