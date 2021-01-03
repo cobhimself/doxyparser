@@ -34,7 +34,7 @@ from ..types.compound_type import CompoundType
 @Attr('lang', str)
 @Attr('version', str)
 @Collection('compound', 'CompoundType', {
-    '/[@kind={}': {
+    '[@kind="{}"]': {
         'classes': 'class',
         'structs': 'struct',
         'unions': 'union',

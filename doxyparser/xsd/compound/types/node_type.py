@@ -35,7 +35,7 @@ from ..types.link_type import LinkType
 
 @Attr('id', str)
 @Collection('childnode', 'childnodeType', {
-    '/[@relation={}': {
+    '[@relation="{}"]': {
         'includes': 'include',
         'usages': 'usage',
         'template_instances': 'template-instance',

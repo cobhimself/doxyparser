@@ -31,7 +31,7 @@ from ....node import Node
 from ..types.doc_entry_type import DocEntryType
 
 @Collection('entry', 'docEntryType', {
-    '/[@align={}': {
+    '[@align="{}"]': {
         'lefts': 'left',
         'rights': 'right',
         'centers': 'center',

@@ -31,7 +31,7 @@ from ....node import Node
 from ..types.ref_text_type import RefTextType
 
 @Collection('ref', 'refTextType', {
-    '/[@kindref={}': {
+    '[@kindref="{}"]': {
         'compounds': 'compound',
         'members': 'member',
     }

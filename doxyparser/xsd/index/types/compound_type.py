@@ -35,7 +35,7 @@ from ..types.member_type import MemberType
 @Attr('kind', ['class', 'struct', 'union', 'interface', 'protocol', 'category', 'exception', 'file', 'namespace', 'group', 'page', 'example', 'dir', 'type'])
 @Attr('refid', str)
 @Collection('member', 'MemberType', {
-    '/[@kind={}': {
+    '[@kind="{}"]': {
         'defines': 'define',
         'properties': 'property',
         'events': 'event',

@@ -33,7 +33,7 @@ from ..types.ref_text_type import RefTextType
 
 @Attr('direction', ['in', 'out', 'inout'])
 @Collection('ref', 'refTextType', {
-    '/[@kindref={}': {
+    '[@kindref="{}"]': {
         'compounds': 'compound',
         'members': 'member',
     }

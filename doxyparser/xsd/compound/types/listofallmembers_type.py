@@ -31,13 +31,13 @@ from ....node import Node
 from ..types.member_ref_type import MemberRefType
 
 @Collection('member', 'memberRefType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
         'packages': 'package',
     },
-    '/[@virt={}': {
+    '[@virt="{}"]': {
         'non_virtuals': 'non-virtual',
         'virtuals': 'virtual',
         'pure_virtuals': 'pure-virtual',

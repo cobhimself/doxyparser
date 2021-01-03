@@ -35,7 +35,7 @@ from ..types.memberdef_type import MemberdefType
 
 @Attr('kind', ['user-defined', 'public-type', 'public-func', 'public-attrib', 'public-slot', 'signal', 'dcop-func', 'property', 'event', 'public-static-func', 'public-static-attrib', 'protected-type', 'protected-func', 'protected-attrib', 'protected-slot', 'protected-static-func', 'protected-static-attrib', 'package-type', 'package-func', 'package-attrib', 'package-static-func', 'package-static-attrib', 'private-type', 'private-func', 'private-attrib', 'private-slot', 'private-static-func', 'private-static-attrib', 'friend', 'related', 'define', 'prototype', 'typedef', 'enum', 'func', 'var'])
 @Collection('memberdef', 'memberdefType', {
-    '/[@accessor={}': {
+    '[@accessor="{}"]': {
         'retains': 'retain',
         'copies': 'copy',
         'assigns': 'assign',
@@ -43,7 +43,7 @@ from ..types.memberdef_type import MemberdefType
         'strongs': 'strong',
         'unretaineds': 'unretained',
     },
-    '/[@kind={}': {
+    '[@kind="{}"]': {
         'defines': 'define',
         'properties': 'property',
         'events': 'event',
@@ -59,17 +59,17 @@ from ..types.memberdef_type import MemberdefType
         'interfaces': 'interface',
         'services': 'service',
     },
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
         'packages': 'package',
     },
-    '/[@refqual={}': {
+    '[@refqual="{}"]': {
         'lvalues': 'lvalue',
         'rvalues': 'rvalue',
     },
-    '/[@virt={}': {
+    '[@virt="{}"]': {
         'non_virtuals': 'non-virtual',
         'virtuals': 'virtual',
         'pure_virtuals': 'pure-virtual',

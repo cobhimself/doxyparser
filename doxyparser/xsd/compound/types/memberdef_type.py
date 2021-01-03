@@ -83,7 +83,7 @@ from ..types.templateparamlist_type import TemplateparamlistType
 @BoolAttr('volatile')
 @BoolAttr('writable')
 @Collection('enumvalue', 'enumvalueType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',

@@ -52,33 +52,33 @@ from ..types.templateparamlist_type import TemplateparamlistType
 @BoolAttr('inline')
 @BoolAttr('sealed')
 @Collection('basecompoundref', 'compoundRefType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
         'packages': 'package',
     },
-    '/[@virt={}': {
+    '[@virt="{}"]': {
         'non_virtuals': 'non-virtual',
         'virtuals': 'virtual',
         'pure_virtuals': 'pure-virtual',
     }
 })
 @Collection('derivedcompoundref', 'compoundRefType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
         'packages': 'package',
     },
-    '/[@virt={}': {
+    '[@virt="{}"]': {
         'non_virtuals': 'non-virtual',
         'virtuals': 'virtual',
         'pure_virtuals': 'pure-virtual',
     }
 })
 @Collection('innerclass', 'refType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
@@ -86,7 +86,7 @@ from ..types.templateparamlist_type import TemplateparamlistType
     }
 })
 @Collection('innerdir', 'refType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
@@ -94,7 +94,7 @@ from ..types.templateparamlist_type import TemplateparamlistType
     }
 })
 @Collection('innerfile', 'refType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
@@ -102,7 +102,7 @@ from ..types.templateparamlist_type import TemplateparamlistType
     }
 })
 @Collection('innergroup', 'refType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
@@ -110,7 +110,7 @@ from ..types.templateparamlist_type import TemplateparamlistType
     }
 })
 @Collection('innernamespace', 'refType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
@@ -118,7 +118,7 @@ from ..types.templateparamlist_type import TemplateparamlistType
     }
 })
 @Collection('innerpage', 'refType', {
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',
@@ -126,7 +126,7 @@ from ..types.templateparamlist_type import TemplateparamlistType
     }
 })
 @Collection('sectiondef', 'sectiondefType', {
-    '/[@kind={}': {
+    '[@kind="{}"]': {
         'user_defineds': 'user-defined',
         'public_types': 'public-type',
         'public_funcs': 'public-func',

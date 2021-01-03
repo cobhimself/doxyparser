@@ -35,7 +35,7 @@ from ..types.sp_type import SpType
 
 @Attr('class', ['comment', 'normal', 'preprocessor', 'keyword', 'keywordtype', 'keywordflow', 'stringliteral', 'charliteral', 'vhdlkeyword', 'vhdllogic', 'vhdlchar', 'vhdldigit'])
 @Collection('ref', 'refTextType', {
-    '/[@kindref={}': {
+    '[@kindref="{}"]': {
         'compounds': 'compound',
         'members': 'member',
     }

@@ -33,7 +33,7 @@ from ..types.doc_param_name import DocParamName
 from ..types.doc_param_type import DocParamType
 
 @Collection('parametername', 'docParamName', {
-    '/[@direction={}': {
+    '[@direction="{}"]': {
         'ins': 'in',
         'outs': 'out',
         'inouts': 'inout',

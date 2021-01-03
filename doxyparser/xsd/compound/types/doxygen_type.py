@@ -34,7 +34,7 @@ from ..types.compounddef_type import CompounddefType
 @Attr('lang', str)
 @Attr('version', str)
 @Collection('compounddef', 'compounddefType', {
-    '/[@kind={}': {
+    '[@kind="{}"]': {
         'classes': 'class',
         'structs': 'struct',
         'unions': 'union',
@@ -53,7 +53,7 @@ from ..types.compounddef_type import CompounddefType
         'examples': 'example',
         'dirs': 'dir',
     },
-    '/[@language={}': {
+    '[@language="{}"]': {
         'Unknowns': 'Unknown',
         'IDLS': 'IDL',
         'Javas': 'Java',
@@ -70,7 +70,7 @@ from ..types.compounddef_type import CompounddefType
         'SQLS': 'SQL',
         'Markdowns': 'Markdown',
     },
-    '/[@prot={}': {
+    '[@prot="{}"]': {
         'publics': 'public',
         'protecteds': 'protected',
         'privates': 'private',

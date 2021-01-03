@@ -33,7 +33,7 @@ from ..types.codeline_type import CodelineType
 
 @Attr('filename', str)
 @Collection('codeline', 'codelineType', {
-    '/[@refkind={}': {
+    '[@refkind="{}"]': {
         'compounds': 'compound',
         'members': 'member',
     }

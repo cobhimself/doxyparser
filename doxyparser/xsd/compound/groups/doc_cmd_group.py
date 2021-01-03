@@ -49,7 +49,7 @@ from ..types.listing_type import ListingType
 from .doc_title_cmd_group import DocTitleCmdGroup
 
 @Collection('diafile', 'docImageType', {
-    '/[@type={}': {
+    '[@type="{}"]': {
         'htmls': 'html',
         'latexes': 'latex',
         'docbooks': 'docbook',
@@ -57,7 +57,7 @@ from .doc_title_cmd_group import DocTitleCmdGroup
     }
 })
 @Collection('dotfile', 'docImageType', {
-    '/[@type={}': {
+    '[@type="{}"]': {
         'htmls': 'html',
         'latexes': 'latex',
         'docbooks': 'docbook',
@@ -65,7 +65,7 @@ from .doc_title_cmd_group import DocTitleCmdGroup
     }
 })
 @Collection('mscfile', 'docImageType', {
-    '/[@type={}': {
+    '[@type="{}"]': {
         'htmls': 'html',
         'latexes': 'latex',
         'docbooks': 'docbook',
@@ -73,7 +73,7 @@ from .doc_title_cmd_group import DocTitleCmdGroup
     }
 })
 @Collection('parameterlist', 'docParamListType', {
-    '/[@kind={}': {
+    '[@kind="{}"]': {
         'params': 'param',
         'retvals': 'retval',
         'exceptions': 'exception',
@@ -81,7 +81,7 @@ from .doc_title_cmd_group import DocTitleCmdGroup
     }
 })
 @Collection('simplesect', 'docSimpleSectType', {
-    '/[@kind={}': {
+    '[@kind="{}"]': {
         'sees': 'see',
         'returns': 'return',
         'authors': 'author',

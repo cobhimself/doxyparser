@@ -37,7 +37,7 @@ from ..types.highlight_type import HighlightType
 @Attr('refkind', ['compound', 'member'])
 @BoolAttr('external')
 @Collection('highlight', 'highlightType', {
-    '/[@class={}': {
+    '[@class="{}"]': {
         'comments': 'comment',
         'normals': 'normal',
         'preprocessors': 'preprocessor',

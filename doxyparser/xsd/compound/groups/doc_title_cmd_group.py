@@ -40,7 +40,7 @@ from ..types.doc_ref_text_type import DocRefTextType
 from ..types.doc_u_r_l_link import DocURLLink
 
 @Collection('dot', 'docImageType', {
-    '/[@type={}': {
+    '[@type="{}"]': {
         'htmls': 'html',
         'latexes': 'latex',
         'docbooks': 'docbook',
@@ -48,7 +48,7 @@ from ..types.doc_u_r_l_link import DocURLLink
     }
 })
 @Collection('image', 'docImageType', {
-    '/[@type={}': {
+    '[@type="{}"]': {
         'htmls': 'html',
         'latexes': 'latex',
         'docbooks': 'docbook',
@@ -56,7 +56,7 @@ from ..types.doc_u_r_l_link import DocURLLink
     }
 })
 @Collection('msc', 'docImageType', {
-    '/[@type={}': {
+    '[@type="{}"]': {
         'htmls': 'html',
         'latexes': 'latex',
         'docbooks': 'docbook',
@@ -64,7 +64,7 @@ from ..types.doc_u_r_l_link import DocURLLink
     }
 })
 @Collection('plantuml', 'docImageType', {
-    '/[@type={}': {
+    '[@type="{}"]': {
         'htmls': 'html',
         'latexes': 'latex',
         'docbooks': 'docbook',
@@ -72,7 +72,7 @@ from ..types.doc_u_r_l_link import DocURLLink
     }
 })
 @Collection('ref', 'docRefTextType', {
-    '/[@kindref={}': {
+    '[@kindref="{}"]': {
         'compounds': 'compound',
         'members': 'member',
     }
