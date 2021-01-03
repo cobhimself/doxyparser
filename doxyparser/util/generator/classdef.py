@@ -396,7 +396,7 @@ class ClassDef():
         collection = f"@Collection('{elem_name}', '{type_name}', {{\n"
         filters = []
         for attr, enums in enum_attrs.items():
-            item = f"    '/[@{attr}={{}}': {{\n"
+            item = f"    '[@{attr}=\"{{}}\"]': {{\n"
             for enum in enums:
                 plural_key = inflect.engine().plural(enum.replace('-', '_'))
                 item += f"        '{plural_key}': '{enum}',\n"
