@@ -1,3 +1,5 @@
+from .decorators.collection import COLLECTIONS, COLLECTORS
+from .decorators.tag import TAG
 class Node:
     """
     Super class used to represent doxy xml Elements
@@ -42,37 +44,18 @@ class Node:
 
         self._process_meta()
 
-    def _get_meta(self, key, default=None):
+    def get_meta(self, key, default=None):
         meta = getattr(self, '_meta', None)
         if meta is not None:
             return meta.get(key, default)
 
         return None
 
-    def _process_meta(self):
-        if self._validate_meta() is not None:
-            self._build_class_documentation()
-
-
-    def _validate_meta(self):
-        coll_map = self._get_meta(COLLECTIONS)
-        if coll_map is None:
-            return None
-        return True
-
-    def _build_class_documentation(self):
-        doc = ''
-        doc += 'Class model representing the doxygen {} element'.format(
-            self._get_meta(TAG)
-        )
-        setattr(self, '__doc__', doc)
-
-
     def get_collection_tags(self):
         return self.get_collections().keys()
 
     def get_collections(self):
-        return self._get_meta(COLLECTIONS, None)
+        return self.get_meta(COLLECTIONS, None)
 
 
     def __len__(self):
@@ -203,7 +186,7 @@ class Node:
         return None
 
     def get_collection(self, tag, args=None):
-        collections = self._get_meta(COLLECTIONS)
+        collections = self.get_meta(COLLECTIONS)
         if None is collections and tag not in collections.keys():
             raise Exception(
                 'No collection metadata exists in {} for tag {}!'.format(
