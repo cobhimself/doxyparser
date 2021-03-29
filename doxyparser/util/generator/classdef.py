@@ -166,10 +166,10 @@ class ClassDef():
                 class_name = self.get_class_name(sup)
                 file_name = self.get_file_name(sup)
                 path = path + '.' if path is not None else ''
-                final_path = f'.{path}{file_name}'
-                imp = f'import {final_path}'
+                final_path = f'..{path}{file_name}'
+                imp = f'from {final_path} import {class_name}'
                 cls.add_import(imp)
-                self.extends(f'{final_path}')
+                self.extends(f'{class_name}')
         else:
             cls.add_import('from ....node import Node')
             self.extends('Node')
