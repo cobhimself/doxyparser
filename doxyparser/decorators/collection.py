@@ -35,13 +35,13 @@ class Collection(Decorator):
     """Describe a collection of child elements in the decorated class which
        can be obtained through the use of xpath filters.
     """
-    __slots__ = ['_tag_name', '_node_type']
+    __slots__ = ['_tag_name', '_node_type','_collectors_to_init']
 
     def __init__(self, tag_name, node_type, collectors=None):
         super().__init__()
         self.tag_name = tag_name
         self.node_type = node_type
-        self.collectors = collectors
+        self._collectors_to_init = collectors
 
     @property
     def tag_name(self):
@@ -53,7 +53,7 @@ class Collection(Decorator):
         return self._tag_name
 
     @tag_name.setter
-    def set_tag_name(self, value):
+    def tag_name(self, value):
         """Set the collection's tag name.
 
         Args:
@@ -71,7 +71,7 @@ class Collection(Decorator):
         return self._node_type
 
     @node_type.setter
-    def set_node_type(self, value):
+    def node_type(self, value):
         self._node_type = value
 
     @property
@@ -102,7 +102,7 @@ class Collection(Decorator):
         return self.provide(self.collection, COLLECTORS, {})
 
     @collectors.setter
-    def set_collectors(self, value):
+    def collectors(self, value):
         """Set the collectors for this collection's tag.
 
         Args:
@@ -113,6 +113,7 @@ class Collection(Decorator):
 
         self.collection[COLLECTORS] = value
 
+    @property
     def path(self):
         node_type = self.node_type
         return f'types.{ClassDef.get_file_name(node_type)}.{node_type}'
@@ -120,6 +121,8 @@ class Collection(Decorator):
     def do(self):
         """Perform the decoration
         """
+        self.collectors = self._collectors_to_init
+        self._collectors_to_init = None
         self._add_tag_collection()
         self._add_collection_methods()
 

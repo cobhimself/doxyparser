@@ -8,4 +8,4 @@ class Tag(Decorator):
         self._tag_name = tag_name
 
     def do(self):
-        self.provide(self.get_meta(), TAG, self._tag_name)
+        self.provide(self.meta, TAG, self._tag_name)

@@ -39,7 +39,7 @@ class Element(Decorator):
 
     def _add_tag_element(self):
         # Make sure we have a collection ready
-        elements = self.provide(self.get_meta(), ELEMENTS, {})
+        elements = self.provide(self.meta, ELEMENTS, {})
 
         # Add the element type data
         self.provide(elements, self._tag_name, {TYPE: self._tag_type})
@@ -53,7 +53,7 @@ class Element(Decorator):
         return get_element
 
     def _add_element_method(self):
-        xsd = self.get_xsd_from_cls()
+        xsd = self.xsd
         name = self._tag_name
         element_meta = self.get_meta(ELEMENTS).get(name)
         if element_meta is None:

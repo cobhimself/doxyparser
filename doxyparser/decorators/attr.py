@@ -14,7 +14,7 @@ class Attr(Decorator):
 
     def _add_tag_attribute(self):
         # Make sure we have a collection ready
-        attributes = self.provide(self.get_meta(), ATTRIBUTES, {})
+        attributes = self.provide(self.meta, ATTRIBUTES, {})
 
         # Add the element type data
         self.provide(attributes, self._attr_name, {'type': self._attr_type})

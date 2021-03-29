@@ -36,14 +36,14 @@ class Decorator(ABC):
         self._cls = cls
 
         #Make sure our classes have the meta dict
-        if getattr(self.cls, META) is None:
-            setattr(self.cls, META, {})
+        if not hasattr(self._cls, META):
+            setattr(self._cls, META, {})
 
-        #Do our decorator's work
+        #Perform our decorator's work
         self.do()
 
         #Return the original class
-        return self.cls
+        return self._cls
 
     @abstractmethod
     def do(self):
@@ -67,6 +67,9 @@ class Decorator(ABC):
         Returns:
             dict: The metadata.
         """
+        if not hasattr(self._cls, META):
+            setattr(self._cls, META, {})
+
         return getattr(self._cls, META)
 
     def get_meta(self, key):
