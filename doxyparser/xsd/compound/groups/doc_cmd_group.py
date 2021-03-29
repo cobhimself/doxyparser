@@ -29,6 +29,7 @@ from ....decorators.collection import Collection
 from ....decorators.element import Element
 from ....decorators.placeholders import Placeholders
 from ....decorators.tag import Tag
+from ..groups.doc_title_cmd_group import DocTitleCmdGroup
 from ..types.doc_block_quote_type import DocBlockQuoteType
 from ..types.doc_copy_type import DocCopyType
 from ..types.doc_heading_type import DocHeadingType
@@ -46,7 +47,6 @@ from ..types.doc_toc_list_type import DocTocListType
 from ..types.doc_variable_list_type import DocVariableListType
 from ..types.doc_x_ref_sect_type import DocXRefSectType
 from ..types.listing_type import ListingType
-from .doc_title_cmd_group import DocTitleCmdGroup
 
 @Collection('diafile', 'docImageType', {
     '[@type="{}"]': {
