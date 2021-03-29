@@ -64,6 +64,9 @@ class Config():
         self._xsd = xsd
         self._provide(self.get_config(), xsd, {})
 
+    def get_xsd(self):
+        return self._xsd
+
     def clear_xsd(self):
         self.get_config()[self._xsd] = {}
 

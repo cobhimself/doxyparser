@@ -42,8 +42,6 @@ class Node:
         self._xsd = self.__module__.split('.')[1]
         self._origin_tree = tree
 
-        self._process_meta()
-
     def get_meta(self, key, default=None):
         meta = getattr(self, '_meta', None)
         if meta is not None:

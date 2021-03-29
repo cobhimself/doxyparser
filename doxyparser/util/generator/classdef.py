@@ -150,21 +150,26 @@ class ClassDef():
         """
         return self._name
 
-    def determine_extends(self, relative_path, supers=None):
+    def determine_extends(self, path=None, supers=None):
         """Determine what class (or classes) this class should extend based
         upon the list of super class names.
 
         Args:
-            relative_path (str): The relative path to prepend to the super class' name.
+            path (str): The path to prepend to the super class' name.
+            relative (str): The string to prepend to the path if this is a relative import.
             supers (list): The list of super class names this class should extend.
         """
         cls = self.get_parent_or_self()
+        xsd = self.get_config().get_xsd()
         if supers is not None and len(supers) > 0:
             for sup in supers:
                 class_name = self.get_class_name(sup)
-                cls.add_import(
-                    f'from {relative_path}{self.get_file_name(sup)} import {class_name}')
-                self.extends(class_name)
+                file_name = self.get_file_name(sup)
+                path = path + '.' if path is not None else ''
+                final_path = f'.{path}{file_name}'
+                imp = f'import {final_path}'
+                cls.add_import(imp)
+                self.extends(f'{final_path}')
         else:
             cls.add_import('from ....node import Node')
             self.extends('Node')
@@ -427,7 +432,7 @@ class TypeClassDef(ClassDef):
         config = self.get_config()
         type_name = self.get_name()
         child_groups = config.get_type_groups(type_name)
-        self.determine_extends('..groups.', child_groups)
+        self.determine_extends('groups', child_groups)
         doc = f'Model representation of a doxygen {type_name} type.' + "\n\n"
         doc += "Type XSD:\n\n"
         doc += self.get_definition()
@@ -454,8 +459,7 @@ class ElementClassDef(ClassDef):
     def build(self):
         element_name = self.get_name()
         self.add_decorator(f'@Tag(\'{element_name}\')')
-        self.determine_extends(
-            '..types.', [self.get_type(element_name)])
+        self.determine_extends('types', [self.get_type(element_name)])
         self.determine_decorator_include()
         doc = f'Model representation of a doxygen {element_name} element.' + "\n\n"
         doc += "Type XSD:\n\n"
@@ -482,7 +486,7 @@ class GroupClassDef(ClassDef):
         config = self.get_config()
         group_name = self.get_name()
         child_groups = config.get_group_groups(group_name)
-        self.determine_extends('.', child_groups)
+        self.determine_extends('groups', supers=child_groups)
         doc = f'Model representation of a doxygen {group_name} group.' + "\n\n"
         doc += "Type XSD:\n\n"
         doc += self.get_definition()
